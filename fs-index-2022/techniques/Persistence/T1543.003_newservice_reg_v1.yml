@@ -1,0 +1,35 @@
+name: Persist via new Windows service created in Registry
+description: Create a new Windows service by modifying the Registry
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1543.003
+  x_vectr_id: 81f2fa04-79df-4c0b-aea5-a5da584c3879
+  x_references:
+  - https://blog.group-ib.com/colunmtk_apt41
+  x_tool_links:
+  - https://gist.github.com/2XXE-SRA/36cd5c4a1db53a1b5f3ac47be1c74c97
+  groups:
+  - Wizard Spider
+  - Kimsuky
+  - APT41
+  - Lazarus
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> {{ bat_file }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

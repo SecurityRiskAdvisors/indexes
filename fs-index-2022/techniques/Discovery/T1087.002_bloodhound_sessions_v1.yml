@@ -1,0 +1,29 @@
+name: BloodHound session enumeration
+description: Use Bloodhound/Sharphound to preform queries across the domain for session
+  information
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: 29e04946-9b9c-4cef-bc59-e264846ccb2a
+  groups:
+  - Wizard Spider
+  - APT29
+  - APT41
+guidance:
+- beacon> execute-assembly SharpHound.exe -c Session --randomfilenames --zippassword
+  {{ password }} --memcache
+- beacon> execute-assembly SharpHound3.exe -c Session --RandomizeFilenames --EncryptZip
+  --NoSaveCache
+block:
+- Prevent unprivileged users from enumerating session information by updating the
+  appropriate configuration with a tool like NetCease
+detect:
+- Windows enumeration activities detected from large amount of network traffic (SMB,
+  ARP requests) from UEBA or network monitoring tools
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- UEBA

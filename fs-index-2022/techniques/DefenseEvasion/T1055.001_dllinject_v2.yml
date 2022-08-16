@@ -1,0 +1,24 @@
+name: Reflective DLL Injection
+description: Inject a malicious reflective DLL into a running process in order to
+  launch a Cobalt Strike beacon
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1055.001
+  x_vectr_id: a81bff20-9cef-42ff-b4bd-9211e529bab4
+  groups:
+  - APT29
+  - Wizard Spider
+platforms:
+- windows
+guidance:
+- beacon> dllinject {{ pid }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection

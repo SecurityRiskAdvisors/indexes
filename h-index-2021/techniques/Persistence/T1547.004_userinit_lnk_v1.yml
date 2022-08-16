@@ -1,0 +1,28 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+description: Persist on a system by creating an LNK in the user's startup folder that
+  points an exe payload then adding the LNK to the userinit registry
+detect:
+- Detect suspicious registry key creation using Windows event id 4656 after configuring
+  auditing on the Registry or specific paths or use EDR telemetry
+guidance:
+- cmd> reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v
+  "Userinit" /t REG_SZ /f /d "C:\Windows\system32\userinit.exe,%APPDATA%\Microsoft\Windows\Start
+  Menu\Programs\Startup\{{ lnk_name }}.lnk"
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0003
+  tid: T1547.004
+name: Persist via Userinit Winlogon
+platforms:
+- windows
+prerequisites:
+- local_admin

@@ -1,0 +1,25 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+description: Persist on a system by creating a Registry run key that will trigger
+  on user logon
+detect:
+- Detect suspicious registry key creation using Windows event id 4656 after configuring
+  auditing on the Registry or specific paths
+- Detect known IOCs in registry key characteristics such as the name
+guidance:
+- cmd> reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Backup
+  Mgr" /t REG_SZ /f /d {{ command }}
+logs:
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0003
+  tid: T1547.001
+name: New Registry Run Key
+platforms:
+- windows

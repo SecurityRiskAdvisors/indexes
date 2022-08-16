@@ -1,0 +1,23 @@
+name: Beacon DNS over udp/53 (TXT)
+description: Connect to an attacker-controlled command and control server over DNS
+  TXT communications
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1071.004
+  x_vectr_id: b587c51f-ec7d-4d94-a32e-4bc45b30a3a6
+  groups:
+  - APT41
+block:
+- Anomalous outbound DNS traffic is blocked at the firewall or by the DNS server
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- SIEM rules are configured to detect and alert on suspicious DNS traffic
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+logs:
+- dns
+- network
+controls:
+- Firewall
+- UEBA
+- ID/PS

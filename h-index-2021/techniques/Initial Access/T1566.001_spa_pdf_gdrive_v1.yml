@@ -1,0 +1,25 @@
+block:
+- Malicious document blocked/quarantined by email gateway
+controls:
+- Mail Gateway
+description: 'Send a PDF attachment payload that has a link to an exe hosted on Google
+  Drive to a target user.
+
+  '
+detect:
+- Malicious document alerted by email gateway
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment
+  }}
+logs:
+- mail
+metadata:
+  groups:
+  - Wizard Spider
+  - Kimsuky
+  - MuddyWater
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+name: Spearphishing Attachment - PDF with Link (Google Drive)

@@ -1,0 +1,21 @@
+block:
+- Malicious link blocked/quarantined by email gateway
+controls:
+- Mail Gateway
+description: Send a spearphishing email to a target inbox that contains a link to
+  a malicious payload
+detect:
+- Malicious link alerted by email gateway
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ bodywithlink }} -To {{ target }} -From {{ from }}
+logs:
+- mail
+metadata:
+  groups:
+  - Wizard Spider
+  - MuddyWater
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+name: Spearphishing Link - Macro

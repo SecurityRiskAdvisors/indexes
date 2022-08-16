@@ -1,0 +1,25 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- SIEM
+description: Execute obfuscated suspicious commands on an endpoint
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> '{{ command }}'
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - MuddyWater
+  isv: 1
+  tactic: TA0005
+  tid: T1027
+name: Execution using Obfuscated CMD Command
+platforms:
+- windows
+- macos
+- linux

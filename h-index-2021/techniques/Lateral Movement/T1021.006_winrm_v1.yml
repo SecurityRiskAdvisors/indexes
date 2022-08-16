@@ -1,0 +1,30 @@
+block:
+- Suspicious process execution/behavior is blocked by EDR or other endpoint security
+  tool
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- EDR
+- Antivirus
+description: Move laterally to another system by using WinRM to execute a DLL payload
+  using rundll32.
+detect:
+- Suspicious process execution/behavior is detected by EDR or other endpoint security
+  tool, or alerted in SIEM based on process creation events
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+guidance:
+- PS> Invoke-Command -ComputerName {{ target }} -ScriptBlock { rundll32 {{ dll_payload
+  }} {{ dll_export }} }
+logs:
+- edr:telemetry
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0008
+  tid: T1021.006
+name: Lateral Movement via WinRM
+platforms:
+- windows
+prerequisites:
+- logon_rights

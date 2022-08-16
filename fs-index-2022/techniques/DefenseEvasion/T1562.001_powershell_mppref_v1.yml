@@ -1,0 +1,29 @@
+name: Disable Defender using PowerShell
+description: Disable Windows Defender AV using Defender PowerShell cmdlets
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1562.001
+  x_vectr_id: 0517c1b7-b9be-41bd-a040-255a27628a01
+  groups:
+  - APT29
+  - Wizard Spider
+prerequisites:
+- local_admin
+guidance:
+- ps> Set-MpPreference -DisableBehaviorMonitoring $true
+- ps> Set-MpPreference -DisableRealtimeMonitoring $true
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Alert on the service stop event for services related to critical functions (e.g.
+  native Windows log service and/or endpoint security tool telemetry) or when those
+  services fail to deliver logs
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+logs:
+- winevent
+- edr:telemetry
+controls:
+- Endpoint Protection
+- SIEM

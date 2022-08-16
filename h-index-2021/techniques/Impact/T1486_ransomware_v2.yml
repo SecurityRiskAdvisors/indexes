@@ -1,0 +1,25 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+- Executable on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- SIEM
+- EDR
+description: 'Encrypt a large amount of files on disk to simulate ransomware behavior
+
+  '
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool
+- A large amount of file deletion and creations and/or file creations with known ransomware
+  extensions are alerted on in the SIEM
+guidance:
+- '{{ ransomware_binary }}'
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - Conti
+  isv: 1
+  tactic: TA0040
+  tid: T1486
+name: Encrypt a Large Amount of Files

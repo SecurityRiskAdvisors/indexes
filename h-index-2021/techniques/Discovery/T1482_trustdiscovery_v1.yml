@@ -1,0 +1,25 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: Identify domain trust relationships using the third-party utility ADFind.
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> adfind.exe -gcb -sc trustdmp > trusts.txt
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0007
+  tid: T1482
+  x_tool_links:
+  - http://www.joeware.net/freetools/tools/adfind/
+name: Domain Trust Discovery with ADFind
+platforms:
+- windows

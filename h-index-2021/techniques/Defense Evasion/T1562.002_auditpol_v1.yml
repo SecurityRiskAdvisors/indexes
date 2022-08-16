@@ -1,0 +1,27 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- SIEM
+- EDR
+description: Disable Windows advanced auditing features on the endpoint using the
+  native utility "auditpol.exe"
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Changes to audit policy configurations are detected in the SIEM via 4719 event ids
+guidance:
+- "cmd> auditpol /set /category:\u201DDetailed Tracking\u201D /success:disable /failure:disable"
+logs:
+- edr:telemetry
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0005
+  tid: T1562.002
+name: Disable Windows Logging with auditpol.exe
+platforms:
+- windows
+prerequisites:
+- local_admin

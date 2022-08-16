@@ -1,0 +1,34 @@
+name: Persist via Image File Execution Options (IFEO) on dllhost.exe
+description: Execute a VBScript payload using wscript.exe by setting the execution
+  command as the image file execution option for dllhost.exe then waiting for dllhost.exe
+  to launch by itself or by manually starting it
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1546.012
+  x_vectr_id: c6da1505-a7e4-4e1f-b4f0-f7536744d559
+  x_references:
+  - https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/
+  groups:
+  - APT29
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image
+  File Execution Options\dllhost.exe" /v Debugger /f /d "wscript.exe {{ vbs_payload
+  }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

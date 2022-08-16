@@ -1,0 +1,31 @@
+name: Persist via new startup folder item
+description: Persist on a system by placing an binary payload in a startup folder
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1547.001
+  x_vectr_id: 197a9568-3795-4b86-897e-4b13937fee39
+  x_references:
+  - https://us-cert.cisa.gov/ncas/analysis-reports/ar20-133b
+  groups:
+  - Gamaredon
+  - Kimsuky
+  - APT29
+  - Wizard Spider
+  - Lazarus
+  - Zirconium
+platforms:
+- windows
+guidance:
+- cmd> copy "{{ payload }}" "C:\Users\{{ username }}\AppData\Roaming\Microsoft\Windows\Start
+  Menu\Programs\Startup\Narrator.exe"
+block:
+- null
+detect:
+- Detect suspicious startup item creation using endpoint security tool filesystem
+  telemetry or Windows event id 4656 after configuring auditing on the startup paths
+logs:
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

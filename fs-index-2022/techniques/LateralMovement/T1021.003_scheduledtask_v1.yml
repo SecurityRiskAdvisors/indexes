@@ -1,0 +1,38 @@
+name: Lateral Movement via Scheduled Task
+description: Move laterally to another systen by creating a scheduled task on that
+  system
+metadata:
+  isv: 1
+  tactic: TA0008
+  tid: T1021.003
+  x_vectr_id: 6b5ace78-2c04-4dda-82fa-a2784cc165e5
+  groups:
+  - Wizard Spider
+  - APT29
+  - APT41
+platforms:
+- windows
+prerequisites:
+- logon_rights
+guidance:
+- cmd> schtasks /create /F /tn "\Microsoft\Windows\SoftwareProtectionPlatform\EventCacheManager"
+  /tr "C:\Windows\SoftwareDistribution\EventCacheManager.exe" /sc ONSTART /ru system
+  /S {{ target }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Anomalous remote access patterns detected in the SIEM using authentication logs
+  or by a UEBA-like tool
+- Suspicious Windows task registration detected in the SIEM using Windows system events
+logs:
+- edr:telemetry
+- winevent
+- process_create
+controls:
+- Endpoint Protection
+- SIEM
+- UEBA
+- Hardening

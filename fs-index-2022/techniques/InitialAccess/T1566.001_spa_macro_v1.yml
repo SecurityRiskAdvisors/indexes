@@ -1,0 +1,28 @@
+name: Spearphishing Attachment - Macro
+description: Send a spearphishing attachment containing a malicious macro payload
+  to a target inbox
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+  x_vectr_id: 9ac06fa4-27b5-456a-bb6c-e147608830a2
+  groups:
+  - Kimsuky
+  - APT29
+  - Wizard Spider
+  - Gamaredon
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment
+  }}
+block:
+- Malicious document blocked/quarantined by email gateway, or email delivered but
+  filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in sandbox
+  consistent with attachments.
+detect:
+- Malicious email delivery alerted by email gateway (ideally blocked/quarantined too
+  with attachment stripped and URLs rewritten)
+logs:
+- mail
+controls:
+- Mail Gateway

@@ -1,0 +1,30 @@
+name: Delete Volume Shadow Copies
+description: Delete volume shadow copies on the host to inhibit file system recovery
+metadata:
+  isv: 1
+  tactic: TA0040
+  tid: T1490
+  x_vectr_id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> vssadmin.exe delete shadows /all /quiet
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Endpoint security tool rules are configured to detect malicious use of Volume Shadow
+  Copy and related system utilities/commands
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Endpoint security tool and/or SIEM rules are configured to detect malicious use
+  of Volume Shadow Copy and related system utilities/commands
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

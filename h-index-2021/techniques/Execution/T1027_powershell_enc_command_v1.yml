@@ -1,0 +1,24 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- SIEM
+description: Establish an initial foothold using a PowerShell encoded command that
+  launches a Cobalt Strike beacon in-memory
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> powershell -nop -w hidden -encodedcommand {{ encoded_command }}
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - MuddyWater
+  isv: 1
+  tactic: TA0002
+  tid: T1027
+name: Execution using PowerShell Encoded Command
+platforms:
+- windows

@@ -1,0 +1,28 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- EDR
+- SIEM
+- Antivirus
+description: Use a VBScript payload to download and execute a malicious PowerShell
+  one-liner
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+guidance:
+- cmd> cscript.exe {{ vbscript_file }}
+logs:
+- process_create
+metadata:
+  groups:
+  - MuddyWater
+  isv: 1
+  tactic: TA0002
+  tid: T1059.005
+  x_tool_links:
+  - https://gist.github.com/2XXE-SRA/5a6cc2005a5ca4d014cd7fc1db15e797
+name: Execution using VBScript
+platforms:
+- windows

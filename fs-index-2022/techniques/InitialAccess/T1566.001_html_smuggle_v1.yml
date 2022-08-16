@@ -1,0 +1,30 @@
+name: HTML Smuggling Attachment
+description: Send phishing email to victim containing an HTML attachment that saves
+  an embedded ISO file to disk
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+  x_vectr_id: 829b2ff3-2cb2-48be-9162-f042082e94d7
+  x_references:
+  - https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/
+  groups:
+  - Kimsuky
+  - APT29
+  - Wizard Spider
+  - Gamaredon
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments
+  {{ attachment }}
+block:
+- Malicious document blocked/quarantined by email gateway, or email delivered but
+  filtered to junk folder.  Malicious URLs are rewritten and behavior analyzed in
+  sandbox consistent with attachments.
+detect:
+- Malicious email delivery alerted by email gateway (ideally blocked/quarantined too
+  with attachment stripped and URLs rewritten)
+logs:
+- mail
+controls:
+- Mail Gateway

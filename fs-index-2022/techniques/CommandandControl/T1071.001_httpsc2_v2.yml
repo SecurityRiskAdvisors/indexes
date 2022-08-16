@@ -1,0 +1,25 @@
+name: Cobalt Strike Beacon over HTTPS tcp/443 using custom profile
+description: Connect to an attacker-controlled command and control server over HTTPS
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1071.001
+  x_vectr_id: b950ca8f-7e6c-45bf-9f3c-7ebf5f7e4f52
+  groups:
+  - Kimsuky
+  - APT41
+  - APT29
+platforms:
+- windows
+block:
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+logs:
+- web
+- network
+controls:
+- Firewall
+- ID/PS
+- UEBA
+- Web Gateway

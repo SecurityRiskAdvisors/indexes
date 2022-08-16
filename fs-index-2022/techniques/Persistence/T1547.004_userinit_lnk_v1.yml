@@ -1,0 +1,31 @@
+name: Persist via Userinit Winlogon
+description: Persist on a system by creating an LNK in the user's startup folder that
+  points an exe payload then adding the LNK to the userinit registry
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1547.004
+  x_vectr_id: bb04822a-bea8-41f9-9ff9-9c4dfe5a88fb
+  groups:
+  - Wizard Spider
+prerequisites:
+- local_admin
+platforms:
+- windows
+guidance:
+- cmd> reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v
+  "Userinit" /t REG_SZ /f /d "C:\Windows\system32\userinit.exe,%APPDATA%\Microsoft\Windows\Start
+  Menu\Programs\Startup\{{ lnk_name }}.lnk"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

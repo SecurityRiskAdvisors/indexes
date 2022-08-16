@@ -1,0 +1,28 @@
+name: Persist via new Scheduled Task
+description: Persist on a system by creating a new scheduled task
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1053.005
+  x_vectr_id: ced4c9aa-fe3d-4f70-a278-66955dd436d9
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> schtasks.exe /CREATE /SC ONSTART /TN jf0c /TR "'C:\Users\pagefilerpqy.exe'"
+  /f /RL HIGHEST
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows task registration detected in the SIEM using Windows system events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

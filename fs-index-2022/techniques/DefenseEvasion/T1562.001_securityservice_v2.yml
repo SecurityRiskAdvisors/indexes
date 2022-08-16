@@ -1,0 +1,32 @@
+name: Disable security tool service remotely
+description: Remotely disable a service associated with a security tool running on
+  a target system by using "sc.exe"
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1562.001
+  x_vectr_id: afd90b90-a0d3-44f4-baf9-721327359d7f
+  groups:
+  - APT29
+  - Wizard Spider
+prerequisites:
+- logon_rights
+- local_admin
+guidance:
+- cmd> sc \\{{ target }} stop {{ service }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Remote access to the service control manager is blocked by DACLs
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Alert on the service stop event for services related to critical functions like
+  security tools using native Windows logs and/or endpoint security tool telemetry
+logs:
+- winevent
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM
+- Hardening

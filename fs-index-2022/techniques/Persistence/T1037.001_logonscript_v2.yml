@@ -1,0 +1,33 @@
+name: Persist via new Logon Script
+description: Persist on a system by adding a Registry key to the logon script hive
+  in order to run a VBScript payload at logon.
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1037.001
+  x_vectr_id: d555460a-1b01-494a-a415-29c312652440
+  x_references:
+  - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+  groups:
+  - Kimsuky
+platforms:
+- windows
+guidance:
+- 'cmd> reg.exe add HKCU\Environment /v UserInitMprLogonScript /t REG_SZ /d "cmd /c
+  cd C:\Users\{{ user }}\AppData\Roaming\Microsoft\Templates & copy winload.x a.vbs
+  & cs.exe a.vbs & del a.vbs" /f
+
+  (cs.exe = wscript.exe)'
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

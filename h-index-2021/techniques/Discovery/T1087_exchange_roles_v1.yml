@@ -1,0 +1,22 @@
+controls:
+- SIEM
+- EDR
+description: Identify Exchange users and their permission assignments using PowerShell
+  Exchange cmdlets
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- PS> Get-ManagementRoleAssignment -GetEffectiveUsers | select Name,Role,EffectiveUserName,AssignmentMethod,IsValid
+  | ConvertTo-Csv -NoTypeInformation | % {$_ -replace '`n','_'} | Out-File C:\temp\1.xml
+logs:
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0007
+  tid: T1087
+name: Exchange User-Role Mapping Discovery
+platforms:
+- windows

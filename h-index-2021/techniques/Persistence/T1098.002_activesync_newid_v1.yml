@@ -1,0 +1,26 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: In Exchange, associate a new device ID to an inbox to allow that device
+  to perform ActiveSync
+detect:
+- Use Exchange audit logs to alert on anomalous ActiveSync changes to user mailbox(es)
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- ps> Set-CASMailbox -Identity {{ target }} -ActiveSyncAllowedDeviceIDs @{add='{{
+  device_id }}'}
+logs:
+- application
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0003
+  tid: T1098.002
+name: Enable Exchange ActiveSync for a New Device ID
+prerequisites:
+- exchange_admin

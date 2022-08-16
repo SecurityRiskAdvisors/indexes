@@ -1,0 +1,30 @@
+name: Remote tool download over FTP
+description: Download a binary payload into the environment using FTP
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1105
+  x_vectr_id: 9612bc65-4dc9-4783-aafc-f0c1cc0eea03
+  groups:
+  - APT28
+  - APT29
+  - APT41
+  - Gamaredon
+guidance:
+- "ftp> \nOPEN {{ ftp_server }}\nUSER {{ user }}\nPASS {{ password }}\nGET {{ file\
+  \ }} {{ dest }}'"
+block:
+- Connections to known malicious domains/IPs are blocked
+- Signatues for known bad tools are blocked by network security controls such as an
+  ID/PS
+- Connections using insecure/outdated protocols are blocked by network security controls
+detect:
+- Connections to known malicious domains/IPs are detected
+- Signatues for known bad tools are detected by network security controls such as
+  an ID/PS
+- Connections using insecure/outdated protocols are detected by network security controls
+logs:
+- network
+controls:
+- Firewall
+- ID/PS

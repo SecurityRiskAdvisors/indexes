@@ -1,0 +1,27 @@
+name: Internal C2 Channel over SMB
+description: Establish and communicate over a peer-to-peer SMB C2 channel on the internal
+  network
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1071
+  x_vectr_id: 20763d53-5309-41d0-a988-329b3712da61
+  groups:
+  - APT29
+prerequisites:
+- logon_rights
+guidance:
+- beacon> link {{ target }}
+block:
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Anomalous remote access patterns detected in the SIEM using authentication logs
+  or by a UEBA-like tool
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM
+- UEBA
+- Hardening

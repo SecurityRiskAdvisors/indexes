@@ -1,0 +1,33 @@
+name: Block Outbound UDP with netsh
+description: Block outbound traffic to UDP ports 53 (DNS) and 137 (NetBIOS) on the
+  Windows firewall using netsh.exe.
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1562.004
+  x_vectr_id: 64dc404a-4dbc-4762-bf18-277406dab83c
+  groups:
+  - APT29
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> netsh advfirewall firewall add rule name="{{ rule_name }}" protocol=UDP dir=out
+  localport=137 action=block
+- cmd> netsh advfirewall firewall add rule name="{{ rule_name }}" protocol=UDP dir=out
+  localport=53 action=block
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Anomalous firewall changes are detected in the SIEM using endpoint security tool
+  telemetry and/or Windows event ID 4948/4947/4946
+logs:
+- winevent
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

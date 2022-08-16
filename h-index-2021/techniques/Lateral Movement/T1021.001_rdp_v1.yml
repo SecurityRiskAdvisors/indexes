@@ -1,0 +1,26 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+- UEBA
+description: Move laterally to a remote system via RDP
+detect:
+- Logons with suspicious characteristics (e.g. first logon, anomalous logon time,
+  non-standard authentication package) generate alerts in the SIEM or UEBA
+guidance:
+- cmd> mstsc.exe /v:{{ target }}
+logs:
+- winevent:configured
+- network
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0008
+  tid: T1021.001
+name: Lateral Movement via RDP
+platforms:
+- windows
+prerequisites:
+- logon_rights

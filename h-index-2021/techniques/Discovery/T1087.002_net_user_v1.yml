@@ -1,0 +1,25 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- UEBA
+- SIEM
+description: Enumerate domain users net.exe
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> net user /domain
+logs:
+- network
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  - MuddyWater
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+name: Enumerate Domain Users
+platforms:
+- windows

@@ -1,0 +1,30 @@
+name: Modify Local Drive Permissions
+description: Modify the permissions of a local drive to allow the ransomware process
+  to modify files on that drive
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1222.001
+  x_vectr_id: e39cf923-5618-4de1-863d-4c33f27b27cc
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> icacls "{{ drive_letter }}:\*" /grant Everyone:F /T /C /Q
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Use Windows advanced auditing capabilities to monitor for bulk changes to DACLs
+  (event id 4670) and alert on suspicious events in the SIEM
+logs:
+- edr:telemetry
+- process_create
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

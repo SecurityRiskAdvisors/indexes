@@ -1,0 +1,26 @@
+block:
+- null
+controls:
+- SIEM
+- UEBA
+description: Perform a kerberoast attack by requesting Kerberos tickets for Active
+  Directory accounts with service principal names set
+detect:
+- Alert on a high volume of 4769 ticket request events from a single source
+- Configure a honey account with a service principal name set and alert on any ticket
+  request for that account
+guidance:
+- beacon> execute-assembly rubeus.exe kerberoast
+logs:
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0006
+  tid: T1558.003
+  x_tools:
+  - Cobalt Strike
+  - Rubeus
+name: Kerberoast

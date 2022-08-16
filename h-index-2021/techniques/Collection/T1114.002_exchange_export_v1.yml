@@ -1,0 +1,27 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: Use Exchange PowerShell modules to export a target user's Exchange mailbox
+  to a file then delete the export request. (for Exchange on-premise only)
+detect:
+- Use Exchange audit logs to alert on anomalous ActiveSync changes to user mailbox(es)
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- ps> New-MailboxExportRequest -Mailbox {{ target_inbox }} -FilePath {{ out_file }}
+- ps> Get-MailboxExportRequest -Mailbox {{ target_inbox }} | Remove-MailboxExportRequest
+  -Confirm:$False
+logs:
+- application
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0009
+  tid: T1114.002
+name: Export Exchange Mailbox to File
+prerequisites:
+- exchange_admin

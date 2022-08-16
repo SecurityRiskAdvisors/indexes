@@ -1,0 +1,33 @@
+block:
+- Suspicious process execution/behavior is blocked by EDR or other endpoint security
+  tool
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- EDR
+- Antivirus
+- UEBA
+description: Move laterally to another system by using WMI to execute a DLL payload
+  using rundll32.
+detect:
+- Suspicious process execution/behavior is detected by EDR or other endpoint security
+  tool, or alerted in SIEM based on process creation events
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+- Logons with suspicious characteristics (e.g. first logon, anomalous logon time,
+  non-standard authentication package) generate alerts in the SIEM or UEBA
+guidance:
+- "cmd> wmic /node:\"{{ target }}\" process call create \u201Crundll32 {{ dll_payload\
+  \ }} {{ dll_export }}\""
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0008
+  tid: T1047
+name: Lateral Movement via WMIC and Rundll32
+platforms:
+- windows
+prerequisites:
+- logon_rights

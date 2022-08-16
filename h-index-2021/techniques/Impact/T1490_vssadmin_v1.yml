@@ -1,0 +1,36 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- SIEM
+description: 'Delete volume shadow copies with vssadmin.exe to prevent file recovery
+
+  '
+detect:
+- Use Windows file system auditing capabilities to monitor access attempts for specific
+  files and/or paths (e.g. paths related to Volume Shadow Services)
+guidance:
+- 'cmd> vssadmin.exe delete shadows /all /quiet
+
+  (or)
+
+  "cmd> vssadmin resize shadowstorage /for={{ drive_letter }}: /on=c: /maxsize=401MB
+  && vssadmin resize shadowstorage /for={{ drive_letter }}: /on={{ drive_letter }}:
+  /maxsize=unbounded"
+
+  '
+logs:
+- process_create
+- edr:telemetry
+- winevent:configured
+metadata:
+  groups:
+  - Conti
+  isv: 1
+  tactic: TA0040
+  tid: T1490
+name: Delete Shadows with vssadmin
+platforms:
+- windows
+prerequisites:
+- local_admin

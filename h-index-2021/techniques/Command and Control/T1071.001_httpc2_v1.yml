@@ -1,0 +1,31 @@
+block:
+- Connections to known malicious domains/IPs are blocked
+controls:
+- IDS
+- IPS
+- Firewall
+- SIEM
+description: Establish and communicate over an HTTP command and control (C2) channel
+  using Cobalt Strike configured with a custom Malleable C2 profile.
+detect:
+- Connections to known malicious domains/IPs are detected
+- Connections with suspicious characteristics (e.g. first seen in environment, low
+  domain age, weak/unknown reputation, bad/unknown categorization) generate alerts
+  in the SIEM or network security controls
+guidance:
+- beacon> spawn x64 {{ http_listener }}
+logs:
+- network
+metadata:
+  groups:
+  - Lazarus Group
+  - APT29
+  - MuddyWater
+  isv: 1
+  tactic: TA0011
+  tid: T1071.001
+  x_tools:
+  - Cobalt Strike
+name: HTTP C2 Channel (Custom Profile)
+platforms:
+- windows

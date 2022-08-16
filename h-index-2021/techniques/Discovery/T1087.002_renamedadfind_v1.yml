@@ -1,0 +1,30 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- UEBA
+- SIEM
+description: Using the tool "adfind.exe" (renamed to "csrss.exe"), enumerate domain
+  information like domain users, groups, etc.
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- A source generating a large number of object access events (e.g. event id 4662)
+  is detected by the SIEM after configuring auditing on domain objects
+guidance:
+- "cmd> csrss.exe -h {{ domain }} -f (name=\u201DDomain Admins\u201D) member -list\
+  \ | csrss.exe -h {{ domain }} -f objectcategory=* > .\\output.log"
+- cmd> csrss.exe -h {{ domain }} -sc u:* > .\output.log
+logs:
+- network
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  - MuddyWater
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+name: Enumerate Domain Information using Renamed adfind.exe
+platforms:
+- windows

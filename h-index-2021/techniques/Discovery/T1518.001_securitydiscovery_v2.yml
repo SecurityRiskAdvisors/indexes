@@ -1,0 +1,23 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+description: Enumerated installed security tools on the local system using WMIC
+detect:
+- Suspicious process execution/behavior is detected by EDR or other endpoint security
+  tool, or alerted in SIEM based on process creation events
+guidance:
+- cmd> WMIC.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct
+  Get displayName /Format:List
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0007
+  tid: T1518.001
+name: Security Tool Discovery
+platforms:
+- windows

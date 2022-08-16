@@ -1,0 +1,21 @@
+name: Extract Credential Manager credentials
+description: Extract credentials information from Windows Credential Manager
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1555.004
+  x_vectr_id: aba64d4d-1f59-4295-bb43-51766e791962
+  groups:
+  - Kimsuky
+platforms:
+- windows
+guidance:
+- mimikatz> sekurlsa::credman
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection

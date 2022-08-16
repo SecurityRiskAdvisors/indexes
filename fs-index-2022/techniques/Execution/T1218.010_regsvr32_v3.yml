@@ -1,0 +1,26 @@
+name: Process creation using Regsvr32 and DLL
+description: Spawn a new process with Regsvr32 and an on-disk DLL payload.
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1218.010
+  x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
+  groups:
+  - Kimsuky
+platforms:
+- windows
+guidance:
+- CMD> regsvr32 /s {{ dll }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Payload on disk triggers a endpoint security tool alert
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

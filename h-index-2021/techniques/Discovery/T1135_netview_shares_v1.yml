@@ -1,0 +1,19 @@
+controls:
+- SIEM
+description: Use net.exe to list out shares for the system
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> net.exe view /all
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0007
+  tid: T1135
+name: Net View Share Discovery
+platforms:
+- windows

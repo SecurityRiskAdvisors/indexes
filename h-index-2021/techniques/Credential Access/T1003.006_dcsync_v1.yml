@@ -1,0 +1,31 @@
+block:
+- null
+controls:
+- SIEM
+- IDS
+description: Extract domain data, such as hashed credentials, from a target domain
+  controller using replication
+detect:
+- Alert on DRSUAPI RPC traffic originating from a non-Domain Controller source using
+  network security tools or a SIEM
+- Alert on Active Directory object access event logs that contain replication rights
+  from a non-Domain Controller
+guidance:
+- beacon> dcsync {{ domain_fqdn }} {{ domain}}\{{ user }}
+logs:
+- winevent:configured
+- network
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0006
+  tid: T1003.006
+  x_foo:
+  - Mimikatz
+  - Cobalt Strike
+name: Replicate Domain Data using DCSync
+platforms:
+- windows
+prerequisites:
+- domain_admin

@@ -1,0 +1,27 @@
+name: DLL Loader
+description: Launch a exe payload that will load a DLL from its resource section into
+  memory
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1055.001
+  x_vectr_id: f6bca16b-5ea8-454e-86a3-62fbff291c72
+  x_tool_links:
+  - https://gist.github.com/2XXE-SRA/156df55ec2cfdc22a33e2b66de30c309
+  groups:
+  - APT29
+  - Wizard Spider
+platforms:
+- windows
+guidance:
+- CMD> {{ exe_payload }}
+block:
+- Suspicious behavior is blocked by EDR or other endpoint security tool or payload
+  is deleted from disk based on static characteristics
+detect:
+- Suspicious behavior is detected by EDR or other endpoint security tool or payload
+  is detetced on disk based on static characteristics
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection

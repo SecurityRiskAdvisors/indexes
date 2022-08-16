@@ -1,0 +1,29 @@
+block:
+- Remote access to the service control manager is blocked by DACLs
+controls:
+- EDR
+- SIEM
+- Hardening
+description: Remotely disable a service associated with a security tool running on
+  a target system by using "sc.exe"
+detect:
+- Alert on the service stop event for services related to critical functions like
+  security tools using native Windows logs and/or endpoint security tool telemetry
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> sc \\{{ target }} stop {{ service }}
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0005
+  tid: T1562.001
+name: Disable Security Tool Service Remotely
+prerequisites:
+- logon_rights
+- local_admin

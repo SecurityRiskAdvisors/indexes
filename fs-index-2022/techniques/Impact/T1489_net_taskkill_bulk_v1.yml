@@ -1,0 +1,30 @@
+name: Stop multiple services using net and taskkill
+description: Stop multiple services/service processes on the endpoint using net and
+  taskkill
+metadata:
+  isv: 1
+  tactic: TA0040
+  tid: T1489
+  x_vectr_id: 90d23926-3a5b-46b3-abb9-4eceb69479d4
+  x_tool_links:
+  - https://gist.github.com/2XXE-SRA/6abe96bde27b1891c1297253823e20e7
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> {{ bat_file }}
+block:
+- Critical security services are configured by vendor to run as protected processes,
+  preventing administrative users from disabling them via traditional methods
+detect:
+- Use Windows process and service audit capabilities or endpoint security tool telemetry
+  to detect a user stopping multiple processes/services
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

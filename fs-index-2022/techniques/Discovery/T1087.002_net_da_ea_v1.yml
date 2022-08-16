@@ -1,0 +1,29 @@
+name: Domain group member discovery via net.exe
+description: Identify members of the Domain Admins and Enterprise Admins domain groups
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: a8537560-fd62-4a93-9fc5-207945961a03
+  groups:
+  - Wizard Spider
+  - APT29
+  - APT41
+platforms:
+- windows
+guidance:
+- cmd> net group "Domain Admins" /domain
+- cmd> net group "Enterprise Admins" /domain
+- cmd> net user administrator /domain
+block:
+- null
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- A source generating a large number of object access events (e.g. event id 4656)
+  is detected by the SIEM after configuring auditing on domain objects
+logs:
+- process_create
+controls:
+- SIEM
+- Endpoint Protection

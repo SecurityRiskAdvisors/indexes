@@ -1,0 +1,27 @@
+block:
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+- Executable on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- SIEM
+- EDR
+description: 'Encrypt a large amount of files on a remote share to simulate remote
+  ransomware behavior
+
+  '
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool
+- A large amount of file deletion and/or file creations are alerted on in the SIEM
+  or file monitoring software
+guidance:
+- '{{ ransomware_binary }}'
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - Wizard Spider
+  - Conti
+  isv: 1
+  tactic: TA0040
+  tid: T1021.002
+name: Encrypt a Large Amount of Files Remotely

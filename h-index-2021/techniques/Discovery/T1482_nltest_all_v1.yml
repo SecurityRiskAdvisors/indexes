@@ -1,0 +1,23 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: Identify all domain trust relationships using nltest
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> nltest.exe /domain_trusts /all_trusts
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0007
+  tid: T1482
+name: Domain Trust Discovery with nltest
+platforms:
+- windows

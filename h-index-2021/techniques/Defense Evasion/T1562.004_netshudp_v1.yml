@@ -1,0 +1,31 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: Block outbound traffic to UDP ports 53 (DNS) and 137 (NetBIOS) on the
+  Windows firewall using netsh.exe.
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Anomalous firewall changes are detected in the SIEM using endpoint security tool
+  telemetry and/or Windows event ID 4948/4947/4946
+guidance:
+- "cmd> netsh advfirewall firewall add rule name=\u201D{{ rule_name }}\u201D protocol=UDP\
+  \ dir=out localport=137 action=block"
+- "cmd> netsh advfirewall firewall add rule name=\u201D{{ rule_name }}\u201D protocol=UDP\
+  \ dir=out localport=53 action=block"
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0005
+  tid: T1562.004
+name: Block Outbound UDP with netsh
+platforms:
+- windows
+prerequisites:
+- local_admin

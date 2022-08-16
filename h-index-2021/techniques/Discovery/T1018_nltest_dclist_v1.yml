@@ -1,0 +1,23 @@
+block:
+- null
+controls:
+- SIEM
+- EDR
+description: Use nltest.exe commands to identify remote systems
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+guidance:
+- cmd> nltest.exe /dclist:{{ domain }}
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0007
+  tid: T1018
+name: Remote System Discovery - nltest
+platforms:
+- windows

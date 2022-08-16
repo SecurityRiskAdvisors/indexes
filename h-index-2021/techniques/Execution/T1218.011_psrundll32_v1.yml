@@ -1,0 +1,31 @@
+block:
+- Suspicious process execution/behavior is blocked by EDR or other endpoint security
+  tool
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- Antivirus
+- EDR
+description: Execute a malicious DLL's function directly using rundll32 as an encoded
+  PowerShell command
+detect:
+- Suspicious process execution/behavior is detected by EDR or other endpoint security
+  tool, or alerted in SIEM based on process creation events
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+guidance:
+- 'cmd> powershell -nop -exec bypass -encodedcommand {{ encoded_command }}
+
+  encoded_command -> rundll32 {{ dll_payload }} {{ dll_export }}"
+
+  '
+logs:
+- edr:telemetry
+- process_create
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0002
+  tid: T1218.011
+name: Execution using PowerShell and Rundll32
+platforms:
+- windows

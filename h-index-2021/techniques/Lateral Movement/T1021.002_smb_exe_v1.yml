@@ -1,0 +1,24 @@
+block:
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- Antivirus
+description: Copy an exe payload to a remote system via SMB
+detect:
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+guidance:
+- cmd> copy {{ exe }} \\{{ target }}\ADMIN$\{{ exe }}
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - Wizard Spider
+  - Conti
+  isv: 1
+  tactic: TA0008
+  tid: T1021.002
+name: Remote Exe Copy via SMB
+platforms:
+- windows
+prerequisites:
+- local_admin

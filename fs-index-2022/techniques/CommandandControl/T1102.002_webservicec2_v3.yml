@@ -1,0 +1,25 @@
+name: C2 over Dropbox
+description: Establish a command and control channel using Dropbox
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1102.002
+  x_vectr_id: 43ab96a9-b2c0-442a-b8e4-18e172a1a2ce
+  x_references:
+  - https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online
+  groups:
+  - Zirconium
+block:
+- C2 channel using legitimate service is blocked by proxy, firewall, or network behavioral/UEBA
+  tool
+detect:
+- C2 channel using legitimate service is detected by proxy, firewall, or network behavioral/UEBA
+  tool
+logs:
+- web
+- network
+controls:
+- Firewall
+- ID/PS
+- UEBA
+- Web Gateway

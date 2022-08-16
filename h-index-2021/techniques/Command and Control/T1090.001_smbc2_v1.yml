@@ -1,0 +1,26 @@
+block:
+- SMB connections are blocked by  host-based firewalls
+controls:
+- UEBA
+- ID/PS
+- Hardening
+description: Establish and communicate over a Cobalt Strike SMB C2 channel on the
+  internal network
+detect:
+- Anomalous SMB communications are detected by UEBA and/or the IDS
+guidance:
+- "(after establishing SMB beacon on target)\nbeacon> link {{ target }} \n"
+logs:
+- network
+- winevent:configured
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0011
+  tid: T1090.001
+  x_tools:
+  - Cobalt Strike
+name: SMB C2 Channel
+prerequisites:
+- logon_rights

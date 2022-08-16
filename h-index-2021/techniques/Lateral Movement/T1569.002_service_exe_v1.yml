@@ -1,0 +1,32 @@
+block:
+- Remote access to the service control manager is blocked by a DACL, preventing service
+  creation by remote users
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+controls:
+- SIEM
+- EDR
+- Hardening
+- Antivirus
+description: Move laterally to a system by copying an exe to the system then executing
+  it as a service
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+guidance:
+- cmd> copy {{ exe }} \\{{ target }}\C$\Windows\{{ exe }}
+- cmd> sc \\{{ target }} create {{ service }} binPath= c:\Windows\{{ exe }}
+- cmd> sc \\{{ target }} start {{ service }}
+logs:
+- process_create
+metadata:
+  groups:
+  - Wizard Spider
+  isv: 1
+  tactic: TA0008
+  tid: T1569.002
+name: Remote Execution via Service
+platforms:
+- windows
+prerequisites:
+- local_admin

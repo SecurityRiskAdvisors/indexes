@@ -1,0 +1,30 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+description: 'Stop multiple services/service processes on the endpoint using taskkill
+  and/or net
+
+  '
+detect:
+- Use Windows process and service audit capabilities or EDR telemetry to detect a
+  user stopping multiple processes/services
+guidance:
+- taskkill /IM {{ name }} /F
+- net stop {{ name }} /y
+logs:
+- edr:telemetry
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  - Conti
+  isv: 1
+  tactic: TA0040
+  tid: T1489
+name: Stop Multiple Services
+platforms:
+- windows
+prerequisites:
+- local_admin

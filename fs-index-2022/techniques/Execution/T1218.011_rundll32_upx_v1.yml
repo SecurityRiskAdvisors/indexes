@@ -1,0 +1,30 @@
+name: DLL execution using Rundll32
+description: Execute a malicious UPX-packed DLL's function directly using rundll32
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1218.011
+  x_vectr_id: ed9a5a57-b893-4b3d-81cd-dd637a73b567
+  x_references:
+  - https://us-cert.cisa.gov/ncas/analysis-reports/ar20-232a
+  groups:
+  - APT29
+  - Wizard Spider
+  - Lazarus
+platforms:
+- windows
+guidance:
+- cmd> rundll32 {{ dll }},{{ export }} [{{ args }}]
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Payload on disk triggers a endpoint security tool alert
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

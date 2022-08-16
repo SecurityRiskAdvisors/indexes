@@ -1,0 +1,25 @@
+block:
+- Block the installation and usage of unapproved third-party utilities via application
+  control software
+- Connections to known remote access service domains/IPs are blocked
+controls:
+- Application Control
+- IDS
+- IPS
+- Firewall
+description: Establish connection to system using ScreenConnect (ConnectWise Control)
+detect:
+- Connections to known remote access service domains/IPs are detected
+logs:
+- network
+metadata:
+  groups:
+  - MuddyWater
+  isv: 1
+  tactic: TA0011
+  tid: T1219
+name: Access via ScreenConnect
+platforms:
+- windows
+- linux
+- macos

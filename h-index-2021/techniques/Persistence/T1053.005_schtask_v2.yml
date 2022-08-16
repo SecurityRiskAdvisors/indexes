@@ -1,0 +1,26 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+description: Persist on a system by creating a new scheduled task
+detect:
+- Detect suspicious task creation using Windows event id 4698
+- Detect known IOCs in scheduled task characteristics such as the task name and command.
+guidance:
+- cmd> schtasks.exe /CREATE /SC ONSTART /TN jf0c /TR "'C:\Users\pagefilerpqy.exe'"
+  /f /RL HIGHEST
+logs:
+- winevent:configured
+metadata:
+  groups:
+  - Wizard Spider
+  - APT29
+  isv: 1
+  tactic: TA0003
+  tid: T1053.005
+name: New Scheduled Task
+platforms:
+- windows
+prerequisites:
+- local_admin

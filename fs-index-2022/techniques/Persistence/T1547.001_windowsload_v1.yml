@@ -1,0 +1,35 @@
+name: Persist via Windows "Load" Registry Run Key
+description: Run a payload during user login by setting a registry run key to launch
+  an executable file in the user's local APPDATA folder
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1547.001
+  x_vectr_id: 7a2895d9-513b-4ecf-b753-dd7e1e77c59a
+  x_references:
+  - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+  groups:
+  - Gamaredon
+  - Kimsuky
+  - APT29
+  - Wizard Spider
+  - Lazarus
+  - Zirconium
+platforms:
+- windows
+guidance:
+- CMD> reg add "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /v Load
+  /t REG_SZ /F /D C:\Users\{{ user }}\AppData\Local\AreSoft\msic.exe
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

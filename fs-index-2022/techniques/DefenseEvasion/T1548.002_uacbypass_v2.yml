@@ -1,0 +1,35 @@
+name: Bypass User Account Contrl (UAC) via schtasks
+description: Bypass user account controls (UAC) to move to a high-integrity execution
+  context via the DiskCleanup environment variable method
+metadata:
+  isv: 1
+  tactic: TA0004
+  tid: T1548.002
+  x_vectr_id: b8fe628f-60cc-4a57-8979-957fc867b21d
+  x_references:
+  - https://www.cybereason.com/blog/research/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite
+  - https://www.tiraniddo.dev/2017/05/exploiting-environment-variables-in.html
+  groups:
+  - Winnti
+  - Kimsuky
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> reg add hkcu\Environment /v windir /d "cmd /K reg delete hkcu\Environment /v
+  windir /f && REM "
+- cmd> schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system
+  events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

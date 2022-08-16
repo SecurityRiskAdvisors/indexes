@@ -1,0 +1,25 @@
+name: Execution using PowerShell encoded command
+description: Establish an initial foothold using a PowerShell encoded command that
+  launches a Cobalt Strike beacon in-memory
+metadata:
+  isv: 1
+  tactic: TA0002
+  tid: T1059.001
+  x_vectr_id: 08fe6b3d-b17b-421e-a6d7-2ece76f98066
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+guidance:
+- cmd> powershell -nop -w hidden -encodedcommand {{ encoded_command }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

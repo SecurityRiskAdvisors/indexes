@@ -1,0 +1,25 @@
+name: Spearphishing Link - Macro
+description: Send a spearphishing email to a target inbox that contains a link to
+  a malicious payload
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+  x_vectr_id: ca75e3f7-e033-4973-aea0-c7bebc2cf0ca
+  groups:
+  - Wizard Spider
+  - Zirconium
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ bodywithlink }} -To {{ target }} -From {{ from }}
+block:
+- Malicious document blocked/quarantined by email gateway, or email delivered but
+  filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in sandbox
+  consistent with attachments.
+detect:
+- Malicious email delivery alerted by email gateway (ideally blocked/quarantined too
+  with attachment stripped and URLs rewritten)
+logs:
+- mail
+controls:
+- Mail Gateway

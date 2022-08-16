@@ -1,0 +1,26 @@
+name: Spearphishing Link - PDF with Link (Google Drive)
+description: Send a link to a PDF payload hosted on Google Drive that has a link to
+  an exe also hosted on Google Drive to a target user
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+  x_vectr_id: 97b6feeb-a78a-4b6f-bb5f-a1169a51d7f4
+  groups:
+  - Wizard Spider
+  - Zirconium
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{
+  subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment
+  }}
+block:
+- Malicious document blocked/quarantined by email gateway, or email delivered but
+  filtered to junk folder. Malicious URLs are rewritten and behavior analyzed in sandbox
+  consistent with attachments.
+detect:
+- Malicious email delivery alerted by email gateway (ideally blocked/quarantined too
+  with attachment stripped and URLs rewritten)
+logs:
+- mail
+controls:
+- Mail Gateway

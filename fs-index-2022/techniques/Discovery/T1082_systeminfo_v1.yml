@@ -1,0 +1,25 @@
+name: Retrieve system information
+description: Retrieve information about the system using "systeminfo"
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1082
+  x_vectr_id: 5c37bc54-8fe0-41c9-ae82-99ae57b9146e
+  groups:
+  - APT29
+  - Lazarus
+platforms:
+- windows
+guidance:
+- CMD> systeminfo
+block:
+- null
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

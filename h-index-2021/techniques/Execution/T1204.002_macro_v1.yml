@@ -1,0 +1,23 @@
+block:
+- null
+controls:
+- EDR
+- SIEM
+- Antivirus
+description: Establish an initial foothold using a malicious Office macro
+detect:
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+logs:
+- process_create
+metadata:
+  groups:
+  - Kimsuky
+  - MuddyWater
+  isv: 1
+  tactic: TA0002
+  tid: T1204.002
+name: Execution using Office Macro
+platforms:
+- windows

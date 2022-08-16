@@ -1,0 +1,27 @@
+block:
+- Suspicious process/file access is blocked by EDR or other endpoint security tool
+controls:
+- EDR
+- SIEM
+description: Extract credentials stored in browsers using a compiled version of LaZagne
+detect:
+- Suspicious process/file access is detected by EDR or other endpoint security tool
+- Credential dumping tools detected via specific module loads and/or suspicious process
+  access activity in the SIEM
+guidance:
+- cmd> lazagne.exe browsers
+logs:
+- process_create
+- edr:telemetry
+- winevent:configured
+metadata:
+  groups:
+  - MuddyWater
+  isv: 1
+  tactic: TA0006
+  tid: T1555.003
+  x_tool_links:
+  - https://github.com/AlessandroZ/lazagne
+name: Credential Dumping from Browser
+platforms:
+- windows

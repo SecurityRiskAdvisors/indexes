@@ -1,0 +1,32 @@
+name: Enumerate domain information using renamed adfind.exe
+description: Using the tool "adfind.exe" (renamed to "csrss.exe"), enumerate domain
+  information like domain users, groups, etc.
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: dcfeaeaf-4486-4573-a936-2536b935a220
+  groups:
+  - Wizard Spider
+  - APT29
+  - APT41
+platforms:
+- windows
+guidance:
+- cmd> csrss.exe -h {{ domain }} -f (name="Domain Admins") member -list | csrss.exe
+  -h {{ domain }} -f objectcategory=* > .\output.log
+- cmd> csrss.exe -h {{ domain }} -sc u:* > .\output.log
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+- A source generating a large number of object access events (e.g. event id 4662)
+  is detected by the SIEM after configuring auditing on domain objects
+logs:
+- winevent
+- edr:telemetry
+controls:
+- Endpoint Protection
+- UEBA
+- SIEM

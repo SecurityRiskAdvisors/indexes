@@ -1,0 +1,24 @@
+name: Domain trust discovery via nltest.exe
+description: Identify all domain trust relationships using nltest.exe
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1482
+  x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
+  groups:
+  - Wizard Spider
+platforms:
+- windows
+guidance:
+- cmd> nltest.exe /domain_trusts /all_trusts
+block:
+- null
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers
+  alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

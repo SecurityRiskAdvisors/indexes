@@ -1,0 +1,27 @@
+name: Extract credentials from LSASS via Beacon logonpasswords
+description: Use beacon's logonpasswords to extract credentials from LSASS process
+  memory
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.001
+  x_vectr_id: 9d2c89c9-89a0-4648-9280-7daf9447b9bf
+  groups:
+  - APT28
+  - APT41
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- beacon> logonpasswords
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable additional LSA protections or Windows Credential Guard to prevent traditional
+  process dumping of LSASS
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection
