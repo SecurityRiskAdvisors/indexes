@@ -1,6 +1,6 @@
 # Threat Simulation Indexes
 
-Each Threat Simulation Index is a curated list of Test Cases derived from the actions of threat actors who have been observed targeting an industry.  Security Risk Advisors (SRA) collaborates  with experts in threat intelligence and cyber defense at targeted organizations to identify techniques which should be prioritized for defense testing.  Each Index evolves over time as the threat landscape changes for an industry.
+Each Threat Simulation Index is a curated list of test cases derived from the threat groups of interest for members of a given industry.  Security Risk Advisors (SRA) collaborates  with experts in threat intelligence and cyber defense at targeted organizations to identify techniques which should be prioritized for defense testing.  Each Index evolves over time as the threat landscape changes for an industry.
 
 One of the goals of each Threat Simulation Index is to allow organizations to compare objective defense scores against peers.  Visit the  [Defense Success Metric blog post on SRA.io](https://sra.io/blog/the-road-to-benchmarked-mitre-attck-alignment-defense-success-metrics/)  for more detail.
 
