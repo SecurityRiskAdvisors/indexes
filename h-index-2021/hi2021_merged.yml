@@ -1,3 +1,6 @@
+metadata:
+  prefix: HI
+  bundle: Health Index 2021 v1
 Collection:
 - block:
   - null
