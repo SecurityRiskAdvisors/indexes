@@ -1,0 +1,26 @@
+name: Dump LSASS memory using Process Hacker
+description: Use Process Hacker to dump LSASS process memory to disk
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.001
+  x_vectr_id: d6bd452e-ddc8-4db3-b586-d234c1cbf9f7
+  x_tools:
+  - https://processhacker.sourceforge.io/
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- Process Hacker -> Right-click process -> create dump file
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Block the use of unapproved third-party utilities via application control software
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection
+- Application Control

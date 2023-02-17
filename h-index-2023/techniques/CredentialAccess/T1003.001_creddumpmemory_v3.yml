@@ -1,0 +1,22 @@
+name: In-memory LSASS credential dumping
+description: Extract credentials from process memory using Mimikatz's logonpasswords module in-memory
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.001
+  x_vectr_id: fc8a1bff-bc19-46fe-bd73-63fe6dce45b0
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- beacon> logonpasswords
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- EDR

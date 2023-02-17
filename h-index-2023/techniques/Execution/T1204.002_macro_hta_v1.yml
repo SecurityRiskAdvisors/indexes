@@ -1,0 +1,23 @@
+name: Macro - HTA dropper
+description: Execute malicious Office document on the endpoint that creates then executes an HTA file
+metadata:
+  isv: 1
+  tactic: TA0002
+  tid: T1204.002
+  x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
+platforms:
+- windows
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+- Macro execution is blocked by GPO policy
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Payload on disk triggers an alert with endpoint security tool
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM
+- Hardening

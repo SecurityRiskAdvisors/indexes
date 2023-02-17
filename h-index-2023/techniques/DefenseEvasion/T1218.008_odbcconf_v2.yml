@@ -1,0 +1,24 @@
+name: Execution using odbcconf.exe and RSP file
+description: Execute DLL payload using builtin odbcconf.exe and an RSP file
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1218.008
+  x_vectr_id: 98ccd382-aab1-40c8-ac0a-e3cb4c5ecec5
+  x_guidance_id: 141a72a0-fe2b-4d94-86c9-7a74fd129963#1
+  x_tools:
+  - https://github.com/2XXE-SRA/payload_resources/blob/master/dll/odbcconf.rsp
+platforms:
+- windows
+guidance:
+- cmd> odbcconf.exe -f {{ rsp }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

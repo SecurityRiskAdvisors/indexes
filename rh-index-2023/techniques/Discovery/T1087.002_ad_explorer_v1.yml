@@ -1,0 +1,25 @@
+name: Enumerate Users and groups using AD Explorer
+description: Use AD Explorer to enumerate users and groups in the network
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: c11dcfdd-06d2-417c-afa9-de1f94d6466b
+  x_tools:
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer
+  x_guidance_id: b603a29e-6ca6-4f51-864f-a06c61607d03#1
+platforms:
+- windows
+block:
+- Block the use of unapproved third-party utilities via application control software
+detect:
+- Windows enumeration activities detected from large amount of network traffic (SMB, ARP requests) from UEBA or network monitoring tools
+- Utilities used for enumeration are detected by EDR and/or SIEM
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection
+- UEBA
+- Application Control

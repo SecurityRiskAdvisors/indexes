@@ -1,0 +1,24 @@
+name: Extract local user credentials using hashdump
+description: Use hashdump to extract local user credentials from the SAM
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.002
+  x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- beacon> hashdump
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Windows registry access detected in the SIEM using Registry telemetry
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

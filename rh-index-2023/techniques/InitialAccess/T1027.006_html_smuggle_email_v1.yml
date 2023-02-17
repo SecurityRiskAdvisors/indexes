@@ -1,0 +1,16 @@
+name: Link - Smuggle ISO file in HTML
+description: Send a link to an HTML page that will initiate the download of an ISO payload encoded in that page
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1027.006
+  x_vectr_id: c5ac5b2f-b09b-4777-a117-e90e0d295131
+  x_guidance_id: 51d9ed95-3b3e-422b-ae58-5694495d2fba#1
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious link alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

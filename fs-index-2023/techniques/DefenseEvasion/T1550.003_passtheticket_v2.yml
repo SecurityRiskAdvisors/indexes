@@ -1,0 +1,23 @@
+name: Pass-the-ticket
+description: Dump a Kerberos ticket from one computer then use it on another system to make a network request to a domain resource (e.g. access a share)
+metadata:
+  isv: 1
+  tactic: TA0008
+  tid: T1550.003
+  x_vectr_id: c602b96b-6727-4558-822a-47d191491f23
+  x_tools:
+  - https://github.com/GhostPack/Rubeus
+guidance:
+- 'Computer 1: CMD> Rubeus.exe dump'
+- 'Computer 2: CMD> Rubeus.exe purge'
+- 'Computer 2: CMD> Rubeus.exe ptt /ticket:{{ ticket_b64 }}'
+block:
+- null
+detect:
+- Detect the use of a TGS without the existence of a prior corresponding TGT from the system
+- https://stealthbits.com/blog/how-to-detect-pass-the-ticket-attacks/
+logs:
+- winevent
+controls:
+- SIEM
+- UEBA

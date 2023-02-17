@@ -1,0 +1,26 @@
+name: Extract LSASS Process Memory via Sysinternals ProcDump
+description: Use ProcDump from Sysinternals to dump LSASS process memory
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.001
+  x_vectr_id: 79640171-eeb3-44c2-9d9e-cf29c7f57af1
+  x_tools:
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> procdump -ma lsass.exe dump
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

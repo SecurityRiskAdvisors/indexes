@@ -1,0 +1,22 @@
+name: Execution using Office macro
+description: Establish an initial foothold using a malicious Office macro
+metadata:
+  isv: 1
+  tactic: TA0002
+  tid: T1204.002
+  x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
+platforms:
+- windows
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+- Macro execution is blocked by GPO policy
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Payload on disk triggers an alert with endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection
+- SIEM
+- Hardening

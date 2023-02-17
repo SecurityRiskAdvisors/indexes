@@ -1,0 +1,19 @@
+name: Generate Nord VPN traffic on the internal network
+description: Generate Nord VPN traffic on the internal network
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1572
+  x_vectr_id: a5d87882-f636-4232-8e40-78c3a6fe9711
+  x_guidance_id: cb5d267e-ea0b-4fc5-92b1-dc0fdace7b71#1
+  x_tools:
+  - https://nordvpn.com/download/
+block:
+- Unapproved VPN traffic blocked outright by network configurations
+detect:
+- Network tools detect presense of VPN traffic characteristics originating from the internal network
+logs:
+- network
+controls:
+- ID/PS
+- UEBA

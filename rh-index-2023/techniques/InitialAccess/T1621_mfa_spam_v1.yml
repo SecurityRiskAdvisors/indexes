@@ -1,0 +1,17 @@
+name: Prompt a user with multiple MFA requests
+description: Using valid credentials for a user, prompt that user with multiple MFA requests in a short period of time in order to induce them to accept the prompt.
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1621
+  x_vectr_id: ba6b3115-f8f6-4b28-bb24-ad5dfad6b4b7
+  x_guidance_id: 1d0b4cb6-b97b-4705-ab58-94547158cea8#1
+block:
+- Prevent application sign-ins from users with anomalous login characteristics, such as an unknown geolocation and device fingerprint
+detect:
+- Detect an anomalous amount of MFA requests in a short period using authentication logs
+logs:
+- web
+- application
+controls:
+- WAF

@@ -1,0 +1,21 @@
+name: Process creation using HTA
+description: Spawn a new process using an HTA payload and the builtin mshta.exe
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1218.005
+  x_vectr_id: 4d421c9b-e8d7-407f-bf39-5120d5760417
+platforms:
+- windows
+guidance:
+- CMD> mshta {{ hta_payload }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

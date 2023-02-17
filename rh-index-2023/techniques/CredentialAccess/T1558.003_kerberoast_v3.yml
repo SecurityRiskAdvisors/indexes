@@ -1,0 +1,21 @@
+name: Volumetric Kerberoasting
+description: Retrieve Kerberos TGS tickets from Active Directory for all users with service principal names (SPNs) set
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1558.003
+  x_vectr_id: c13ac2bf-6803-4525-9c5e-fda7b1b7fcb7
+  x_tools:
+  - https://github.com/GhostPack/Rubeus
+guidance:
+- cmd> Rubeus.exe kerberoast
+block:
+- null
+detect:
+- Detect a high volume of TGS requests and/or unique service principals from a single source in a small period of time
+- Configure a honey account with an SPN and generate an alert when the TGS for that account is requested
+logs:
+- winevent
+controls:
+- SIEM
+- UEBA

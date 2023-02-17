@@ -1,0 +1,18 @@
+name: Link - ISO
+description: Send phishing email to victim containing a link to an ISO
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+  x_vectr_id: 14907efc-0ada-45f0-80e7-4bab0fe2963a
+  x_guidance_id: 0f3ea4ce-fea6-4c19-afb8-566d46edf3eb#1
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious link alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

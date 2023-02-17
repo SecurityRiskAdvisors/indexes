@@ -1,0 +1,26 @@
+name: Lateral Movement via RDP
+description: Perform an interactive logons to a Windows system via RDP
+metadata:
+  isv: 1
+  tactic: TA0008
+  tid: T1021.001
+  x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
+platforms:
+- windows
+prerequisites:
+- logon_rights
+guidance:
+- CMD> mstsc /v:{{ target }}
+block:
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected in the SIEM using authentication logs or by a UEBA-like tool
+logs:
+- edr:telemetry
+- winevent
+controls:
+- SIEM
+- UEBA
+- Hardening
+- Endpoint Protection

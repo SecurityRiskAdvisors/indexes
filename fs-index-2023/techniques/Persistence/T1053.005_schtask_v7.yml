@@ -1,0 +1,25 @@
+name: Persist via new scheduled task
+description: Persist on a system by creating a new scheduled task
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1053.005
+  x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
+  x_guidance_id: 85361bdb-4f63-4841-9cc9-d9cd0b4e2216#1
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> schtasks.exe /create /sc daily /tn {{ task_name }} /tr {{ command }} /st 20:00
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious Windows task registration detected in the SIEM using Windows system events
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection

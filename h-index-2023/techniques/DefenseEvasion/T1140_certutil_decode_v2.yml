@@ -1,0 +1,21 @@
+name: Certutil decode Base64 encoded payload
+description: Use certutil.exe to decode an encoded payload file
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1140
+  x_vectr_id: 9dbfedcf-893f-4086-b428-2f3bc73c96a5
+platforms:
+- windows
+guidance:
+- cmd> certutil -decode {{ infile_name }} {{ outfile_name }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

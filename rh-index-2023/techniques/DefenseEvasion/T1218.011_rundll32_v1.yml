@@ -1,0 +1,22 @@
+name: DLL execution using Rundll32
+description: Execute a malicious DLL's function directly using rundll32
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1218.011
+  x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
+platforms:
+- windows
+guidance:
+- cmd> rundll32 {{ dll }},{{ export }} [{{ args }}]
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

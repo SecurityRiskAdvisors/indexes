@@ -1,0 +1,21 @@
+name: Share discovery via net.exe
+description: Use net.exe to list out shares for the system
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1135
+  x_vectr_id: 763f909f-d298-48c6-a2ee-3975d0a0180c
+platforms:
+- windows
+guidance:
+- cmd> net.exe view /all
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

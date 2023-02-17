@@ -1,0 +1,23 @@
+name: Stop multiple services using net.exe
+description: Stop multiple services/service processes on the endpoint using the builtin net.exe
+metadata:
+  isv: 1
+  tactic: TA0040
+  tid: T1489
+  x_vectr_id: c6bddadc-30eb-4e6a-8537-a2594808a1a7
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> net stop {{ service }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

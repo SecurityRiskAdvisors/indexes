@@ -1,0 +1,19 @@
+name: Link - Zipped ISO
+description: Send a link to a zipped ISO payload hosted on a webserver on the Internet
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+  x_vectr_id: db33d2b3-9d9a-4e72-ac8f-548ecc7d4cdf
+  x_references:
+  - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious link alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

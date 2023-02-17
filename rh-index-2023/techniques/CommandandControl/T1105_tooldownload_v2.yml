@@ -1,0 +1,18 @@
+name: Remote tool download over HTTP
+description: Download a tool from a public hosting location onto the victim system
+metadata:
+  isv: 1
+  tactic: TA0011
+  tid: T1105
+  x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
+  x_guidance_id: fdefac3c-3e72-45f6-a1b7-01e8542665ca#1
+block:
+- Signatures for known bad tools are blocked by network security controls such as an ID/PS
+detect:
+- Signatures for known bad tools are detected by network security controls such as an ID/PS
+logs:
+- web
+controls:
+- Firewall
+- ID/PS
+- Web Gateway

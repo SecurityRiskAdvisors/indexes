@@ -1,0 +1,24 @@
+name: Enumerate connections with SessionGopher
+description: Use SessionGopher to identify other target systems via recent connections
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1049
+  x_vectr_id: 139c2337-91b4-49b0-b33e-4a0323280517
+  x_tools:
+  - https://github.com/Arvanaghi/SessionGopher
+platforms:
+- windows
+guidance:
+- PS> Invoke-SessionGopher
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Windows registry access detected in the SIEM using Registry telemetry
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

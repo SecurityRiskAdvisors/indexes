@@ -1,0 +1,17 @@
+name: Link - Zipped VBScript
+description: Send a link to a zipped VBScript payload hosted on a webserver on the Internet
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.002
+  x_vectr_id: 96efbefa-60e7-41eb-8ba3-e837e57a8036
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious link alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

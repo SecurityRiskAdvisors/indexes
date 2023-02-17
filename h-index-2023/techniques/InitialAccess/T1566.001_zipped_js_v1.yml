@@ -1,0 +1,17 @@
+name: Attachment - Zipped JScript
+description: Send a malicious JScript payload in a ZIP archive to a target user in an email.
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+  x_vectr_id: 84a1b020-370b-4eeb-9f0e-877a9e6d5419
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

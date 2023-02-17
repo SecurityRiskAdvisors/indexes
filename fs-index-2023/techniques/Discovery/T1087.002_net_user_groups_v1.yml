@@ -1,0 +1,25 @@
+name: Enumerate domain and local users
+description: Enumerate domain and local users using the builtin net.exe
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: a4608a06-4f66-4bf3-a7b6-e22849de6a71
+platforms:
+- windows
+guidance:
+- cmd> net use
+- cmd> net localgroup Administrators
+- cmd> net1 localgroup Administrators
+- cmd> net user /domain {{ username }}
+- cmd> net group /domain "Enterprise Admins"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- edr:telemetry
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

@@ -1,0 +1,22 @@
+name: Hide user from logon screen
+description: Modify the Registry to hide a user from being shown on the logon screen
+metadata:
+  isv: 1
+  tactic: TA0005
+  tid: T1564.002
+  x_vectr_id: 0bbfcc25-9141-4386-a516-30023158f7eb
+platforms:
+- windows
+guidance:
+- CMD> reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v {{ user }} /t REG_DWORD /d 0 /f
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Windows registry modifications detected in the SIEM using Registry telemetry
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

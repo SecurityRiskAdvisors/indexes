@@ -1,0 +1,20 @@
+name: Extract sensitive data over HTTP C2
+description: Extract data from the network via an HTTP C2 channel over tcp/80 to external host or IP
+metadata:
+  isv: 1
+  tactic: TA0010
+  tid: T1041
+  x_vectr_id: b48fa856-d004-4d5a-918f-d9429a9cd8e3
+guidance:
+- beacon> download {{ file }}
+block:
+- Sensitive data sent over common network protocol is blocked by proxy or DLP tool
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+logs:
+- web
+controls:
+- Firewall
+- DLP
+- Web Gateway

@@ -1,0 +1,17 @@
+name: External employee login from suspicious location
+description: Login to an external employee portal from an unexpected geolocation
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1078
+  x_vectr_id: 477c9a5f-bbe9-4f15-bbeb-16e1486ae75a
+block:
+- Suspicious logins originating from select geolocation are blocked
+detect:
+- Suspicious logins originating from select geolocation are detected
+logs:
+- web
+- application
+controls:
+- SIEM
+- WAF

@@ -1,0 +1,17 @@
+name: Process creation using exe
+description: Spawn a new process using compiled exe payload
+metadata:
+  isv: 1
+  tactic: TA0002
+  tid: T1106
+  x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
+guidance:
+- cmd> {{ exe }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection

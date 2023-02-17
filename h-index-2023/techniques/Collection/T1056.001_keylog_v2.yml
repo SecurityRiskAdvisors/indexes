@@ -1,0 +1,19 @@
+name: Keylogger
+description: Log user keystrokes
+metadata:
+  isv: 1
+  tactic: TA0009
+  tid: T1056.001
+  x_vectr_id: be524cb1-12e6-4708-ad57-faf91dfad9de
+platforms:
+- windows
+guidance:
+- "beacon> keylogger [{{ pid }}] [{{ arch }}]\nOR \napollo> keylog_inject -PID {{ pid }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection

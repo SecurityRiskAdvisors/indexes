@@ -1,0 +1,25 @@
+name: Extract Browser Credentials
+description: Extract credentials information (saved passwords, sessions) from browser
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1555.003
+  x_vectr_id: 43a943fb-d75a-4fa6-9f5b-8824f8134936
+  x_tools:
+  - https://github.com/GhostPack/SharpDPAPI
+platforms:
+- windows
+guidance:
+- cmd> SharpChrome.exe logins
+- cmd> SharpChrome.exe cookies
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious access to database files used by browsers detected using file system telemetry in the SIEM
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

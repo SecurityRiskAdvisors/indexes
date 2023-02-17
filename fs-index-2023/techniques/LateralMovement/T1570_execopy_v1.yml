@@ -1,0 +1,25 @@
+name: Remote .exe copy
+description: Copy am .exe payload to a temp folder on the remote target
+metadata:
+  isv: 1
+  tactic: TA0008
+  tid: T1570
+  x_vectr_id: 44c3e474-adb9-461d-9948-e99980045be6
+platforms:
+- windows
+prerequisites:
+- logon_rights
+guidance:
+- cmd> copy {{ exe }} \\{{ target }}\c\Windows\Temp
+block:
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on file system telemetry
+- Anomalous remote access patterns detected in the SIEM using authentication logs or by a UEBA-like tool
+logs:
+- winevent
+- edr:telemetry
+controls:
+- EDR
+- Antivirus
+- SIEM

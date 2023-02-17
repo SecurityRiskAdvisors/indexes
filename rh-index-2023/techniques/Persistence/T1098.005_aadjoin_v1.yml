@@ -1,0 +1,23 @@
+name: Create new machine registration in Azure AD
+description: Register a new device in Azure AD using compromised Azure AD user credentials
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1098.005
+  x_vectr_id: 467d11ad-359a-4579-98f3-da7d1b848517
+  x_tools:
+  - https://aadinternals.com/aadinternals/
+  x_guidance_id: 366916e2-0be5-45bd-91f9-aa3b5aedcca0#1
+platforms:
+- windows
+guidance:
+- PS> Join-AADIntDeviceToAzureAD -DeviceName "{{ device_name }}" -DeviceType "{{ device_type }}" -OSVersion "{{ os_version }}" -JoinType Register
+block:
+- null
+detect:
+- Use Azure AD logs to identify device registration events occurring outside of legitimate and expected IT processes
+logs:
+- application
+controls:
+- SIEM
+- Hardening

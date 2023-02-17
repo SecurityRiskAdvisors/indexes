@@ -1,0 +1,18 @@
+name: Process creation using LNK to execute exe
+description: Execute a modified shortcut to start an attacker controlled exe
+metadata:
+  isv: 1
+  tactic: TA0002
+  tid: T1106
+  x_vectr_id: b1d57e4e-74e2-4f56-88b8-86c04f15c516
+  x_guidance_id: 4ca1b339-0bae-40cb-b22e-ae3982fe0ba5#1
+guidance:
+- cmd> {{ lnk }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+logs:
+- edr:telemetry
+controls:
+- Endpoint Protection

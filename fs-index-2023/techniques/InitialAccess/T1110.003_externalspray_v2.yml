@@ -1,0 +1,20 @@
+name: External employee portal spray
+description: Perform a password spray against an external employee login portal using a list of potential users and a single password
+metadata:
+  isv: 1
+  tactic: TA0006
+  tid: T1110.003
+  x_vectr_id: 44fd7250-e613-441f-9cb6-5b98c2d71338
+guidance:
+- Burp -> intruder
+block:
+- Portal protected with secure MFA solution
+- WAF is in place for application to help block automated attacks
+detect:
+- Large number of authentication requests detected by WAF, IDS/IPS, or firewall.
+- Web application logs are ingested into the SIEM and alerts triggered for suspicious activity (e.g. brute force attacks, large number of 400/500 status codes)
+logs:
+- web
+controls:
+- WAF
+- SIEM

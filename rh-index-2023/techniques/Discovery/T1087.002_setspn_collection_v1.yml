@@ -1,0 +1,21 @@
+name: Discover SPNs via setspn.exe
+description: Identify service principal names set using the builtin setspn.exe
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: 81ed48d0-a13c-40db-9f11-6675ef57d41e
+guidance:
+- cmd> setspn -l {{ object }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Enable object logging on Active Directory groups and trigger an alert in the SIEM when multiple users are accessed in a short period by the same source
+logs:
+- winevent
+- edr:telemetry
+controls:
+- SIEM
+- Endpoint Protection
+- UEBA

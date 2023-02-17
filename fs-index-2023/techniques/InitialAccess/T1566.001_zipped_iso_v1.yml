@@ -1,0 +1,20 @@
+name: Attachment - Zipped ISO
+description: Send an ISO payload in a ZIP archive to a target user in an email.
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+  x_vectr_id: f44e8e3d-5cb2-4f23-86f0-bdfb98fb6c99
+  x_references:
+  - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
+  x_guidance_id: 0f3ea4ce-fea6-4c19-afb8-566d46edf3eb#1
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

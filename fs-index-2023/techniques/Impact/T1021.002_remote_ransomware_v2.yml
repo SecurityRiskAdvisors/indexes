@@ -1,0 +1,23 @@
+name: Encrypt a large amount of files - network share
+description: Encrypt a large amount of files on a remote endpoint to simulate ransomware
+metadata:
+  isv: 1
+  tactic: TA0008
+  tid: T1021.002
+  x_vectr_id: 189fbaa8-17fe-45cf-a2d6-830fc309a03c
+  x_tools:
+  - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
+guidance:
+- cmd> coldcryptor.exe run {{ extension }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Detect common ransomware extensions using file system telemetry
+- Anomalous remote access patterns detected in the SIEM using authentication logs or by a UEBA-like tool
+logs:
+- winevent
+- edr:telemetry
+controls:
+- Endpoint Protection

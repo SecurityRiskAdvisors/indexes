@@ -1,0 +1,23 @@
+name: Data compression via 7zip
+description: Compress file(s) using the 7zip utility
+metadata:
+  isv: 1
+  tactic: TA0009
+  tid: T1560.001
+  x_vectr_id: 88db754a-c152-4737-98dd-03079224a00b
+  x_tools:
+  - https://www.7-zip.org/download.html
+platforms:
+- windows
+guidance:
+- cmd> 7za.exe a {{ zip_file }} {{ input_files }}
+block:
+- Block the use of unapproved third-party utilities via application control software
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- process_create
+controls:
+- Application Control
+- Endpoint Protection
+- SIEM

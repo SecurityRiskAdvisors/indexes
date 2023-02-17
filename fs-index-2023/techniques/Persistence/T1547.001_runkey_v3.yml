@@ -1,0 +1,23 @@
+name: Registry Run Key
+description: Run a payload during user login and startup by setting a registry run key
+metadata:
+  isv: 1
+  tactic: TA0003
+  tid: T1547.001
+  x_vectr_id: 5dc3f424-8f31-49ee-a822-a77ce20bac43
+  x_guidance_id: 20a831d1-276b-43c0-b65c-1d6b6e7e1dd7#1
+platforms:
+- windows
+guidance:
+- CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ key_name }}" /t REG_SZ /F /D "{{ command }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious Windows registry access detected in the SIEM using Registry telemetry
+logs:
+- edr:telemetry
+- winevent
+controls:
+- Endpoint Protection
+- SIEM

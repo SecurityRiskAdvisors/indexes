@@ -1,0 +1,17 @@
+name: Attachment - Macro in encrypted archive
+description: Send phishing email to victim containing attachment with malicious attachment in a password-protected ZIP archive. This is intended to test the mail gateway (and sandbox analysis) in isolation.
+metadata:
+  isv: 1
+  tactic: TA0001
+  tid: T1566.001
+  x_vectr_id: ab24f93b-92b9-4fdc-a0c4-13ab8df96851
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted by email gateway
+logs:
+- mail
+controls:
+- Mail Gateway

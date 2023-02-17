@@ -1,0 +1,20 @@
+name: Enumerate local admins with net.exe
+description: Enumerate local admin on the system using net.exe
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.001
+  x_vectr_id: 1e5220ea-d513-4ed9-9e8a-dbc210d8d860
+platforms:
+- windows
+guidance:
+- cmd> net localgroup administrators
+block:
+- null
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+logs:
+- process_create
+controls:
+- Endpoint Protection
+- SIEM
