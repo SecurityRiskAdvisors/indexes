@@ -578,7 +578,7 @@ General usage notes for DLP Test
 - The site supports HTTP, HTTPS, and FTP
 - Do not upload actual sensitive data to the site
 
-## Exfiltation with rclone - Using MEGA
+## Exfiltration with rclone - Using MEGA
 
 Rclone is a popular utility for managing, copying, and backing up files
 

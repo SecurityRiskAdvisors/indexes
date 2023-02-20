@@ -439,7 +439,7 @@ cmd> gpupdate /force
 
 # Exfiltration
 
-## Exfiltation with rclone - Using MEGA
+## Exfiltration with rclone - Using MEGA
 
 Rclone is a popular utility for managing, copying, and backing up files
 
