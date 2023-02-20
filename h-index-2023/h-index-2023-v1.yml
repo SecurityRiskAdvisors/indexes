@@ -10,8 +10,8 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: 84a1b020-370b-4eeb-9f0e-877a9e6d5419
     groups:
-    - QakBot
     - Kimsuky
+    - QakBot
     - Bumblebee
     - BlackTech
   guidance:
@@ -32,8 +32,8 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: ab24f93b-92b9-4fdc-a0c4-13ab8df96851
     groups:
-    - QakBot
     - Kimsuky
+    - QakBot
     - Bumblebee
     - BlackTech
   guidance:
@@ -53,11 +53,9 @@ Initial Access:
     tactic: TA0001
     tid: T1566.001
     x_vectr_id: f44e8e3d-5cb2-4f23-86f0-bdfb98fb6c99
-    x_references:
-    - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
     groups:
-    - QakBot
     - Kimsuky
+    - QakBot
     - Bumblebee
     - BlackTech
   guidance:
@@ -77,8 +75,6 @@ Initial Access:
     tactic: TA0001
     tid: T1566.002
     x_vectr_id: db33d2b3-9d9a-4e72-ac8f-548ecc7d4cdf
-    x_references:
-    - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
     groups:
     - Bumblebee
   guidance:
@@ -184,8 +180,8 @@ Execution:
     tid: T1106
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
-    - Quantum
     - Bumblebee
+    - Quantum
   guidance:
   - cmd> {{ exe }}
   block:
@@ -279,8 +275,8 @@ Defense Evasion:
     tid: T1218.011
     x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
     groups:
-    - QakBot
     - Bumblebee
+    - QakBot
   platforms:
   - windows
   guidance:
@@ -303,8 +299,6 @@ Defense Evasion:
     tactic: TA0004
     tid: T1548.002
     x_vectr_id: 8c06191e-8c03-4b97-8c18-e28cde39fda5
-    x_references:
-    - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
     groups:
     - Bumblebee
   platforms:
@@ -402,11 +396,12 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
-    - Kimsuky
-    - APT41
-    - BlackTech
+    - Bumblebee
     - QakBot
+    - BlackTech
     - Conti
+    - APT41
+    - Kimsuky
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -428,11 +423,12 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
-    - Kimsuky
-    - APT41
-    - BlackTech
+    - Bumblebee
     - QakBot
+    - BlackTech
     - Conti
+    - APT41
+    - Kimsuky
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -479,10 +475,10 @@ Credential Access:
     x_tools:
     - https://processhacker.sourceforge.io/
     groups:
-    - Bumblebee
     - Kimsuky
     - Conti
     - Bazar
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -508,10 +504,10 @@ Credential Access:
     tid: T1003.001
     x_vectr_id: fc8a1bff-bc19-46fe-bd73-63fe6dce45b0
     groups:
-    - Bumblebee
     - Kimsuky
     - Conti
     - Bazar
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -537,10 +533,10 @@ Credential Access:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
-    - Bumblebee
     - Kimsuky
     - Conti
     - Bazar
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -566,8 +562,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
     groups:
-    - APT41
     - Bumblebee
+    - APT41
   platforms:
   - windows
   prerequisites:
@@ -593,8 +589,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: 943ecdc7-c828-41fa-acf7-6c216e87dca4
     groups:
-    - APT41
     - Bumblebee
+    - APT41
   platforms:
   - windows
   prerequisites:
@@ -688,9 +684,9 @@ Discovery:
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
     - Bumblebee
-    - APT41
     - Conti
     - Bazar
+    - APT41
   platforms:
   - windows
   guidance:
@@ -714,9 +710,9 @@ Discovery:
     x_vectr_id: 81ed48d0-a13c-40db-9f11-6675ef57d41e
     groups:
     - Bumblebee
-    - APT41
     - Conti
     - Bazar
+    - APT41
   guidance:
   - cmd> setspn -l {{ object }}
   block:
@@ -788,8 +784,8 @@ Discovery:
     tid: T1018
     x_vectr_id: a42c79f3-a436-4ced-9c93-13b0ea55d315
     groups:
-    - APT41
     - Bumblebee
+    - APT41
     - BlackTech
   platforms:
   - windows
@@ -938,9 +934,9 @@ Lateral Movement:
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
     - Bumblebee
-    - APT41
     - Conti
     - Bazar
+    - APT41
   platforms:
   - windows
   prerequisites:
@@ -970,9 +966,6 @@ Persistence:
     tactic: TA0003
     tid: T1543.003
     x_vectr_id: 81f2fa04-79df-4c0b-aea5-a5da584c3879
-    x_references:
-    - https://blog.group-ib.com/colunmtk_apt41
-    - https://www.mandiant.com/resources/apt41-initiates-global-intrusion-campaign-using-multiple-exploits
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/apt41.bat
     groups:
@@ -1232,8 +1225,8 @@ Impact:
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
     groups:
-    - Quantum
     - Bumblebee
+    - Quantum
   guidance:
   - cmd> coldcryptor.exe run {{ extension }}
   block:

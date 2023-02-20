@@ -33,8 +33,7 @@
 "Clear the Windows Event Log entries","T1070.001","Defense Evasion","Clear the Windows Application and Security Event Log entries using the builtin wevtutil.exe"
 "Pass-the-ticket","T1550.003","Defense Evasion","Dump a Kerberos ticket from one computer then use it on another system to make a network request to a domain resource (e.g. access a share)"
 "Process creation using Regsvr32 and DLL","T1218.010","Defense Evasion","Spawn a new process using a DLL payload and the builtin regsvr32.exe"
-"Execution via DLL Search Order Hijacking","T1574.001","Defense Evasion","Execute an attacker-controlled DLL by placing it in a higher precedence search location for a native Windows binary after renaming it to share a name with a DLL expected to be loaded by the binary.
-"
+"Execution via DLL Search Order Hijacking","T1574.001","Defense Evasion","Execute an attacker-controlled DLL by placing it in a higher precedence search location for a native Windows binary after renaming it to share a name with a DLL expected to be loaded by the binary."
 "Access via remote assistance tool","T1219","Command and Control","Establish connection to system using a legitimate remote assistance application"
 "HTTPS C2 over tcp/443","T1071.001","Command and Control","Establish a bidirectional command-and-control connection from a managed asset to an external server on the Internet over HTTPS"
 "HTTP C2 over tcp/80","T1071.001","Command and Control","Establish a bidirectional command-and-control connection from a managed asset to an external server on the Internet over HTTP"

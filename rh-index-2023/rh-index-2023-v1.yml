@@ -48,11 +48,9 @@ Initial Access:
     tactic: TA0001
     tid: T1566.002
     x_vectr_id: db33d2b3-9d9a-4e72-ac8f-548ecc7d4cdf
-    x_references:
-    - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
     groups:
-    - FIN7
     - Bumblebee
+    - FIN7
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -71,8 +69,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: 96efbefa-60e7-41eb-8ba3-e837e57a8036
     groups:
-    - FIN7
     - Bumblebee
+    - FIN7
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -91,8 +89,8 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: 97f1da56-79a3-4181-a491-8de9f93b05af
     groups:
-    - QakBot
     - Bumblebee
+    - QakBot
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -110,11 +108,9 @@ Initial Access:
     tactic: TA0001
     tid: T1566.001
     x_vectr_id: f44e8e3d-5cb2-4f23-86f0-bdfb98fb6c99
-    x_references:
-    - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
     groups:
-    - QakBot
     - Bumblebee
+    - QakBot
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -187,10 +183,10 @@ Command and Control:
     tid: T1219
     x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
     groups:
-    - Conti
-    - FIN7
     - Bumblebee
     - LAPSUS$
+    - Conti
+    - FIN7
   block:
   - Block the installation and usage of unapproved third-party utilities via application control software
   - Connections to known remote access service domains/IPs are blocked
@@ -210,9 +206,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
+    - APT41
+    - Bumblebee
     - QakBot
     - Conti
-    - APT41
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -233,9 +230,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
+    - APT41
+    - Bumblebee
     - QakBot
     - Conti
-    - APT41
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -279,9 +277,9 @@ Execution:
     tid: T1106
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
+    - Bumblebee
     - Quantum
     - FIN7
-    - Bumblebee
   guidance:
   - cmd> {{ exe }}
   block:
@@ -422,8 +420,8 @@ Defense Evasion:
     tid: T1218.011
     x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
     groups:
-    - QakBot
     - Bumblebee
+    - QakBot
   platforms:
   - windows
   guidance:
@@ -446,8 +444,6 @@ Defense Evasion:
     tactic: TA0004
     tid: T1548.002
     x_vectr_id: 8c06191e-8c03-4b97-8c18-e28cde39fda5
-    x_references:
-    - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
     groups:
     - Bumblebee
   platforms:
@@ -502,8 +498,8 @@ Persistence:
     tid: T1053.005
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
-    - FIN7
     - Bumblebee
+    - FIN7
   platforms:
   - windows
   prerequisites:
@@ -552,9 +548,6 @@ Persistence:
     tactic: TA0003
     tid: T1543.003
     x_vectr_id: 81f2fa04-79df-4c0b-aea5-a5da584c3879
-    x_references:
-    - https://blog.group-ib.com/colunmtk_apt41
-    - https://www.mandiant.com/resources/apt41-initiates-global-intrusion-campaign-using-multiple-exploits
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/apt41.bat
     groups:
@@ -641,9 +634,9 @@ Impact:
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
     groups:
+    - Bumblebee
     - Quantum
     - FIN7
-    - Bumblebee
   guidance:
   - cmd> coldcryptor.exe run {{ extension }}
   block:
@@ -805,8 +798,8 @@ Credential Access:
     x_tools:
     - https://processhacker.sourceforge.io/
     groups:
-    - Conti
     - Bumblebee
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -834,8 +827,8 @@ Credential Access:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
-    - Conti
     - Bumblebee
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -861,8 +854,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
     groups:
-    - Bumblebee
     - APT41
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -945,9 +938,9 @@ Lateral Movement:
     tid: T1021.001
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
+    - Bumblebee
     - Conti
     - FIN7
-    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -975,9 +968,9 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
-    - Conti
-    - Bumblebee
     - APT41
+    - Bumblebee
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -1036,10 +1029,10 @@ Discovery:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer
     groups:
-    - Conti
-    - Bumblebee
     - APT41
     - LAPSUS$
+    - Bumblebee
+    - Conti
   platforms:
   - windows
   block:
@@ -1063,10 +1056,10 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - Conti
-    - Bumblebee
     - APT41
     - LAPSUS$
+    - Bumblebee
+    - Conti
   platforms:
   - windows
   guidance:
@@ -1089,10 +1082,10 @@ Discovery:
     tid: T1087.002
     x_vectr_id: 81ed48d0-a13c-40db-9f11-6675ef57d41e
     groups:
-    - Conti
-    - Bumblebee
     - APT41
     - LAPSUS$
+    - Bumblebee
+    - Conti
   guidance:
   - cmd> setspn -l {{ object }}
   block:
@@ -1135,8 +1128,8 @@ Discovery:
     tid: T1482
     x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
     groups:
-    - Conti
     - Bumblebee
+    - Conti
   platforms:
   - windows
   guidance:
@@ -1182,6 +1175,7 @@ Discovery:
     tid: T1018
     x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
     groups:
+    - APT41
     - Bumblebee
   platforms:
   - windows
@@ -1232,8 +1226,8 @@ Discovery:
     tid: T1082
     x_vectr_id: 5c37bc54-8fe0-41c9-ae82-99ae57b9146e
     groups:
-    - QakBot
     - Bumblebee
+    - QakBot
   platforms:
   - windows
   guidance:

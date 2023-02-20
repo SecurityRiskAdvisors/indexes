@@ -10,8 +10,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: 14907efc-0ada-45f0-80e7-4bab0fe2963a
     groups:
-    - APT29
     - Bumblebee
+    - APT29
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -29,8 +29,6 @@ Initial Access:
     tactic: TA0001
     tid: T1566.001
     x_vectr_id: f44e8e3d-5cb2-4f23-86f0-bdfb98fb6c99
-    x_references:
-    - https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming
     groups:
     - Bumblebee
     - QakBot
@@ -72,8 +70,8 @@ Initial Access:
     tid: T1078
     x_vectr_id: 477c9a5f-bbe9-4f15-bbeb-16e1486ae75a
     groups:
-    - LAPSUS$
     - APT29
+    - LAPSUS$
   block:
   - Suspicious logins originating from select geolocation are blocked
   detect:
@@ -92,8 +90,8 @@ Initial Access:
     tid: T1078
     x_vectr_id: 8837993a-5126-4288-bfaf-e3d3be81aa92
     groups:
-    - LAPSUS$
     - APT29
+    - LAPSUS$
   block:
   - Suspicious logins originating from select geolocation are blocked
   detect:
@@ -113,8 +111,8 @@ Initial Access:
     tid: T1621
     x_vectr_id: ba6b3115-f8f6-4b28-bb24-ad5dfad6b4b7
     groups:
-    - LAPSUS$
     - APT29
+    - LAPSUS$
   block:
   - Prevent application sign-ins from users with anomalous login characteristics, such as an unknown geolocation and device fingerprint
   detect:
@@ -173,8 +171,8 @@ Execution:
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
     - Quantum
-    - APT29
     - Bumblebee
+    - APT29
   guidance:
   - cmd> {{ exe }}
   block:
@@ -194,8 +192,8 @@ Execution:
     x_vectr_id: b1d57e4e-74e2-4f56-88b8-86c04f15c516
     groups:
     - Quantum
-    - APT29
     - Bumblebee
+    - APT29
   guidance:
   - cmd> {{ lnk }}
   block:
@@ -214,8 +212,8 @@ Execution:
     tid: T1204.002
     x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
     groups:
-    - QakBot
     - APT29
+    - QakBot
     - Bazar
   platforms:
   - windows
@@ -240,8 +238,8 @@ Execution:
     tid: T1204.002
     x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
     groups:
-    - QakBot
     - APT29
+    - QakBot
     - Bazar
   platforms:
   - windows
@@ -294,18 +292,15 @@ Discovery:
     tactic: TA0007
     tid: T1087.002
     x_vectr_id: 76ce7dbe-ecd8-47bb-8ca6-68067c508fa1
-    x_references:
-    - https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime
-    - https://unit42.paloaltonetworks.com/bazarloader-network-reconnaissance/
     x_tools:
     - AdFind
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
     groups:
-    - Bazar
-    - APT29
-    - LAPSUS$
     - APT41
+    - APT29
     - Bumblebee
+    - Bazar
+    - LAPSUS$
   guidance:
   - cmd> {{ bat_file }}
   block:
@@ -328,11 +323,11 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - Bazar
-    - APT29
-    - LAPSUS$
     - APT41
+    - APT29
     - Bumblebee
+    - Bazar
+    - LAPSUS$
   platforms:
   - windows
   guidance:
@@ -355,11 +350,11 @@ Discovery:
     tid: T1087.002
     x_vectr_id: a4608a06-4f66-4bf3-a7b6-e22849de6a71
     groups:
-    - Bazar
-    - APT29
-    - LAPSUS$
     - APT41
+    - APT29
     - Bumblebee
+    - Bazar
+    - LAPSUS$
   platforms:
   - windows
   guidance:
@@ -386,8 +381,8 @@ Discovery:
     tid: T1482
     x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -411,8 +406,8 @@ Discovery:
     tid: T1018
     x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT41
   platforms:
   - windows
@@ -461,6 +456,7 @@ Persistence:
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
     - Bumblebee
+    - APT29
   platforms:
   - windows
   prerequisites:
@@ -513,9 +509,6 @@ Persistence:
     tactic: TA0003
     tid: T1543.003
     x_vectr_id: 81f2fa04-79df-4c0b-aea5-a5da584c3879
-    x_references:
-    - https://blog.group-ib.com/colunmtk_apt41
-    - https://www.mandiant.com/resources/apt41-initiates-global-intrusion-campaign-using-multiple-exploits
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/apt41.bat
     groups:
@@ -548,6 +541,7 @@ Persistence:
     - https://github.com/sensepost/reGeorg
     groups:
     - APT28
+    - APT29
   guidance:
   - shell> cp {{ webshell }} {{ web_root }}
   block:
@@ -692,8 +686,8 @@ Defense Evasion:
     tid: T1218.011
     x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - QakBot
   platforms:
   - windows
@@ -743,8 +737,6 @@ Defense Evasion:
     tactic: TA0004
     tid: T1548.002
     x_vectr_id: 8c06191e-8c03-4b97-8c18-e28cde39fda5
-    x_references:
-    - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
     groups:
     - Bumblebee
   platforms:
@@ -850,6 +842,8 @@ Defense Evasion:
     tactic: TA0005
     tid: T1574.001
     x_vectr_id: 0c145db7-49de-40d6-bcec-a7d5dd31e97f
+    groups:
+    - APT29
   platforms:
   - windows
   guidance:
@@ -883,9 +877,9 @@ Command and Control:
     tid: T1219
     x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
     groups:
-    - LAPSUS$
     - Bumblebee
     - Bazar
+    - LAPSUS$
   block:
   - Block the installation and usage of unapproved third-party utilities via application control software
   - Connections to known remote access service domains/IPs are blocked
@@ -905,9 +899,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
-    - APT41
     - QakBot
+    - APT41
     - APT29
+    - Bumblebee
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -929,9 +924,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
-    - APT41
     - QakBot
+    - APT41
     - APT29
+    - Bumblebee
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -1027,8 +1023,6 @@ Command and Control:
     tactic: TA0011
     tid: T1102.002
     x_vectr_id: 43ab96a9-b2c0-442a-b8e4-18e172a1a2ce
-    x_references:
-    - https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online
     groups:
     - APT29
   block:
@@ -1074,8 +1068,8 @@ Credential Access:
     x_vectr_id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
     groups:
     - APT28
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -1104,8 +1098,8 @@ Credential Access:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
     - APT28
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -1133,8 +1127,8 @@ Credential Access:
     x_vectr_id: 168468fe-4d55-4c05-a342-ce9512081ff0
     groups:
     - APT28
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -1189,10 +1183,10 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 4bf62dcb-0a6e-4805-8536-d17122d956c5
     groups:
+    - APT28
+    - Bumblebee
     - APT29
     - LAPSUS$
-    - Bumblebee
-    - APT28
   platforms:
   - windows
   prerequisites:
@@ -1228,10 +1222,10 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
     groups:
+    - APT28
+    - Bumblebee
     - APT29
     - LAPSUS$
-    - Bumblebee
-    - APT28
   platforms:
   - windows
   prerequisites:
@@ -1313,8 +1307,8 @@ Collection:
     x_tools:
     - https://www.7-zip.org/download.html
     groups:
-    - Bumblebee
     - APT28
+    - Bumblebee
   platforms:
   - windows
   guidance:
@@ -1338,8 +1332,8 @@ Lateral Movement:
     tid: T1021.001
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -1368,10 +1362,10 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
-    - APT41
-    - APT29
     - Bumblebee
+    - APT41
     - Bazar
+    - APT29
   platforms:
   - windows
   prerequisites:
@@ -1401,10 +1395,10 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: c58d7abf-843b-4751-8f33-8dea8eca8a21
     groups:
-    - APT41
-    - APT29
     - Bumblebee
+    - APT41
     - Bazar
+    - APT29
   platforms:
   - windows
   prerequisites:

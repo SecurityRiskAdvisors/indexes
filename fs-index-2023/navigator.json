@@ -422,1575 +422,15 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1497.002"
+            "techniqueID": "T1557.001"
         },
         {
             "enabled": false,
-            "techniqueID": "T1087.003"
+            "techniqueID": "T1583.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1158"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1121"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1484.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1022"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1212"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1518.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1589.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1596"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1071.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1596.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1153"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1600.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1074.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1044"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1491.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1550.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1606.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1028"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1497.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1056"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1078.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1595.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1614"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1578.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1166"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1076"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1131"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1145"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1084"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1195.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1568"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1648"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1127"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1114"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1119"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1048.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1568.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1569.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1098.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1595.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1144"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1555.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1203"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1159"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1090.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1527"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1188"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1543.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1563.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1587.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1536"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1499.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1137.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1090.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1555.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1600"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1081"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1483"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1222.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1213.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1092"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1179"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1052"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1195"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1088"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1506"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1613"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1522"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1096"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1132.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1196"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1183"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1211"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1095"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1204.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1090"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1647"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1548.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1054"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1149"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1565.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1583.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1168"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1047"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1591.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1001.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1216.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1525"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1217"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1565"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1118"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1175"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1592.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1133"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1176"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1491.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1205.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1019"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1056.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1097"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1136.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1071.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1197"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1569.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1528"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1597"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1074.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1539"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1503"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1177"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1500"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1592.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1494"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1558.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1078.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1016.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1558.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1535"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1102.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1178"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1601"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1499.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1199"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.011"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1201"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1174"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1078.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1065"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1037.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1157"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1578"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1098.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1593.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1037.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1488"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1051"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1565.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1505.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1087.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1501"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1606.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1587.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1143"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1586.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1599.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1139"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1578.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1061"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1091"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1514"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1578.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1069"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1612"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1591.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1138"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1557.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1216"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1189"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1102.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1480"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1571"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1017"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1191"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1573.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1587"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1598.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1498"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1034"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1578.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.012"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1213.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1090.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1559"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1164"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1137.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1162"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1600.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1221"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1186"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1499.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1586"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1206"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1187"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1182"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1184"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1496"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1559.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1129"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1484.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1493"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1485"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1529"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1001.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1569"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1101"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1052.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1064"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1114.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1543.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1583.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1601.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1152"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1585.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1180"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1111"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1598.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1001.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1220"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1583.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1037.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1214"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1568.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1592.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1066"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1602"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1146"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1537"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1038"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1222.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1114.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1154"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1137.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1210"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1560.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1204.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1530"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1585"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1077"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.011"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1596.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1499.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1014"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1048.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1098.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1561.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1123"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1132"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1491"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1069.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1615"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1058"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1610"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1573.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1021.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.015"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1089"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1072"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1518"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1012"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1045"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1115"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1598"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1560.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1099"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1490"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1583.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1609"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1559.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1056.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1558.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1548.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1585.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1011.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1611"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1172"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1213.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1124"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1580"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1215"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1561"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1589.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1602.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1587.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1170"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1550.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1086"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1161"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1056.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.014"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1190"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.015"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1079"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.014"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1030"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1032"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1035"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1015"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1107"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1110.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.003"
+            "techniqueID": "T1059.004"
         },
         {
             "enabled": false,
@@ -1998,387 +438,19 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1070.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1021.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1011"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1003.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1484"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1538"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1062"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1151"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1534"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1082"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1592.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1147"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.014"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1202"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1649"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1127.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1586.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1137.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1021.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1583.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1112"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1492"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1593"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1563"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1069.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.012"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1595"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1502"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1029"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1169"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1027.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1208"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1567.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1585.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1037"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1126"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1555.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1586.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1504"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1622"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542.001"
-        },
-        {
-            "enabled": false,
             "techniqueID": "T1059.007"
         },
         {
             "enabled": false,
-            "techniqueID": "T1185"
+            "techniqueID": "T1556.001"
         },
         {
             "enabled": false,
-            "techniqueID": "T1043"
+            "techniqueID": "T1187"
         },
         {
             "enabled": false,
-            "techniqueID": "T1555.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1591.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1137.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1056.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1601.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1194"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1070.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1557.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1033"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1599"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1495"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1205.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1003.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1156"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1140"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1125"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1195.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1591.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1589"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1602.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1094"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1132.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1039"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1552.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1207"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1003.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1589.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1558"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1041"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1606"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590.005"
+            "techniqueID": "T1172"
         },
         {
             "enabled": false,
@@ -2386,19 +458,31 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1195.003"
+            "techniqueID": "T1089"
         },
         {
             "enabled": false,
-            "techniqueID": "T1165"
+            "techniqueID": "T1573.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1583"
+            "techniqueID": "T1560.003"
         },
         {
             "enabled": false,
-            "techniqueID": "T1557.001"
+            "techniqueID": "T1561.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1196"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1167"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.003"
         },
         {
             "enabled": false,
@@ -2406,7 +490,1647 @@
         },
         {
             "enabled": false,
+            "techniqueID": "T1601.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1589.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1076"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1569.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1131"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1090.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1016"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1585.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1597.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1606.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1565.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1599.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1499.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1606"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1598.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1561"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.011"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1578.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1592.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1059.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1194"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1555.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1559"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1114.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1485"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1491.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1142"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1499.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1586.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1014"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1214"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1038"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1213.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1021.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1122"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1569.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1555.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1598.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1035"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1585.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1204.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1213.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1539"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1205.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1483"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1217"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1220"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1506"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1003.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1557"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1529"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1542"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1001.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1559.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1597"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1568.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1110.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1147"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1612"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1003.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1216"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1068"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1078.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1081"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1611"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1598"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1169"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1021.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1531"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1050"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1093"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1565"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1024"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1190"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1213"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1558.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1615"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1598.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1056.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1114.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1497"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1069.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1163"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1087.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1020"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1585"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1496"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1127"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1016.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1178"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1484"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1170"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1587.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1052"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1563.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1064"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1153"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1168"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1498.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1120"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1026"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1150"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1591.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1017"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1134.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1578.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1103"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1061"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1108"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1087.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1151"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1185"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1555.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1537"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1202"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1620"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.015"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1144"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1130"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1114.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1548.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1554"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1542.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1164"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1480"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1159"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1591.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1522"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1204.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1109"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1090.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1613"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1550.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1198"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1558.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1501"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.014"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1585.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.011"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1145"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1020.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1543.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1203"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1480.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1183"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1543.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1161"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1206"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1100"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1595.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1484.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1090"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1566.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1599"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1176"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1173"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1184"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1589.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1619"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1586.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1573"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1558.001"
+        },
+        {
+            "enabled": false,
             "techniqueID": "T1218.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1587.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1538"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1182"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1548.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1074.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1222"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1041"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1648"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1132.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1499.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1043"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1216.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1558"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1580"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1500"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1054"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1568.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1589.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1592.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1102.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1565.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1177"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1571"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1606.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1193"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1502"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1011"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1156"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1592.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1019"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1056.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1223"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1530"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1492"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1542.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1595.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1536"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1195"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1146"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1067"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1215"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1195.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1069"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1199"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1001.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1494"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1003.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1563.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1051"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1207"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1032"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1180"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.014"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1505.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1568"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1154"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1171"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1139"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1029"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1060"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1583.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1567.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1488"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1602.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1559.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1088"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1555.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1557.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1594"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1129"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1597.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1082"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1079"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1078.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1578"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.015"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1107"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1134.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1578.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1104"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1563"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.014"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1111"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1123"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1025"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1568.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1614.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1221"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.016"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1034"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1099"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1124"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1188"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1497.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1078.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1048.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1602.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1542.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1087.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1593.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1040"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1059.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1586.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1033"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1197"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1080"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1179"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1491.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1587.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1028"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1127.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1543.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1550.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1011.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1592"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1023"
         },
         {
             "enabled": false,
@@ -2418,51 +2142,11 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1505.001"
+            "techniqueID": "T1647"
         },
         {
             "enabled": false,
-            "techniqueID": "T1597.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1037.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1074"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1117"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1049"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.012"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1098"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588"
+            "techniqueID": "T1542.003"
         },
         {
             "enabled": false,
@@ -2470,235 +2154,11 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1148"
+            "techniqueID": "T1157"
         },
         {
             "enabled": false,
-            "techniqueID": "T1564.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1063"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1020.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1519"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1198"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1591"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1134"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1042"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1487"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1098.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1080"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1213"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1110.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1593.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.016"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1531"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1060"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1563.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1499"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1218.013"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1562.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1547.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1554"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1543.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1588.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1597.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1574.010"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1596.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1136.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1059.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1546.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1100"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1114.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.015"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1020"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1053.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1031"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1110.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1505.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1016"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1130"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.009"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1181"
+            "techniqueID": "T1158"
         },
         {
             "enabled": false,
@@ -2706,175 +2166,47 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1583.002"
+            "techniqueID": "T1072"
         },
         {
             "enabled": false,
-            "techniqueID": "T1588.006"
+            "techniqueID": "T1547.015"
         },
         {
             "enabled": false,
-            "techniqueID": "T1584.005"
+            "techniqueID": "T1528"
         },
         {
             "enabled": false,
-            "techniqueID": "T1223"
+            "techniqueID": "T1504"
         },
         {
             "enabled": false,
-            "techniqueID": "T1108"
+            "techniqueID": "T1047"
         },
         {
             "enabled": false,
-            "techniqueID": "T1173"
+            "techniqueID": "T1056"
         },
         {
             "enabled": false,
-            "techniqueID": "T1137"
+            "techniqueID": "T1086"
         },
         {
             "enabled": false,
-            "techniqueID": "T1093"
+            "techniqueID": "T1487"
         },
         {
             "enabled": false,
-            "techniqueID": "T1023"
+            "techniqueID": "T1065"
         },
         {
             "enabled": false,
-            "techniqueID": "T1087.004"
+            "techniqueID": "T1071.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1553.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1025"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1550.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1561.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1480.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1075"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1548.003"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1103"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1122"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1608"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1542.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1584.006"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1556.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1592"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1205"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1568.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.012"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1050"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1594"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1067"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1558.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1150"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1155"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1557"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1200"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1090.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1497"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1209"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1055.014"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1163"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1036.002"
+            "techniqueID": "T1546.008"
         },
         {
             "enabled": false,
@@ -2882,91 +2214,15 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1595.002"
+            "techniqueID": "T1091"
         },
         {
             "enabled": false,
-            "techniqueID": "T1040"
+            "techniqueID": "T1095"
         },
         {
             "enabled": false,
-            "techniqueID": "T1027.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1026"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1553.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1142"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.005"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1587.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1128"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1068"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1078.004"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1116"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1590"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1498.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1505.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1564.008"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1565.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1003.007"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1620"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1559.001"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1069.002"
-        },
-        {
-            "enabled": false,
-            "techniqueID": "T1109"
+            "techniqueID": "T1546.001"
         },
         {
             "enabled": false,
@@ -2974,31 +2230,163 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1098.001"
+            "techniqueID": "T1036.003"
         },
         {
             "enabled": false,
-            "techniqueID": "T1526"
+            "techniqueID": "T1059"
         },
         {
             "enabled": false,
-            "techniqueID": "T1160"
+            "techniqueID": "T1074"
         },
         {
             "enabled": false,
-            "techniqueID": "T1113"
+            "techniqueID": "T1078.001"
         },
         {
             "enabled": false,
-            "techniqueID": "T1171"
+            "techniqueID": "T1591"
         },
         {
             "enabled": false,
-            "techniqueID": "T1193"
+            "techniqueID": "T1055.004"
         },
         {
             "enabled": false,
-            "techniqueID": "T1596.002"
+            "techniqueID": "T1069.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1162"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1132.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1094"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1610"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1593"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1063"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1110.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1102.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1191"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1117"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.009"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1152"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1600"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1211"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1505.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1548.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1569"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1591.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1001.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1186"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1031"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1045"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1133"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1495"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1546.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1030"
         },
         {
             "enabled": false,
@@ -3006,63 +2394,319 @@
         },
         {
             "enabled": false,
-            "techniqueID": "T1137.004"
+            "techniqueID": "T1136.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1619"
+            "techniqueID": "T1547.005"
         },
         {
             "enabled": false,
-            "techniqueID": "T1547.012"
+            "techniqueID": "T1560.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1222"
+            "techniqueID": "T1565.003"
         },
         {
             "enabled": false,
-            "techniqueID": "T1566.003"
+            "techniqueID": "T1205"
         },
         {
             "enabled": false,
-            "techniqueID": "T1167"
+            "techniqueID": "T1526"
         },
         {
             "enabled": false,
-            "techniqueID": "T1598.001"
+            "techniqueID": "T1015"
         },
         {
             "enabled": false,
-            "techniqueID": "T1596.001"
+            "techniqueID": "T1592.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1608.003"
+            "techniqueID": "T1084"
         },
         {
             "enabled": false,
-            "techniqueID": "T1036"
+            "techniqueID": "T1075"
         },
         {
             "enabled": false,
-            "techniqueID": "T1593.001"
+            "techniqueID": "T1134.005"
         },
         {
             "enabled": false,
-            "techniqueID": "T1024"
+            "techniqueID": "T1149"
         },
         {
             "enabled": false,
-            "techniqueID": "T1574.002"
+            "techniqueID": "T1649"
         },
         {
             "enabled": false,
-            "techniqueID": "T1037.004"
+            "techniqueID": "T1027.004"
         },
         {
             "enabled": false,
-            "techniqueID": "T1573"
+            "techniqueID": "T1062"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1092"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1036.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1573.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1212"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1542.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1058"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1550.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1590"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1101"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1600.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1589"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1586"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1059.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1044"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1208"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1071.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1052.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1491"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1497.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1595.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1096"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1595"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1601"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1066"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1069.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1140"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1143"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1119"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1110.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1121"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1115"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1053.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1553"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1209"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1587"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1112"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1074.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1534"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1090.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1514"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1557.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1535"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1138"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1148"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1218.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1222.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1118"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1622"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1503"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1505.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1601.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1205.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.010"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1527"
         },
         {
             "enabled": false,
@@ -3070,23 +2714,379 @@
         },
         {
             "enabled": false,
+            "techniqueID": "T1003.008"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1518.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1559.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1049"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1519"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1165"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1048.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1490"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1591.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1561.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1200"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1042"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1166"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1499.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1022"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1552.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.012"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1584.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1174"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1602"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1609"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1505.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1484.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1059.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1113"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1134.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1126"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1593.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1593.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.014"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1021.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1189"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1027.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1588.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1587.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1077"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1556.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1558.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1562.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1039"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1128"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1525"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1614"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1596.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1498"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1134.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1608.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1097"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1056.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1210"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1181"
+        },
+        {
+            "enabled": false,
             "techniqueID": "T1497.003"
         },
         {
             "enabled": false,
-            "techniqueID": "T1614.001"
+            "techniqueID": "T1125"
         },
         {
             "enabled": false,
-            "techniqueID": "T1070.007"
+            "techniqueID": "T1222.002"
         },
         {
             "enabled": false,
-            "techniqueID": "T1104"
+            "techniqueID": "T1132"
         },
         {
             "enabled": false,
-            "techniqueID": "T1120"
+            "techniqueID": "T1195.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1160"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1070.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1037.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1547.013"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1136.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1195.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1564.007"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1056.004"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1114"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1175"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1493"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1578.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.006"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1499"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1098.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1155"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1213.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1518"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1137.001"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1574.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1059.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1600.002"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1201"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1055.005"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1134"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1090.003"
+        },
+        {
+            "enabled": false,
+            "techniqueID": "T1116"
         }
     ]
 }
