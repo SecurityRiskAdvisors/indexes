@@ -44,7 +44,7 @@ Expand the below section to view Index group compositions
 
 **Health**
 
-- [APT29](https://attack.mitre.org/groups/G0016/)
+- [APT41](https://attack.mitre.org/groups/G0096/)
 - [Bazar](https://attack.mitre.org/software/S0534/)
 - [BlackTech](https://attack.mitre.org/groups/G0098/)
 - [Bumblebee](https://attack.mitre.org/software/S1039/) (& Quantum)
