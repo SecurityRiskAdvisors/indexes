@@ -1087,7 +1087,7 @@ Discovery:
     - Bumblebee
     - Conti
   guidance:
-  - cmd> setspn -l {{ object }}
+  - cmd> setspn -T {{ domain }} -Q */*
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
