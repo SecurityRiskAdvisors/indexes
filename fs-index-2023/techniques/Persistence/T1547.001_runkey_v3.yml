@@ -1,4 +1,4 @@
-name: Registry Run Key
+name: Persist via Registry "Run" key
 description: Run a payload during user login and startup by setting a registry run key
 metadata:
   isv: 1

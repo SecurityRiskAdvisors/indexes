@@ -74,9 +74,7 @@ Use cmd.exe to launch an exe via an LNK
 ### Prerequisites
 
 - EXE payload
-- LNK (shortcut) with the following settings:
-   1. Target: `C:\Windows\System32\cmd.exe /c start {{ exe }}`
-   1. Start in: make this empty
+- LNK (shortcut) with the following settings: Target: `C:\Windows\System32\cmd.exe /c start {{ exe }}`, Start in: make this empty
 - EXE and LNK must be in the same directory
 
 ### References
@@ -302,6 +300,7 @@ cmd> reg delete HKCU\Software\Classes\ms-settings\Shell\Open\command /f
 - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
 - https://4pfsec.com/offensive-windows-fodhelper-exe/
 
+
 ## Process creation using Regsvr32 - DLL Payload
 
 Regsvr32.exe is an abusable builtin executable in Windows
@@ -349,6 +348,7 @@ move {{ dll_payload }} msftedit.dll
 ### References
 
 1. https://github.com/xforcered/WFH
+
 
 # Command and control
 
@@ -484,6 +484,7 @@ cmd> vssadmin delete shadows /shadow={{ volume_id }}
 cmd> del {{ output_path }}\NTDS.dit
 cmd> del {{ output_path }}\SYSTEM
 ```
+
 
 ## Extract NTDS.dit Credentials - via ntdsutil.exe
 

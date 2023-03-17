@@ -1,5 +1,5 @@
-name: Clear the Windows Event Log entries
-description: Clear the Windows Application and Security Event Log entries using the builtin wevtutil.exe
+name: Clear Windows Event Log entries
+description: Clear the Windows Event Log entries using the builtin wevtutil.exe
 metadata:
   isv: 1
   tactic: TA0005
@@ -12,11 +12,12 @@ prerequisites:
 guidance:
 - CMD> wevtutil clear-log Security
 - CMD> wevtutil clear-log Application
+- CMD> wevtutil clear-log System
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 detect:
-- Suspicious process execution/behavior detected by endpoint security tool
-- 'Suspicious Windows Event Log deletion detected in the SIEM using Event Log telemetry (ex: EID 1102)'
+- Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- 'Suspicious Windows Event Log deletion detected in the SIEM using Event Log telemetry that corresponds to the log (ex: EID 1102 for Security log)'
 logs:
 - edr:telemetry
 - winevent

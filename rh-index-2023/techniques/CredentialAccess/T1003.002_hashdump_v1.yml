@@ -10,7 +10,7 @@ platforms:
 prerequisites:
 - local_admin
 guidance:
-- beacon> hashdump
+- implant> hashdump
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 detect:

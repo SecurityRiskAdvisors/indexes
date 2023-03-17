@@ -126,6 +126,7 @@ cmd> reg delete HKCU\Software\Classes\ms-settings\Shell\Open\command /f
 - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
 - https://4pfsec.com/offensive-windows-fodhelper-exe/
 
+
 ## Odbcconf - Execution using odbcconf and rsp file
 
 The builtin odbcconf.exe binary can be abused to execute arbitrary code via a DLL payload
@@ -240,7 +241,22 @@ cmd> del {{ output_path }}\NTDS.dit
 cmd> del {{ output_path }}\SYSTEM
 ```
 
+
 # Discovery
+
+## AdFind - General use
+
+Command-line Active Directory query tool
+
+General usage notes for AdFind
+
+### Prerequisites
+
+- AdFind binary: http://www.joeware.net/freetools/tools/adfind/
+
+### Notes
+
+- If AdFind is blocked based on command line, consider renaming the binary
 
 # Lateral movement
 

@@ -10,8 +10,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: 14907efc-0ada-45f0-80e7-4bab0fe2963a
     groups:
-    - Bumblebee
     - APT29
+    - Bumblebee
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -170,9 +170,9 @@ Execution:
     tid: T1106
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
+    - APT29
     - Quantum
     - Bumblebee
-    - APT29
   guidance:
   - cmd> {{ exe }}
   block:
@@ -191,9 +191,9 @@ Execution:
     tid: T1106
     x_vectr_id: b1d57e4e-74e2-4f56-88b8-86c04f15c516
     groups:
+    - APT29
     - Quantum
     - Bumblebee
-    - APT29
   guidance:
   - cmd> {{ lnk }}
   block:
@@ -213,8 +213,8 @@ Execution:
     x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
     groups:
     - APT29
-    - QakBot
     - Bazar
+    - QakBot
   platforms:
   - windows
   block:
@@ -239,8 +239,8 @@ Execution:
     x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
     groups:
     - APT29
-    - QakBot
     - Bazar
+    - QakBot
   platforms:
   - windows
   block:
@@ -296,9 +296,9 @@ Discovery:
     - AdFind
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
     groups:
-    - APT41
-    - APT29
     - Bumblebee
+    - APT29
+    - APT41
     - Bazar
     - LAPSUS$
   guidance:
@@ -323,9 +323,9 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - APT41
-    - APT29
     - Bumblebee
+    - APT29
+    - APT41
     - Bazar
     - LAPSUS$
   platforms:
@@ -350,9 +350,9 @@ Discovery:
     tid: T1087.002
     x_vectr_id: a4608a06-4f66-4bf3-a7b6-e22849de6a71
     groups:
-    - APT41
-    - APT29
     - Bumblebee
+    - APT29
+    - APT41
     - Bazar
     - LAPSUS$
   platforms:
@@ -381,8 +381,8 @@ Discovery:
     tid: T1482
     x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
     groups:
-    - Bumblebee
     - APT29
+    - Bumblebee
     - Bazar
   platforms:
   - windows
@@ -406,9 +406,9 @@ Discovery:
     tid: T1018
     x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
     groups:
-    - Bumblebee
     - APT29
     - APT41
+    - Bumblebee
   platforms:
   - windows
   guidance:
@@ -455,8 +455,8 @@ Persistence:
     tid: T1053.005
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
-    - Bumblebee
     - APT29
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -474,7 +474,7 @@ Persistence:
   controls:
   - SIEM
   - Endpoint Protection
-- name: New local administrator
+- name: Persist via new local administrator
   description: Create a new local user then add them to the "Administrators" group using the builtin net.exe
   metadata:
     isv: 1
@@ -540,8 +540,8 @@ Persistence:
     x_tools:
     - https://github.com/sensepost/reGeorg
     groups:
-    - APT28
     - APT29
+    - APT28
   guidance:
   - shell> cp {{ webshell }} {{ web_root }}
   block:
@@ -554,7 +554,7 @@ Persistence:
   controls:
   - Endpoint Protection
   - SIEM
-- name: Registry Run Key
+- name: Persist via Registry "Run" key
   description: Run a payload during user login and startup by setting a registry run key
   metadata:
     isv: 1
@@ -686,8 +686,8 @@ Defense Evasion:
     tid: T1218.011
     x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
     groups:
-    - Bumblebee
     - APT29
+    - Bumblebee
     - QakBot
   platforms:
   - windows
@@ -757,8 +757,8 @@ Defense Evasion:
   controls:
   - SIEM
   - Endpoint Protection
-- name: Clear the Windows Event Log entries
-  description: Clear the Windows Application and Security Event Log entries using the builtin wevtutil.exe
+- name: Clear Windows Event Log entries
+  description: Clear the Windows Event Log entries using the builtin wevtutil.exe
   metadata:
     isv: 1
     tactic: TA0005
@@ -773,11 +773,12 @@ Defense Evasion:
   guidance:
   - CMD> wevtutil clear-log Security
   - CMD> wevtutil clear-log Application
+  - CMD> wevtutil clear-log System
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
-  - Suspicious process execution/behavior detected by endpoint security tool
-  - 'Suspicious Windows Event Log deletion detected in the SIEM using Event Log telemetry (ex: EID 1102)'
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+  - 'Suspicious Windows Event Log deletion detected in the SIEM using Event Log telemetry that corresponds to the log (ex: EID 1102 for Security log)'
   logs:
   - edr:telemetry
   - winevent
@@ -817,8 +818,8 @@ Defense Evasion:
     tid: T1218.010
     x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
     groups:
-    - QakBot
     - Bazar
+    - QakBot
   platforms:
   - windows
   guidance:
@@ -878,8 +879,8 @@ Command and Control:
     x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
     groups:
     - Bumblebee
-    - Bazar
     - LAPSUS$
+    - Bazar
   block:
   - Block the installation and usage of unapproved third-party utilities via application control software
   - Connections to known remote access service domains/IPs are blocked
@@ -900,9 +901,9 @@ Command and Control:
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
     - QakBot
-    - APT41
-    - APT29
     - Bumblebee
+    - APT29
+    - APT41
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -925,9 +926,9 @@ Command and Control:
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
     - QakBot
-    - APT41
-    - APT29
     - Bumblebee
+    - APT29
+    - APT41
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -971,9 +972,9 @@ Command and Control:
     tid: T1105
     x_vectr_id: b19ce681-bab3-450d-b497-7e5cdfdd87c7
     groups:
-    - APT28
     - APT29
     - Bazar
+    - APT28
   platforms:
   - windows
   guidance:
@@ -1003,9 +1004,9 @@ Command and Control:
     tid: T1105
     x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
     groups:
-    - APT28
     - APT29
     - Bazar
+    - APT28
   block:
   - Signatures for known bad tools are blocked by network security controls such as an ID/PS
   detect:
@@ -1067,9 +1068,9 @@ Credential Access:
     tid: T1003.001
     x_vectr_id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
     groups:
-    - APT28
-    - Bumblebee
     - APT29
+    - Bumblebee
+    - APT28
     - Bazar
   platforms:
   - windows
@@ -1079,15 +1080,15 @@ Credential Access:
   - CMD> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ lsass_pid }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
-  - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+  - Enable Credential Guard to prevent traditional process dumping of LSASS
   detect:
-  - Suspicious process execution/behavior is detected by endpoint security tool
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
   logs:
   - edr:telemetry
-  - process_create
   controls:
+  - SIEM
   - Endpoint Protection
-- name: Extract LSASS Process Memory via Sysinternals ProcDump
+- name: Dump LSASS memory using Sysinternals ProcDump
   description: Use ProcDump from Sysinternals to dump LSASS process memory
   metadata:
     isv: 1
@@ -1097,9 +1098,9 @@ Credential Access:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
-    - APT28
-    - Bumblebee
     - APT29
+    - Bumblebee
+    - APT28
     - Bazar
   platforms:
   - windows
@@ -1109,16 +1110,15 @@ Credential Access:
   - CMD> procdump -ma lsass.exe dump
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
-  - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+  - Enable Credential Guard to prevent traditional process dumping of LSASS
   detect:
-  - Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
   logs:
   - edr:telemetry
-  - process_create
   controls:
-  - Endpoint Protection
   - SIEM
-- name: Dump LSASS Memory using Task Manager
+  - Endpoint Protection
+- name: Dump LSASS memory using Task Manager
   description: Use Task Manager to dump LSASS process memory to disk
   metadata:
     isv: 1
@@ -1126,9 +1126,9 @@ Credential Access:
     tid: T1003.001
     x_vectr_id: 168468fe-4d55-4c05-a342-ce9512081ff0
     groups:
-    - APT28
-    - Bumblebee
     - APT29
+    - Bumblebee
+    - APT28
     - Bazar
   platforms:
   - windows
@@ -1138,7 +1138,7 @@ Credential Access:
   - Task Manager -> Right-click process -> create dump file
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
-  - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+  - Enable Credential Guard to prevent traditional process dumping of LSASS
   detect:
   - Suspicious process execution/behavior is detected by endpoint security tool
   logs:
@@ -1153,8 +1153,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: 943ecdc7-c828-41fa-acf7-6c216e87dca4
     groups:
-    - Bumblebee
     - APT41
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -1183,9 +1183,9 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 4bf62dcb-0a6e-4805-8536-d17122d956c5
     groups:
-    - APT28
-    - Bumblebee
     - APT29
+    - Bumblebee
+    - APT28
     - LAPSUS$
   platforms:
   - windows
@@ -1222,9 +1222,9 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
     groups:
-    - APT28
-    - Bumblebee
     - APT29
+    - Bumblebee
+    - APT28
     - LAPSUS$
   platforms:
   - windows
@@ -1245,7 +1245,7 @@ Credential Access:
   controls:
   - Endpoint Protection
   - SIEM
-- name: Extract Browser Credentials
+- name: Extract browser credentials
   description: Extract credentials information (saved passwords, sessions) from browser
   metadata:
     isv: 1
@@ -1307,8 +1307,8 @@ Collection:
     x_tools:
     - https://www.7-zip.org/download.html
     groups:
-    - APT28
     - Bumblebee
+    - APT28
   platforms:
   - windows
   guidance:
@@ -1332,8 +1332,8 @@ Lateral Movement:
     tid: T1021.001
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
-    - Bumblebee
     - APT29
+    - Bumblebee
     - Bazar
   platforms:
   - windows
@@ -1362,10 +1362,10 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
-    - Bumblebee
-    - APT41
-    - Bazar
     - APT29
+    - APT41
+    - Bumblebee
+    - Bazar
   platforms:
   - windows
   prerequisites:
@@ -1395,10 +1395,10 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: c58d7abf-843b-4751-8f33-8dea8eca8a21
     groups:
-    - Bumblebee
-    - APT41
-    - Bazar
     - APT29
+    - APT41
+    - Bumblebee
+    - Bazar
   platforms:
   - windows
   prerequisites:
@@ -1434,7 +1434,7 @@ Lateral Movement:
   prerequisites:
   - logon_rights
   guidance:
-  - beacon> link {{ target }} {{ pipe_name }}
+  - implant> link {{ target }} {{ pipe_name }}
   block:
   - Host-based firewalls prevent direct communications over common ports/protocols
   detect:

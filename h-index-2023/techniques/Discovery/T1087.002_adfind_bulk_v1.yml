@@ -1,0 +1,28 @@
+name: AdFind AD enumeration
+description: Use ADFind to perform enumeration of domain resources
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: 76ce7dbe-ecd8-47bb-8ca6-68067c508fa1
+  x_guidance_id: 9441de62-cfd4-4a5f-870e-768fab8d54b0#1
+  x_references:
+  - https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime
+  - https://unit42.paloaltonetworks.com/bazarloader-network-reconnaissance/
+  x_tools:
+  - AdFind
+  - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
+guidance:
+- cmd> {{ bat_file }}
+block:
+- Block the installation and usage of unapproved third-party utilities via application control software
+detect:
+- UEBA detects spike in domain related activity by user due to enumeration activities
+- Enable object logging on Active Directory object and trigger an alert when multiple high-value objects are accessed by a single source in a short period
+- https://blog.blacklanternsecurity.com/p/detecting-ldap-recoannaissance
+logs:
+- winevent
+controls:
+- SIEM
+- UEBA
+- Application Control

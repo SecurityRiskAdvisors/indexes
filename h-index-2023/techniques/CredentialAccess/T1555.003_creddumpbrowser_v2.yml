@@ -1,4 +1,4 @@
-name: Extract Browser Credentials
+name: Extract browser credentials
 description: Extract credentials information (saved passwords, sessions) from browser
 metadata:
   isv: 1

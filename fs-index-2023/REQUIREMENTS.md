@@ -36,6 +36,7 @@
 - Net Scan : https://www.softperfect.com/products/networkscanner/
 - AdFind : http://www.joeware.net/freetools/tools/adfind/
 - AdFind batch script : https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
+- AdFind enumeration script: https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
 - Service creation batch script : https://github.com/2XXE-SRA/payload_resources/blob/master/batch/apt41.bat
 - reGeorg webshell : https://github.com/sensepost/reGeorg
 - File encryptor : https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor

@@ -1,4 +1,4 @@
-name: New local administrator
+name: Persist via new local administrator
 description: Create a new local user then add them to the "Administrators" group using the builtin net.exe
 metadata:
   isv: 1

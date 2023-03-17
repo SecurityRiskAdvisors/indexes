@@ -40,3 +40,5 @@
 - Rclone : https://rclone.org/downloads/
 - SessionGopher : https://github.com/Arvanaghi/SessionGopher
 - AD Explorer : https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer
+- AdFind : http://www.joeware.net/freetools/tools/adfind/
+- AdFind enumeration script: https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat

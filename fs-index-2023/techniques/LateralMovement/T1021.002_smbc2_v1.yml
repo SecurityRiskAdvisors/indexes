@@ -8,7 +8,7 @@ metadata:
 prerequisites:
 - logon_rights
 guidance:
-- beacon> link {{ target }} {{ pipe_name }}
+- implant> link {{ target }} {{ pipe_name }}
 block:
 - Host-based firewalls prevent direct communications over common ports/protocols
 detect:

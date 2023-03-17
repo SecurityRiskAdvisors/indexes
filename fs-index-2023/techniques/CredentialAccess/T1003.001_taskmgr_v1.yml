@@ -1,4 +1,4 @@
-name: Dump LSASS Memory using Task Manager
+name: Dump LSASS memory using Task Manager
 description: Use Task Manager to dump LSASS process memory to disk
 metadata:
   isv: 1
@@ -13,7 +13,7 @@ guidance:
 - Task Manager -> Right-click process -> create dump file
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
-- Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
+- Enable Credential Guard to prevent traditional process dumping of LSASS
 detect:
 - Suspicious process execution/behavior is detected by endpoint security tool
 logs:

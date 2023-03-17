@@ -10,7 +10,7 @@ platforms:
 prerequisites:
 - local_admin
 guidance:
-- beacon> logonpasswords
+- implant> logonpasswords
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 - Enable additional LSA protections or Windows Credential Guard to prevent traditional process dumping of LSASS
