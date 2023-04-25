@@ -10,8 +10,8 @@ Initial Access:
     tid: T1566.002
     x_vectr_id: 14907efc-0ada-45f0-80e7-4bab0fe2963a
     groups:
-    - APT29
     - Bumblebee
+    - APT29
   guidance:
   - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
   block:
@@ -170,32 +170,11 @@ Execution:
     tid: T1106
     x_vectr_id: 447f4719-e006-421d-99de-55a6c603dc27
     groups:
+    - Bumblebee
     - APT29
     - Quantum
-    - Bumblebee
   guidance:
   - cmd> {{ exe }}
-  block:
-  - Suspicious process execution/behavior blocked by endpoint security tool
-  detect:
-  - Suspicious process execution/behavior detected by endpoint security tool
-  logs:
-  - edr:telemetry
-  controls:
-  - Endpoint Protection
-- name: Process creation using LNK to execute exe
-  description: Execute a modified shortcut to start an attacker controlled exe
-  metadata:
-    isv: 1
-    tactic: TA0002
-    tid: T1106
-    x_vectr_id: b1d57e4e-74e2-4f56-88b8-86c04f15c516
-    groups:
-    - APT29
-    - Quantum
-    - Bumblebee
-  guidance:
-  - cmd> {{ lnk }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -213,8 +192,8 @@ Execution:
     x_vectr_id: 519c429d-d08d-4a9b-87f3-496ad304b234
     groups:
     - APT29
-    - Bazar
     - QakBot
+    - Bazar
   platforms:
   - windows
   block:
@@ -239,8 +218,8 @@ Execution:
     x_vectr_id: 45f30aa4-cb46-4522-806c-6f1144a86735
     groups:
     - APT29
-    - Bazar
     - QakBot
+    - Bazar
   platforms:
   - windows
   block:
@@ -296,11 +275,11 @@ Discovery:
     - AdFind
     - https://github.com/2XXE-SRA/payload_resources/blob/master/batch/bazar_adf.bat
     groups:
-    - Bumblebee
+    - LAPSUS$
     - APT29
     - APT41
+    - Bumblebee
     - Bazar
-    - LAPSUS$
   guidance:
   - cmd> {{ bat_file }}
   block:
@@ -323,11 +302,11 @@ Discovery:
     tid: T1087.002
     x_vectr_id: b901e32f-67c0-4449-a120-ea820384e9e6
     groups:
-    - Bumblebee
+    - LAPSUS$
     - APT29
     - APT41
+    - Bumblebee
     - Bazar
-    - LAPSUS$
   platforms:
   - windows
   guidance:
@@ -350,19 +329,17 @@ Discovery:
     tid: T1087.002
     x_vectr_id: a4608a06-4f66-4bf3-a7b6-e22849de6a71
     groups:
-    - Bumblebee
+    - LAPSUS$
     - APT29
     - APT41
+    - Bumblebee
     - Bazar
-    - LAPSUS$
   platforms:
   - windows
   guidance:
   - cmd> net use
   - cmd> net localgroup Administrators
-  - cmd> net1 localgroup Administrators
   - cmd> net user /domain {{ username }}
-  - cmd> net group /domain "Enterprise Admins"
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -373,6 +350,32 @@ Discovery:
   controls:
   - Endpoint Protection
   - SIEM
+- name: Discover domain users via LDAP
+  description: Identify domain users by performing an LDAP query against a domain controller
+  metadata:
+    isv: 1
+    tactic: TA0007
+    tid: T1087.002
+    x_vectr_id: dded3fc1-ef9c-4ba1-94f1-aa8afe2483ce
+    groups:
+    - LAPSUS$
+    - APT29
+    - APT41
+    - Bumblebee
+    - Bazar
+  guidance:
+  - ps> [adsisearcher]::new("(&(objectClass=User)(objectCategory=Person))", @("samaccountname", "mail", "displayname","distinguishedName")).FindAll()
+  block:
+  - null
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool
+  - Enable object logging on Active Directory groups and trigger an alert at the SIEM when multiple users are accessed
+  logs:
+  - winevent
+  controls:
+  - SIEM
+  - Endpoint Protection
+  - UEBA
 - name: Domain trust discovery via nltest.exe
   description: Identify domain trust relationships using nltest.exe
   metadata:
@@ -381,8 +384,8 @@ Discovery:
     tid: T1482
     x_vectr_id: 4266c26e-0470-4b97-8dc3-1d24fe35f586
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -406,9 +409,9 @@ Discovery:
     tid: T1018
     x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
     groups:
+    - Bumblebee
     - APT29
     - APT41
-    - Bumblebee
   platforms:
   - windows
   guidance:
@@ -455,8 +458,8 @@ Persistence:
     tid: T1053.005
     x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
     groups:
-    - APT29
     - Bumblebee
+    - APT29
   platforms:
   - windows
   prerequisites:
@@ -530,30 +533,6 @@ Persistence:
   controls:
   - SIEM
   - Endpoint Protection
-- name: Deploy webshell
-  description: Deploy a webshell to a compromised web server
-  metadata:
-    isv: 1
-    tactic: TA0003
-    tid: T1505.003
-    x_vectr_id: 30273665-6698-4aed-82b0-8a15d8f5afc0
-    x_tools:
-    - https://github.com/sensepost/reGeorg
-    groups:
-    - APT29
-    - APT28
-  guidance:
-  - shell> cp {{ webshell }} {{ web_root }}
-  block:
-  - Webshell contents are blocked on-write by endpoint security tool
-  detect:
-  - Webshell contents are detected on-write by endpoint security tool
-  - Suspicious file write events for locations in the web server's directory are detected in the SIEM
-  logs:
-  - edr:telemetry
-  controls:
-  - Endpoint Protection
-  - SIEM
 - name: Persist via Registry "Run" key
   description: Run a payload during user login and startup by setting a registry run key
   metadata:
@@ -589,8 +568,8 @@ Impact:
     x_tools:
     - https://github.com/2XXE-SRA/payload_resources/tree/master/coldencryptor
     groups:
-    - Quantum
     - Bumblebee
+    - Quantum
   guidance:
   - cmd> coldcryptor.exe run {{ extension }}
   block:
@@ -686,8 +665,8 @@ Defense Evasion:
     tid: T1218.011
     x_vectr_id: 940be4b6-6081-4808-ab64-aceadfeb3792
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - QakBot
   platforms:
   - windows
@@ -704,6 +683,31 @@ Defense Evasion:
   controls:
   - Endpoint Protection
   - SIEM
+- name: Proxy EXE execution using Rundll32
+  description: Execute a malicious EXE by proxying the execution using Rundll32
+  metadata:
+    isv: 1
+    tactic: TA0005
+    tid: T1218.011
+    x_vectr_id: 4952893f-5b2e-4f82-8c19-f8d3c036bbb8
+    groups:
+    - Bumblebee
+    - APT29
+    - QakBot
+  platforms:
+  - windows
+  guidance:
+  - cmd> C:\Windows\System32\rundll32.exe c:\windows\system32\advpack.dll,RegisterOCX BOOM.exe
+  block:
+  - Suspicious process execution/behavior blocked by endpoint security tool
+  detect:
+  - Suspicious process execution/behavior is detected by endpoint security tool or triggers alert in SIEM based on telemetry
+  logs:
+  - edr:telemetry
+  - process_create
+  controls:
+  - Endpoint Protection
+  - SIEM
 - name: Stop multiple services using net.exe
   description: Stop multiple services/service processes on the endpoint using the builtin net.exe
   metadata:
@@ -712,8 +716,8 @@ Defense Evasion:
     tid: T1489
     x_vectr_id: c6bddadc-30eb-4e6a-8537-a2594808a1a7
     groups:
-    - Quantum
     - Bumblebee
+    - Quantum
   platforms:
   - windows
   prerequisites:
@@ -818,8 +822,8 @@ Defense Evasion:
     tid: T1218.010
     x_vectr_id: 492043f3-1847-4492-946e-137db9e54f2d
     groups:
-    - Bazar
     - QakBot
+    - Bazar
   platforms:
   - windows
   guidance:
@@ -900,10 +904,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
     groups:
-    - QakBot
-    - Bumblebee
     - APT29
     - APT41
+    - QakBot
+    - Bumblebee
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -925,10 +929,10 @@ Command and Control:
     tid: T1071.001
     x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
     groups:
-    - QakBot
-    - Bumblebee
     - APT29
     - APT41
+    - QakBot
+    - Bumblebee
     - Bazar
   block:
   - C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
@@ -973,8 +977,8 @@ Command and Control:
     x_vectr_id: b19ce681-bab3-450d-b497-7e5cdfdd87c7
     groups:
     - APT29
-    - Bazar
     - APT28
+    - Bazar
   platforms:
   - windows
   guidance:
@@ -1005,8 +1009,8 @@ Command and Control:
     x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
     groups:
     - APT29
-    - Bazar
     - APT28
+    - Bazar
   block:
   - Signatures for known bad tools are blocked by network security controls such as an ID/PS
   detect:
@@ -1068,8 +1072,8 @@ Credential Access:
     tid: T1003.001
     x_vectr_id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT28
     - Bazar
   platforms:
@@ -1098,8 +1102,8 @@ Credential Access:
     x_tools:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT28
     - Bazar
   platforms:
@@ -1126,8 +1130,8 @@ Credential Access:
     tid: T1003.001
     x_vectr_id: 168468fe-4d55-4c05-a342-ce9512081ff0
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT28
     - Bazar
   platforms:
@@ -1153,8 +1157,8 @@ Credential Access:
     tid: T1003.002
     x_vectr_id: 943ecdc7-c828-41fa-acf7-6c216e87dca4
     groups:
-    - APT41
     - Bumblebee
+    - APT41
   platforms:
   - windows
   prerequisites:
@@ -1183,8 +1187,8 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 4bf62dcb-0a6e-4805-8536-d17122d956c5
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT28
     - LAPSUS$
   platforms:
@@ -1222,8 +1226,8 @@ Credential Access:
     tid: T1003.003
     x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - APT28
     - LAPSUS$
   platforms:
@@ -1332,8 +1336,8 @@ Lateral Movement:
     tid: T1021.001
     x_vectr_id: 0735ef7e-438f-4fc9-a656-7d11d73fbc61
     groups:
-    - APT29
     - Bumblebee
+    - APT29
     - Bazar
   platforms:
   - windows
@@ -1362,9 +1366,9 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
     groups:
+    - Bumblebee
     - APT29
     - APT41
-    - Bumblebee
     - Bazar
   platforms:
   - windows
@@ -1395,9 +1399,9 @@ Lateral Movement:
     tid: T1021.003
     x_vectr_id: c58d7abf-843b-4751-8f33-8dea8eca8a21
     groups:
+    - Bumblebee
     - APT29
     - APT41
-    - Bumblebee
     - Bazar
   platforms:
   - windows

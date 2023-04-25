@@ -1,0 +1,20 @@
+name: Discover domain users via LDAP
+description: Identify domain users by performing an LDAP query against a domain controller
+metadata:
+  isv: 1
+  tactic: TA0007
+  tid: T1087.002
+  x_vectr_id: dded3fc1-ef9c-4ba1-94f1-aa8afe2483ce
+guidance:
+- ps> [adsisearcher]::new("(&(objectClass=User)(objectCategory=Person))", @("samaccountname", "mail", "displayname","distinguishedName")).FindAll()
+block:
+- null
+detect:
+- Suspicious process execution/behavior is detected by endpoint security tool
+- Enable object logging on Active Directory groups and trigger an alert at the SIEM when multiple users are accessed
+logs:
+- winevent
+controls:
+- SIEM
+- Endpoint Protection
+- UEBA

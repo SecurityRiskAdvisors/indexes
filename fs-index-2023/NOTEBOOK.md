@@ -65,23 +65,6 @@ Malicious exe contained within an ISO image delivered as an HTML smuggled file o
 
 # Execution
 
-## Windows LNKs - Launch exe via cmd.exe
-
-LNKs are Windows shortcut files and can be used to execute arbitrary commands
-
-Use cmd.exe to launch an exe via an LNK
-
-### Prerequisites
-
-- EXE payload
-- LNK (shortcut) with the following settings: Target: `C:\Windows\System32\cmd.exe /c start {{ exe }}`, Start in: make this empty
-- EXE and LNK must be in the same directory
-
-### References
-
-1. https://www.microsoft.com/en-us/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/
-
-
 # Discovery
 
 ## AdFind - General use
@@ -166,42 +149,6 @@ Delete DLL and BAT
 1. https://www.ired.team/offensive-security/persistence/persisting-in-svchost.exe-with-a-service-dll-servicemain
 2. https://blog.didierstevens.com/2019/10/28/quickpost-compiling-service-dlls-with-mingw-on-kali/
 
-
-## Deploy webshell - Deploy to web root as web process
-
-Manually deploy a webshell to the webroot by masquerading as a webserver process
-
-### Prerequisites
-
-- Write access to web root
-- Ability to create/move files via a process with the following name:
-  - Linux: `nginx`
-  - Windows: `w3wp.exe`
-- A web shell file
-  - Linux: JSP 
-  - Windows: ASPX
-
-### Guidance
-
-Windows (using `cmd.exe` renamed to `w3wp.exe`)
-
-```
-cmd> w3wp.exe /c copy {{ webshell }} {{ web_root }}
-```
-
-Linux (using `cp` renamed to `nginx`)
-
-```
-bash> nginx {{ webshell }} {{ web_root }}
-```
-
-### Cleanup
-
-- Delete web shell as well as masqueraded binary
-
-### Notes
-
-- If possible, change executing user to user responsible for web service (e.g. Apache user)
 
 ## Registry Run Key Persistence - via reg.exe
 
@@ -509,7 +456,7 @@ Dump NTDS.dit using one of the following methods, noting the snapshot number. Th
 cmd> ntdsutil “ac in ntds” “ifm” “cr fu {{ output_path }}” q q
 ```
 
-#### Notes
+### Notes
 
 In the case that ntdsutil is killed during execution (either manually or by an EDR product), the snapshots need to be cleaned up. You cannot do so using vssadmin because they are in use. Delete the snapshot with the following command, using the snapshot number from the dump command in the above guidance:
 

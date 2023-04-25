@@ -11,6 +11,7 @@ prerequisites:
 - local_admin
 guidance:
 - implant> hashdump
+- OR mimikatz> lsadump::sam
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 detect:

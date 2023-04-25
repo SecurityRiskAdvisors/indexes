@@ -10,9 +10,7 @@ platforms:
 guidance:
 - cmd> net use
 - cmd> net localgroup Administrators
-- cmd> net1 localgroup Administrators
 - cmd> net user /domain {{ username }}
-- cmd> net group /domain "Enterprise Admins"
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 detect:
