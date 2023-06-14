@@ -438,7 +438,7 @@ Discovery:
   platforms:
   - windows
   guidance:
-  - cmd> net.exe view /all
+  - cmd> net.exe view /all localhost
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
