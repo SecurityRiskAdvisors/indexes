@@ -27,7 +27,7 @@ Initial Access:
     isv: 1
     tactic: TA0001
     tid: T1078
-    x_vectr_id: 8837993a-5126-4288-bfaf-e3d3be81aa92
+    x_vectr_id: dea98c09-9392-4107-83cc-aab4be32a4d5
     groups:
     - LAPSUS$
   block:
@@ -252,7 +252,7 @@ Command and Control:
     isv: 1
     tactic: TA0011
     tid: T1071.004
-    x_vectr_id: b587c51f-ec7d-4d94-a32e-4bc45b30a3a6
+    x_vectr_id: e5746057-15a5-4e59-a240-5368bddb51e4
     groups:
     - APT41
   block:

@@ -4,7 +4,7 @@ metadata:
   isv: 1
   tactic: TA0001
   tid: T1078
-  x_vectr_id: 8837993a-5126-4288-bfaf-e3d3be81aa92
+  x_vectr_id: dea98c09-9392-4107-83cc-aab4be32a4d5
   x_guidance_id: 99536e6a-ded7-43ff-a836-5eac356eff32#1
 block:
 - Suspicious logins originating from select geolocation are blocked
