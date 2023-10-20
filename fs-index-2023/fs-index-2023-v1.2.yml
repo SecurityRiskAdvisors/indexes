@@ -1,6 +1,6 @@
 metadata:
   prefix: FSI
-  bundle: FS Index 2023 v1.1
+  bundle: FS Index 2023 v1.2
 Initial Access:
 - name: Link - ISO
   description: Send phishing email to victim containing a link to an ISO

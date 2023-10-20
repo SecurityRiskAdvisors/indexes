@@ -1,6 +1,6 @@
 metadata:
   prefix: RHI
-  bundle: Retail and Hospitality Index 2023 v1
+  bundle: Retail and Hospitality Index 2023 v1.2
 Initial Access:
 - name: External employee login from suspicious location
   description: Login to an external employee portal from an unexpected geolocation

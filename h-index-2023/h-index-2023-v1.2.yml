@@ -1,6 +1,6 @@
 metadata:
   prefix: HI
-  bundle: Health Index 2023 v1
+  bundle: Health Index 2023 v1.2
 Initial Access:
 - name: Attachment - Zipped JScript
   description: Send a malicious JScript payload in a ZIP archive to a target user in an email.
