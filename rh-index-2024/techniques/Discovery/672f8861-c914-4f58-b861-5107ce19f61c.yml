@@ -1,0 +1,22 @@
+name: BloodHound DC enumeration
+description: Use BloodHound/SharpHound to perform enumeration of domain resources against a domain controller
+platforms:
+guidance:
+- cmd> SharpHound.exe -c DcOnly
+block:
+- ''
+detect:
+- Windows enumeration activities detected from large amount of network traffic (SMB, ARP, SAMR, etc) via UEBA-like or network monitoring tools
+- Enable object logging for directory services via Group Policy Advanced Audit then configure a SACL on Active Directory objects. Trigger an alert when multiple (high-value) objects are accessed by a single source in a short period using object access logs for the directory service objects (Evevnt ID 4656, 4663)
+- https://blog.blacklanternsecurity.com/p/detecting-ldap-recoannaissance
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: 672f8861-c914-4f58-b861-5107ce19f61c
+  tid: T1087.002
+  tactic: TA0007
+  x_tools:
+  - https://github.com/BloodHoundAD/SharpHound
+  x_vectr_id: 672f8861-c914-4f58-b861-5107ce19f61c
+  isv: 1

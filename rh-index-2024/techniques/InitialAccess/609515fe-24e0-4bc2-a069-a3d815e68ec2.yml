@@ -1,0 +1,17 @@
+name: Suspicious external employee login
+description: Login to an external employee portal from an unexpected geolocation and with an unexpected user-agent to simulate a suspicious login attempt.
+platforms:
+guidance:
+block:
+- Suspicious logins originating from select geolocations are blocked
+detect:
+- Baseline login events for users using authentication logs then generate alerts for instances where the logins occur from comparatively anomalous geolocations
+controls:
+- SIEM
+- IdP
+metadata:
+  id: 609515fe-24e0-4bc2-a069-a3d815e68ec2
+  tid: T1078
+  tactic: TA0001
+  x_vectr_id: 609515fe-24e0-4bc2-a069-a3d815e68ec2
+  isv: 1

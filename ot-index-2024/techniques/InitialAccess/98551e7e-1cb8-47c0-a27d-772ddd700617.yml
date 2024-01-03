@@ -1,0 +1,17 @@
+name: Link - Zipped DLL via sharing
+description: Send a link to a zipped DLL payload stored on a cloud storage service like Google Drive by using the sharing features of that service
+platforms:
+guidance:
+- ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: 98551e7e-1cb8-47c0-a27d-772ddd700617
+  tid: T1566.002
+  tactic: TA0001
+  x_vectr_id: 98551e7e-1cb8-47c0-a27d-772ddd700617
+  isv: 1

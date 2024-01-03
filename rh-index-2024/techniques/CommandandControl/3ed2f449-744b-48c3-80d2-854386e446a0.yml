@@ -1,0 +1,18 @@
+name: HTTPS C2 over tcp/443
+description: Establish a bidirectional command-and-control connection from a managed asset to an external server on the Internet over HTTPS
+platforms:
+guidance:
+block:
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+controls:
+- Firewall
+- ID/PS
+- Web Gateway
+metadata:
+  id: 3ed2f449-744b-48c3-80d2-854386e446a0
+  tid: T1071.001
+  tactic: TA0011
+  x_vectr_id: 3ed2f449-744b-48c3-80d2-854386e446a0
+  isv: 1

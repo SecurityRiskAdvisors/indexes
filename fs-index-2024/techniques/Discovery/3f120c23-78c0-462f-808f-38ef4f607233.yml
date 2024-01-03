@@ -1,0 +1,24 @@
+name: Internal network scan using Net Scan
+description: Perform an internal network scan to discover other hosts and services on the internal network using Network Scanner by SoftPerfect
+platforms:
+- windows
+guidance:
+- cmd> {{ netscan_binary }}
+block:
+- Network security controls block source generating a large volume of connection requests
+- Block the installation and use of unapproved third-party utilities via application control software
+detect:
+- Network security controls or the SIEM detect a source generating a large volume of connection requests by network traffic logs like switch logs and flow logs
+controls:
+- ID/PS
+- Firewall
+- SIEM
+- Application Control
+metadata:
+  id: 3f120c23-78c0-462f-808f-38ef4f607233
+  tid: T1046
+  tactic: TA0007
+  x_tools:
+  - https://www.softperfect.com/products/networkscanner/
+  x_vectr_id: 3f120c23-78c0-462f-808f-38ef4f607233
+  isv: 1

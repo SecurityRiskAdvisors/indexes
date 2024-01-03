@@ -1,0 +1,18 @@
+name: MQTT C2 over TCP/1883
+description: Establish a bidirectional command-and-control connection from a managed asset to an external server on the Internet over MQTT
+platforms:
+guidance:
+block:
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+- Look for unexpected network connections, such as those using MQTT, egressing from the internal network to the Internet by using network traffic logs, such as firewall logs and flow logs
+controls:
+- Firewall
+- ID/PS
+metadata:
+  id: 85c528ae-0337-45c8-a413-41d59a67b924
+  tid: T1071
+  tactic: TA0011
+  x_vectr_id: 85c528ae-0337-45c8-a413-41d59a67b924
+  isv: 1

@@ -1,0 +1,24 @@
+name: Lateral Movement via PsExec
+description: Move to another system by creating a service remotely via Sysinternals PsExec
+platforms:
+- windows
+guidance:
+- CMD> psexec -s \{{ target }} {{ command }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Host-based firewalls prevent direct communications over common ports/protocols
+- Remote access to the service control manager is blocked by a DACL, preventing service creation by remote users
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Endpoint Protection
+- SIEM
+- Identity Threat Protection
+- Hardening
+metadata:
+  id: 9b5396f2-6e4a-498a-995e-47e48a99bf76
+  tid: T1021.002
+  tactic: TA0008
+  x_vectr_id: 9b5396f2-6e4a-498a-995e-47e48a99bf76
+  isv: 1

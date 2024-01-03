@@ -1,0 +1,20 @@
+name: Access via remote assistance tool
+description: Establish connection to system using a legitimate remote assistance application
+platforms:
+guidance:
+block:
+- Block the installation and use of unapproved third-party utilities via application control software
+- Connections to known remote access service domains/IPs are blocked
+- Remote access connection attempts originating from users outside of the tenant are blocked
+detect:
+- Connections to known remote access service domains/IPs are detected
+controls:
+- Application Control
+- ID/PS
+- Firewall
+metadata:
+  id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
+  tid: T1219
+  tactic: TA0011
+  x_vectr_id: 10f6c44e-b862-4553-bc55-68f6d941bcfb
+  isv: 1

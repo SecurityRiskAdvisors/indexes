@@ -1,0 +1,16 @@
+name: Modify identity policy in IdP
+description: Modify an IdP policy to be more permissive for authentication. For example, disable an Azure AD conditional access policy's MFA requirement.
+platforms:
+guidance:
+block:
+- ''
+detect:
+- Monitor for policy modifications from IdP control plane telemetry and look for anomalous changes, such as those performed by unexpected principals or changes occuring outside of expected business processes
+controls:
+- SIEM
+metadata:
+  id: cbd9070f-03fa-455f-af46-99e8d41146ac
+  tid: T1484
+  tactic: TA0003
+  x_vectr_id: cbd9070f-03fa-455f-af46-99e8d41146ac
+  isv: 1

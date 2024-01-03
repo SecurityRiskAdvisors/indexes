@@ -1,0 +1,18 @@
+name: Lateral movement via remote service to OT system
+description: Move laterally to another system using a remote service (e.g. SSH, RDP)
+platforms:
+guidance:
+block:
+- ''
+detect:
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Endpoint Protection
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: 0abf446d-3422-4b78-a029-a3485be7be2f
+  tid: T1021
+  tactic: TA0008
+  x_vectr_id: 0abf446d-3422-4b78-a029-a3485be7be2f
+  isv: 1

@@ -1,0 +1,21 @@
+name: Persist via new local administrator
+description: Create a new local user then add them to the "Administrators" group using the builtin net.exe
+platforms:
+- windows
+guidance:
+- CMD> net user /add {{ username }} {{ password }}
+- CMD> net localgroup administrators {{ username }} /add
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use group modification events (Event ID 4728) to identify additions to local security groups.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 0bcb2080-b140-4a1c-9e79-8512a18882d8
+  tid: T1136.001
+  tactic: TA0003
+  x_vectr_id: 0bcb2080-b140-4a1c-9e79-8512a18882d8
+  isv: 1

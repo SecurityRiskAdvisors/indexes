@@ -1,0 +1,22 @@
+name: Extract NTDS credentials via ntdsutil.exe
+description: Dump domain hashes for all domain users on the domain controller via ntdsutil.exe, which uses Volume Shadow Services (VSS)
+platforms:
+- windows
+guidance:
+- CMD> ntdsutil "ac in ntds" "ifm" "cr fu {{ outdirectory }}" q q
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use shadow creation events (Event ID 822) and/or file system related Advanced Audit events (e.g. Event ID 4663) to identify Volume Shadow Service activities.
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+- https://jpcertcc.github.io/ToolAnalysisResultSheet/details/ntdsutil.htm
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
+  tid: T1003.003
+  tactic: TA0006
+  x_vectr_id: 08efdcab-54e0-4e06-8f72-b72f23e4fcab
+  isv: 1

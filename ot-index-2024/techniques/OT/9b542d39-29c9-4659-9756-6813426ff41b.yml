@@ -1,0 +1,17 @@
+name: Remote service login brute force for OT target
+description: Attempt to login as a user via a remote service (e.g. SSH, Telnet) using multiple passwords
+platforms:
+guidance:
+block:
+- Network security controls block source generating a large volume of connection requests
+detect:
+- Detect a large number of authentication attempts originating from a single source in a short period of time using authentication logs
+controls:
+- SIEM
+- Hardening
+metadata:
+  id: 9b542d39-29c9-4659-9756-6813426ff41b
+  tid: T1110.001
+  tactic: TA0006
+  x_vectr_id: 9b542d39-29c9-4659-9756-6813426ff41b
+  isv: 1

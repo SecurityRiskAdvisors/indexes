@@ -1,0 +1,21 @@
+name: C2 over Dropbox
+description: Establish a command-and-control connection from a managed asset to an external server on the Internet by tunneling the traffic through Dropbox. This will masquerade the command-and-control traffic as legitimate application traffic.
+platforms:
+guidance:
+block:
+- C2 channel using legitimate service is blocked by proxy, firewall, or network behavioral/UEBA tool
+- Connection to legitimate service that falls outside standard business operations blocked based on domain and/or domain categorization
+detect:
+- C2 channel using legitimate service is detected by proxy, firewall, or network behavioral/UEBA tool
+controls:
+- Firewall
+- ID/PS
+- Web Gateway
+metadata:
+  id: 43ab96a9-b2c0-442a-b8e4-18e172a1a2ce
+  tid: T1102.002
+  tactic: TA0011
+  x_references:
+  - https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online
+  x_vectr_id: 43ab96a9-b2c0-442a-b8e4-18e172a1a2ce
+  isv: 1

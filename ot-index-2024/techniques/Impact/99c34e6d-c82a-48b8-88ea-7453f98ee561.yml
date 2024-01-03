@@ -1,0 +1,20 @@
+name: Delete backup catalogs with wbadmin.exe
+description: Delete native Windows backups
+platforms:
+- windows
+guidance:
+- CMD> wbadmin delete catalog -quiet
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- SIEM
+- Endpoint Protection
+metadata:
+  id: 99c34e6d-c82a-48b8-88ea-7453f98ee561
+  tid: T1490
+  tactic: TA0040
+  x_vectr_id: 99c34e6d-c82a-48b8-88ea-7453f98ee561
+  isv: 1

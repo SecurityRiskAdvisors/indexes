@@ -1,0 +1,20 @@
+name: Persist via Registry "Run" key
+description: Run a payload during user login and startup by setting a registry run key
+platforms:
+- windows
+guidance:
+- CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ key_name }}" /t REG_SZ /F /D "{{ command }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Enable object logging for the Registry via Group Policy Advanced Audit then configure a SACL on the Registry either directly or via the global audit settings in Group Policy. Trigger an alert when modification are made the Registry using object access logs (Event ID 4656).
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 5dc3f424-8f31-49ee-a822-a77ce20bac43
+  tid: T1547.001
+  tactic: TA0003
+  x_vectr_id: 5dc3f424-8f31-49ee-a822-a77ce20bac43
+  isv: 1

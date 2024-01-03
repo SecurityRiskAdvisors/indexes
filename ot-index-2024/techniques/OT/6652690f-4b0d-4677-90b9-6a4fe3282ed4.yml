@@ -1,0 +1,20 @@
+name: Internal port scan against OT network
+description: Run internal port scan to probe for interesting OT-specific ports
+platforms:
+guidance:
+- shell> nmap -n -v --scan-delay 1 --open -Pn -sT -p 20000,44818,1089-1091,102,502,4840,80,443,34962-34964,4000 -oA {{ outfiles_name }} {{ cidr }}
+block:
+- Network security controls block source generating a large volume of connection requests
+detect:
+- Network security controls or the SIEM detect a source generating a large volume of connection requests by network traffic logs like switch logs and flow logs
+controls:
+- Firewall
+- ID/PS
+metadata:
+  id: 6652690f-4b0d-4677-90b9-6a4fe3282ed4
+  tid: T1046
+  tactic: TA0007
+  x_references:
+  - https://github.com/ITI/ICS-Security-Tools/blob/master/protocols/PORTS.md
+  x_vectr_id: 6652690f-4b0d-4677-90b9-6a4fe3282ed4
+  isv: 1
