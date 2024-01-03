@@ -1,0 +1,20 @@
+name: Extract Logonpasswords via Nanodump
+description: Use nanodump to extract credentials from LSASS process memory
+platforms:
+- windows
+guidance:
+- cmd> nanodump.exe --duplicate -w {{ out_file }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable Credential Guard to prevent traditional process dumping of LSASS
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+controls:
+- Endpoint Protection
+- Hardening
+metadata:
+  id: 8eeb3c12-dc2e-4791-aff5-e81501312886
+  tid: T1003.001
+  tactic: TA0006
+  x_vectr_id: 8eeb3c12-dc2e-4791-aff5-e81501312886
+  isv: 1

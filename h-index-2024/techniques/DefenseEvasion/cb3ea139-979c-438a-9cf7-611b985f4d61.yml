@@ -1,0 +1,20 @@
+name: Disable Windows Defender via PowerShell
+description: Use PowerShell's Set-MpPreference to disable Windows Defender
+platforms:
+- windows
+guidance:
+- PS> Set-MpPreference -DisableBehaviorMonitoring $true
+- PS> Set-MpPreference -DisableRealtimeMonitoring $true
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- "Changes to Defender's running state are detected using Defender Event Log events (e.g. 5001 for being disabled, 5004 and 5007 for being changed; full list: https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/troubleshoot-microsoft-defender-antivirus)"
+controls:
+- Endpoint Protection
+metadata:
+  id: cb3ea139-979c-438a-9cf7-611b985f4d61
+  tid: T1562.001
+  tactic: TA0005
+  x_vectr_id: cb3ea139-979c-438a-9cf7-611b985f4d61
+  isv: 1

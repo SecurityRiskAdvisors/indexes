@@ -1,0 +1,20 @@
+name: Certutil decode Base64 encoded payload
+description: Use certutil.exe to decode an encoded payload file
+platforms:
+- windows
+guidance:
+- cmd> certutil -decode {{ infile_name }} {{ outfile_name }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 9dbfedcf-893f-4086-b428-2f3bc73c96a5
+  tid: T1140
+  tactic: TA0005
+  x_vectr_id: 9dbfedcf-893f-4086-b428-2f3bc73c96a5
+  isv: 1

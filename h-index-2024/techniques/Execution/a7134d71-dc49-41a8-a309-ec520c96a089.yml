@@ -1,0 +1,22 @@
+name: Macro - Remote Template
+description: Execute a malicious Office document on the endpoint that will load a macro stored in a remote template document
+platforms:
+- windows
+guidance:
+block:
+- Macro execution is blocked by GPO policy
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Payload on disk deleted/quarantined by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Payload on disk triggers an alert with endpoint security tool
+controls:
+- Endpoint Protection
+- Hardening
+- SIEM
+metadata:
+  id: a7134d71-dc49-41a8-a309-ec520c96a089
+  tid: T1221
+  tactic: TA0005
+  x_vectr_id: a7134d71-dc49-41a8-a309-ec520c96a089
+  isv: 1

@@ -1,8 +1,9 @@
 {
     "indexes": {
-        "fs-index": "fs-index-2023/fs-index-2023-v1.2.yml",
-        "rh-index": "rh-index-2023/rh-index-2023-v1.2.yml",
-        "h-index": "h-index-2023/h-index-2023-v1.2.yml"
+        "fs-index": "fs-index-2024/fs-index-2024-v1.0.yml",
+        "rh-index": "rh-index-2024/rh-index-2024-v1.0.yml",
+        "h-index": "h-index-2024/h-index-2024-v1.0.yml",
+        "ot-index": "ot-index-2024/ot-index-2024-v1.0.yml"
     }
 }
 

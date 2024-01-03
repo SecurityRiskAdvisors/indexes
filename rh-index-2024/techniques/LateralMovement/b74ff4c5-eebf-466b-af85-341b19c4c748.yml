@@ -1,0 +1,20 @@
+name: Remote .exe copy
+description: Copy an .exe payload to a temp folder on the remote target
+platforms:
+guidance:
+- cmd> copy {{ exe }} \\{{ target }}\{{ share }}\{{ path }}
+block:
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Endpoint Protection
+- Antivirus
+- SIEM
+metadata:
+  id: b74ff4c5-eebf-466b-af85-341b19c4c748
+  tid: T1570
+  tactic: TA0008
+  x_vectr_id: b74ff4c5-eebf-466b-af85-341b19c4c748
+  isv: 1

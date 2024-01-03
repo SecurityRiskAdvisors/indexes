@@ -1,0 +1,20 @@
+name: Delete shadows with vssadmin.exe
+description: Delete volume shadow copies on the host to inhibit file system recovery
+platforms:
+- windows
+guidance:
+- CMD> vssadmin.exe delete shadows /all /quiet
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious Volume Shadow Service use detected in the SIEM using telemetry
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+  tid: T1490
+  tactic: TA0040
+  x_vectr_id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+  isv: 1

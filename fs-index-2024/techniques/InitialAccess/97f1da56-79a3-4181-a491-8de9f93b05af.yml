@@ -1,0 +1,17 @@
+name: Attachment - Zipped macro
+description: Send a malicious macro-enabled Office document in a ZIP archive to a target user in an email.
+platforms:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: 97f1da56-79a3-4181-a491-8de9f93b05af
+  tid: T1566.001
+  tactic: TA0001
+  x_vectr_id: 97f1da56-79a3-4181-a491-8de9f93b05af
+  isv: 1

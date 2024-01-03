@@ -1,0 +1,20 @@
+name: Persist via new Windows service
+description: Persist on a system by creating a new service
+platforms:
+- windows
+guidance:
+- CMD> sc create {{ service_name }} binPath= "{{ command }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use services creation events (Event ID 4697) to identify newly created services. Look specifically for events that are anomalous as compared to other service creation events in the environment, such as events where the command is unique across all other services and events created by principals that do not commonly create services.
+controls:
+- SIEM
+- Endpoint Protection
+metadata:
+  id: 5c24b470-4a3b-4de0-8adf-3d63bc8d5737
+  tid: T1543.003
+  tactic: TA0003
+  x_vectr_id: 5c24b470-4a3b-4de0-8adf-3d63bc8d5737
+  isv: 1

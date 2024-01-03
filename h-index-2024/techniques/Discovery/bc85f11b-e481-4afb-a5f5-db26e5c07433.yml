@@ -1,0 +1,20 @@
+name: Domain Controller discovery via nltest
+description: Use nltest.exe to identify domain controllers in the domain
+platforms:
+- windows
+guidance:
+- cmd> nltest.exe /dclist:{{ domain }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: bc85f11b-e481-4afb-a5f5-db26e5c07433
+  tid: T1018
+  tactic: TA0007
+  x_vectr_id: bc85f11b-e481-4afb-a5f5-db26e5c07433
+  isv: 1

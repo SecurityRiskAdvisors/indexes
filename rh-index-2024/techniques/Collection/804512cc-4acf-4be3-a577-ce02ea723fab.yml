@@ -1,0 +1,19 @@
+name: Screen Capture
+description: Capture an image of the user's screen
+platforms:
+guidance:
+- "implant> {{ screenshot_command }}\nOR \nshell> {{ screenshot_tool }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+controls:
+- Endpoint Protection
+metadata:
+  id: 804512cc-4acf-4be3-a577-ce02ea723fab
+  tid: T1113
+  tactic: TA0009
+  x_tools:
+  - https://github.com/2XXE-SRA/payload_resources/blob/master/csharp/screenshot.cs
+  x_vectr_id: 804512cc-4acf-4be3-a577-ce02ea723fab
+  isv: 1

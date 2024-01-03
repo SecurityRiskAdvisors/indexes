@@ -1,0 +1,22 @@
+name: Load known-abusable kernel driver
+description: Load a legitimate and signed kernel driver that is vulnerable to exploitation. Refer to projects like KDU (https://github.com/hfiref0x/KDU/) for potential vulnerable drivers to use. Vulnerable, signed drivers provide a privileged (kernel) execution mechanism to attackers, allowing them to bypass security controls they couldn't otherwise bypass, such as by killing protected processes.
+platforms:
+- windows
+guidance:
+- "(example) cmd> \nsc.exe create {{ name }} type= kernel start= demand error= normal binpath= c:\\windows\\System32\\Drivers\\{{ sys_file }} displayname= {{ name }}\nsc.exe start {{ name }}\n"
+block:
+- Use built-in Windows security features like HVCI and WDAC to block loading of drivers based on hash and/or signature characteristics.
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules
+- https://www.loldrivers.io/
+- Anomalous driver load blocked by endpoint security tool
+detect:
+- Anomalous driver load detected by endpoint security tool or in the SIEM via telemetry data, such as Sysmon ID 6
+controls:
+- Hardening
+- Endpoint Protection
+metadata:
+  id: 327db68c-178b-4e3c-8f2d-12d91bc49fe0
+  tid: T1014
+  tactic: TA0005
+  x_vectr_id: 327db68c-178b-4e3c-8f2d-12d91bc49fe0
+  isv: 1

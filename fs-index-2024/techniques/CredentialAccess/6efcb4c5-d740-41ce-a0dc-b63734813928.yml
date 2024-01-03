@@ -1,0 +1,22 @@
+name: Register Security Service Provider (SSP) in LSASS
+description: Register an SSP DLL that into LSASS. This technique can be used by adversaries to harvest credentials that traverse through LSASS.
+platforms:
+- windows
+guidance:
+- shell> {{ ssp_loader }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable the LSA "RunAsPPL" protection to prevent the loading of untrusted DLLs by LSASS
+detect:
+- For SSPs registered permanently, detect modifications to the "Security Packages" key under HKLM\System\CurrentControlSet\Control\LSA\. Additionally look for DLL writes to System32.
+- For temporary SSP loads, detect anomalous module loads by LSASS.exe after establishing a basline for normal module loads
+controls:
+- Endpoint Protection
+metadata:
+  id: 6efcb4c5-d740-41ce-a0dc-b63734813928
+  tid: T1547.005
+  tactic: TA0006
+  x_references:
+  - https://www.ired.team/offensive-security/credential-access-and-credential-dumping/intercepting-logon-credentials-via-custom-security-support-provider-and-authentication-package#loading-ssp-without-reboot
+  x_vectr_id: 6efcb4c5-d740-41ce-a0dc-b63734813928
+  isv: 1

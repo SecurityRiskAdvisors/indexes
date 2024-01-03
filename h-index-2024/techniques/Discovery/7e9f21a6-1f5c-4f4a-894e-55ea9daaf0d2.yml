@@ -1,0 +1,23 @@
+name: Enumerate domain groups and users using net
+description: Enumerate domain users and domain groups using the builtin net.exe
+platforms:
+- windows
+guidance:
+- cmd> net user /domain
+- cmd> net group /domain
+- cmd> net group "Domain Admins" /domain
+- cmd> net group "Domain Computers" /domain
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 7e9f21a6-1f5c-4f4a-894e-55ea9daaf0d2
+  tid: T1087.002
+  tactic: TA0007
+  x_vectr_id: 7e9f21a6-1f5c-4f4a-894e-55ea9daaf0d2
+  isv: 1

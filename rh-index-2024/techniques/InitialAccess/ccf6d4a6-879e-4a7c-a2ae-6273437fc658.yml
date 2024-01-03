@@ -1,0 +1,17 @@
+name: Attachment - ISO
+description: Send phishing email to victim containing an ISO attachment. ISO files can be used to bypass mark-of-the-web restrictions.
+platforms:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: ccf6d4a6-879e-4a7c-a2ae-6273437fc658
+  tid: T1566.001
+  tactic: TA0001
+  x_vectr_id: ccf6d4a6-879e-4a7c-a2ae-6273437fc658
+  isv: 1

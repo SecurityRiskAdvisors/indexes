@@ -1,0 +1,20 @@
+name: Replay PCAP for OT service command
+description: Replay a packet capture of a dangerous OT-specific service commands (e.g. S7 stop) to simulate the traffic for passive OT security controls
+platforms:
+guidance:
+- shell> tcpreplay -i {{ interface }} {{ pcap_file }}
+block:
+- ''
+detect:
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+- Passive network security sensors detect anomalous network traffic
+controls:
+- Endpoint Protection
+- SIEM
+- ID/PS
+metadata:
+  id: b7cefb21-5835-478e-8541-b09d15c11948
+  tid: T1021
+  tactic: TA0008
+  x_vectr_id: b7cefb21-5835-478e-8541-b09d15c11948
+  isv: 1

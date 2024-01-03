@@ -1,0 +1,20 @@
+name: Extract domain user credentials via replication
+description: Replicate a user's hash from a domain controller using replication APIs (DCSync).
+platforms:
+- windows
+guidance:
+- (from workstation) mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ user }}
+block:
+- ''
+detect:
+- Enable object logging for directory services via Group Policy Advanced Audit then alert when non-domin controller sources replicate directory objects. Specifically, look for Event ID 4662 events where the action performed was related to replicating object changes (e.g. either/both of "Replicating Directory Changes all" and "{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}"/"{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}")
+- https://blog.blacklanternsecurity.com/p/detecting-dcsync
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: d6dd145b-c7ae-4f79-bc07-179a012a7a07
+  tid: T1003.006
+  tactic: TA0006
+  x_vectr_id: d6dd145b-c7ae-4f79-bc07-179a012a7a07
+  isv: 1

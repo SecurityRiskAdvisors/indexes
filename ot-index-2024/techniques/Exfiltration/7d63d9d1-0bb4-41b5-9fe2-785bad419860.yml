@@ -1,0 +1,19 @@
+name: Extract sensitive data over HTTP
+description: Extract data from the network over HTTP tcp/80 to an external host or IP.
+platforms:
+guidance:
+- http://dlptest.com/http-post/
+block:
+- Sensitive data sent over the network is blocked by network DLP tool
+detect:
+- Sensitive data sent over the network is detected by network DLP tool
+controls:
+- Firewall
+- DLP
+- Web Gateway
+metadata:
+  id: 7d63d9d1-0bb4-41b5-9fe2-785bad419860
+  tid: T1048.003
+  tactic: TA0010
+  x_vectr_id: 7d63d9d1-0bb4-41b5-9fe2-785bad419860
+  isv: 1

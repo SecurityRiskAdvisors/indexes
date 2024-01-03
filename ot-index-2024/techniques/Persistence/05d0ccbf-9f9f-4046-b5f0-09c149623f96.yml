@@ -1,0 +1,23 @@
+name: Register a new device in Azure AD
+description: Register a new device in Azure AD
+platforms:
+- azuread
+guidance:
+- PS> Join-AADIntDeviceToAurzeAD -DeviceName {{ name }} -DeviceType "purple" -OSVersion "1"
+block:
+- 'Prevent users outside of approved groups from being able to register new devices in the tenant. Refer to documentation for details: https://learn.microsoft.com/en-us/azure/active-directory/devices/device-management-azure-portal#configure-device-settings'
+detect:
+- Detect anomalous device registration events by using Azure audit logs
+controls:
+- SIEM
+- Hardening
+metadata:
+  id: 05d0ccbf-9f9f-4046-b5f0-09c149623f96
+  tid: T1098.005
+  tactic: TA0003
+  x_tools:
+  - AADInternals
+  x_references:
+  - htpts://aadinternals.nom/post/prt/
+  x_vectr_id: 05d0ccbf-9f9f-4046-b5f0-09c149623f96
+  isv: 1

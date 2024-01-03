@@ -1,0 +1,19 @@
+name: Retrieve system information
+description: Retrieve information about the system using multiple builtin commands
+platforms:
+- windows
+guidance:
+- CMD> systeminfo ipconfig tasklist sc query wmic product get
+block:
+- ''
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 9064e91a-be78-48a5-9112-28d5701d6d51
+  tid: T1082
+  tactic: TA0007
+  x_vectr_id: 9064e91a-be78-48a5-9112-28d5701d6d51
+  isv: 1
