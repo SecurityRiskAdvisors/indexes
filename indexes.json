@@ -1,9 +1,9 @@
 {
     "indexes": {
-        "fs-index": "fs-index-2024/fs-index-2024-v1.0.yml",
-        "rh-index": "rh-index-2024/rh-index-2024-v1.0.yml",
-        "h-index": "h-index-2024/h-index-2024-v1.0.yml",
-        "ot-index": "ot-index-2024/ot-index-2024-v1.0.yml"
+        "fs-index": "fs-index-2024/fs-index-2024-v1.0.1.yml",
+        "rh-index": "rh-index-2024/rh-index-2024-v1.0.1.yml",
+        "h-index": "h-index-2024/h-index-2024-v1.0.1.yml",
+        "ot-index": "ot-index-2024/ot-index-2024-v1.0.1.yml"
     }
 }
 

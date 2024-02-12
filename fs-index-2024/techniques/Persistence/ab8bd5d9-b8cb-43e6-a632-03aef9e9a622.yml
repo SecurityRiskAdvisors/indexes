@@ -3,7 +3,7 @@ description: Run a payload during user login by setting a Registry Winlogon key
 platforms:
 - windows
 guidance:
-- CMD> reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /f "{{ command }}"
+- CMD> reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /f /d "{{ command }}"
 block:
 - Suspicious process execution/behavior blocked by endpoint security tool
 detect:
