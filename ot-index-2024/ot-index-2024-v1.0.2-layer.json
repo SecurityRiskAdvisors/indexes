@@ -1,10 +1,10 @@
 {
-    "description": "Financial Services Threat Simulation Index 2024 v1.0.1",
+    "description": "Operational Technology Threat Simulation Index 2024 v1.0.2",
     "domain": "enterprise-attack",
     "layout": {
         "layout": "flat"
     },
-    "name": "Financial Services Threat Simulation Index 2024 v1.0",
+    "name": "Operational Technology Threat Simulation Index 2024 v1.0.2",
     "selectSubtechniquesWithParent": false,
     "selectTechniquesAcrossTactics": false,
     "techniques": [
@@ -45,6 +45,10 @@
             "techniqueID": "T1003"
         },
         {
+            "showSubtechniques": true,
+            "techniqueID": "T1003"
+        },
+        {
             "color": "#7a34eb",
             "techniqueID": "T1003.001"
         },
@@ -61,7 +65,7 @@
             "techniqueID": "T1003.002"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
             "techniqueID": "T1003.003"
         },
         {
@@ -167,6 +171,18 @@
         {
             "enabled": false,
             "techniqueID": "T1020.001"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1021"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1021"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1021"
         },
         {
             "showSubtechniques": true,
@@ -411,6 +427,10 @@
         {
             "enabled": false,
             "techniqueID": "T1045"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1046"
         },
         {
             "color": "#7a34eb",
@@ -705,6 +725,10 @@
             "techniqueID": "T1070.009"
         },
         {
+            "color": "#7a34eb",
+            "techniqueID": "T1071"
+        },
+        {
             "showSubtechniques": true,
             "techniqueID": "T1071"
         },
@@ -765,11 +789,7 @@
             "techniqueID": "T1077"
         },
         {
-            "color": "#7a34eb",
-            "techniqueID": "T1078"
-        },
-        {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1078"
         },
         {
@@ -801,7 +821,7 @@
             "techniqueID": "T1081"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1082"
         },
         {
@@ -945,7 +965,7 @@
             "techniqueID": "T1101"
         },
         {
-            "showSubtechniques": true,
+            "enabled": false,
             "techniqueID": "T1102"
         },
         {
@@ -953,7 +973,7 @@
             "techniqueID": "T1102.001"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1102.002"
         },
         {
@@ -993,7 +1013,7 @@
             "techniqueID": "T1110"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
             "techniqueID": "T1110.001"
         },
         {
@@ -1001,7 +1021,7 @@
             "techniqueID": "T1110.002"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1110.003"
         },
         {
@@ -1657,7 +1677,7 @@
             "techniqueID": "T1480.001"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1482"
         },
         {
@@ -1703,6 +1723,10 @@
         {
             "enabled": false,
             "techniqueID": "T1489"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1490"
         },
         {
             "color": "#7a34eb",
@@ -2029,7 +2053,11 @@
             "techniqueID": "T1547"
         },
         {
-            "enabled": false,
+            "showSubtechniques": true,
+            "techniqueID": "T1547"
+        },
+        {
+            "color": "#7a34eb",
             "techniqueID": "T1547.001"
         },
         {
@@ -2477,15 +2505,19 @@
             "techniqueID": "T1566"
         },
         {
-            "color": "#7a34eb",
-            "techniqueID": "T1566.001"
+            "showSubtechniques": true,
+            "techniqueID": "T1566"
         },
         {
             "color": "#7a34eb",
             "techniqueID": "T1566.001"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
+            "techniqueID": "T1566.001"
+        },
+        {
+            "color": "#7a34eb",
             "techniqueID": "T1566.002"
         },
         {

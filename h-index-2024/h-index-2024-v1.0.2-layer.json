@@ -1,10 +1,10 @@
 {
-    "description": "Operational Technology Threat Simulation Index 2024 v1.0.1",
+    "description": "Health Threat Simulation Index 2024 v1.0.2",
     "domain": "enterprise-attack",
     "layout": {
         "layout": "flat"
     },
-    "name": "Operational Technology Threat Simulation Index 2024 v1.0",
+    "name": "Health Threat Simulation Index 2024 v1.0.2",
     "selectSubtechniquesWithParent": false,
     "selectTechniquesAcrossTactics": false,
     "techniques": [
@@ -45,10 +45,6 @@
             "techniqueID": "T1003"
         },
         {
-            "showSubtechniques": true,
-            "techniqueID": "T1003"
-        },
-        {
             "color": "#7a34eb",
             "techniqueID": "T1003.001"
         },
@@ -65,7 +61,7 @@
             "techniqueID": "T1003.002"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1003.003"
         },
         {
@@ -171,18 +167,6 @@
         {
             "enabled": false,
             "techniqueID": "T1020.001"
-        },
-        {
-            "color": "#7a34eb",
-            "techniqueID": "T1021"
-        },
-        {
-            "color": "#7a34eb",
-            "techniqueID": "T1021"
-        },
-        {
-            "color": "#7a34eb",
-            "techniqueID": "T1021"
         },
         {
             "showSubtechniques": true,
@@ -433,12 +417,12 @@
             "techniqueID": "T1046"
         },
         {
-            "color": "#7a34eb",
-            "techniqueID": "T1046"
-        },
-        {
             "enabled": false,
             "techniqueID": "T1047"
+        },
+        {
+            "showSubtechniques": true,
+            "techniqueID": "T1048"
         },
         {
             "showSubtechniques": true,
@@ -451,6 +435,10 @@
         {
             "enabled": false,
             "techniqueID": "T1048.002"
+        },
+        {
+            "color": "#7a34eb",
+            "techniqueID": "T1048.003"
         },
         {
             "color": "#7a34eb",
@@ -725,10 +713,6 @@
             "techniqueID": "T1070.009"
         },
         {
-            "color": "#7a34eb",
-            "techniqueID": "T1071"
-        },
-        {
             "showSubtechniques": true,
             "techniqueID": "T1071"
         },
@@ -789,7 +773,11 @@
             "techniqueID": "T1077"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
+            "techniqueID": "T1078"
+        },
+        {
+            "color": "#7a34eb",
             "techniqueID": "T1078"
         },
         {
@@ -1009,11 +997,11 @@
             "techniqueID": "T1109"
         },
         {
-            "showSubtechniques": true,
+            "enabled": false,
             "techniqueID": "T1110"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1110.001"
         },
         {
@@ -1173,11 +1161,11 @@
             "techniqueID": "T1135"
         },
         {
-            "enabled": false,
+            "showSubtechniques": true,
             "techniqueID": "T1136"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
             "techniqueID": "T1136.001"
         },
         {
@@ -1677,7 +1665,7 @@
             "techniqueID": "T1480.001"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
             "techniqueID": "T1482"
         },
         {
@@ -1723,10 +1711,6 @@
         {
             "enabled": false,
             "techniqueID": "T1489"
-        },
-        {
-            "color": "#7a34eb",
-            "techniqueID": "T1490"
         },
         {
             "color": "#7a34eb",
