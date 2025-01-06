@@ -1,0 +1,21 @@
+name: Delete shadow copies from system
+description: Delete volume shadow copies on the host to inhibit file system recovery
+platforms:
+- windows
+guidance:
+- CMD> vssadmin.exe delete shadows /all /quiet
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use shadow creation events (Event ID 8222) and/or file system and Registry related Advanced Audit events (e.g. Event ID 4663) to identify Volume Shadow Service activities.
+- https://jpcertcc.github.io/ToolAnalysisResultSheet/details/vssadmin.htm
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+  tid: T1490
+  tactic: TA0040
+  x_vectr_id: 31d4a02d-4a66-4740-a9c4-8814319fd5c4
+  isv: 1

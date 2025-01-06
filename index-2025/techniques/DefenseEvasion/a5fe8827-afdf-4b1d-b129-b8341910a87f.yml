@@ -1,0 +1,17 @@
+name: New Outlook inbox rule
+description: Create a new Outlook inbox rule to delete incoming emails matching a specified criteria (sender/sender domain/subject).
+platforms:
+guidance:
+- Log in to outlook.office.com -> Settings -> Mail -> Rules -> Add new rule
+block:
+- ''
+detect:
+- Use Microsoft Exchange audit logs to detect anomalous inbox rule creation/modification events (New-InboxRule/Set-InboxRule)
+controls:
+- SIEM
+metadata:
+  id: a5fe8827-afdf-4b1d-b129-b8341910a87f
+  tid: T1564.008
+  tactic: TA0005
+  x_vectr_id: a5fe8827-afdf-4b1d-b129-b8341910a87f
+  isv: 1

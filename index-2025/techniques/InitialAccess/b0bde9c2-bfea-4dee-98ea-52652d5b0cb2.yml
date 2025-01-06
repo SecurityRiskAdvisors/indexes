@@ -1,0 +1,16 @@
+name: Attachment - Smuggle ISO file in HTML
+description: Send an HTML attachment that will initiate the download of an ISO payload encoded in that page. HTML smuggling can be used to evade email-based security controls as well as link inspections.
+platforms:
+guidance:
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: b0bde9c2-bfea-4dee-98ea-52652d5b0cb2
+  tid: T1027.006
+  tactic: TA0005
+  x_vectr_id: b0bde9c2-bfea-4dee-98ea-52652d5b0cb2
+  isv: 1

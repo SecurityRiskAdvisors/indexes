@@ -1,0 +1,18 @@
+name: Remote tool download over HTTP
+description: Download a malicious tool from a public hosting location onto the victim system
+platforms:
+guidance:
+block:
+- Signatures for known-malicious tools/traffic are blocked by network security controls such as an ID/PS
+detect:
+- Signatures for known-malicious tools/traffic are detected by network security controls such as an ID/PS
+controls:
+- Firewall
+- ID/PS
+- Web Gateway
+metadata:
+  id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
+  tid: T1105
+  tactic: TA0011
+  x_vectr_id: 9755cd8b-5212-4331-8c6e-afb27404a4b9
+  isv: 1

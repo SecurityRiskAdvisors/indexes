@@ -1,0 +1,21 @@
+name: Disable a Trail
+description: Disable a trail in CloudTrail
+platforms:
+- aws
+guidance:
+- shell> aws cloudtrail stop-logging --name {{ trail_name }}
+block:
+- Manage trails from the Organization management account or a delegated administrator account to prevent members accounts from modifying trails
+detect:
+- Detect anomalous trail logging configuration changes by looking for the cloudtrail:StopLogging CloudTrail event
+- Use a CSPM-like tool to detect when an account is not configured with CloudTrail monitoring
+controls:
+- SIEM
+- Hardening
+- CSPM
+metadata:
+  id: d7e8c37e-237f-4ff1-81dd-e623a0b269f2
+  tid: T1562.008
+  tactic: TA0005
+  x_vectr_id: d7e8c37e-237f-4ff1-81dd-e623a0b269f2
+  isv: 1

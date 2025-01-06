@@ -1,0 +1,22 @@
+name: Disable Graph activity diagnostic log category
+description: Modify a diagnostic log to disable the "MicrosoftGraphActivityLogs" category.
+platforms:
+- azure
+guidance:
+- "az monitor diagnostic-settings subscription update --name {{ diagnostic_setting_name }} --logs '[{\"category\":\"MicrosoftGraphActivityLogs\",\"categoryGroup\":null,\"enabled\":false}]\n"
+block:
+detect:
+- Detect anomalous resource updates via the SIEM. Look for the action "microsoft.insights/diagnosticSettings/write" and query the changes that were applied to the resource.
+- Monitor for actions occurring at unusual times or from unusual IP addresses, and correlate the events using the SIEM.
+controls:
+- CASB
+- SIEM
+- CSPM
+metadata:
+  id: 71a732dc-ee42-4bb4-91ba-6f825b6fe6ae
+  tid: T1562.008
+  tactic: TA0005
+  x_tools:
+  - Azure CLI
+  x_vectr_id: 71a732dc-ee42-4bb4-91ba-6f825b6fe6ae
+  isv: 1

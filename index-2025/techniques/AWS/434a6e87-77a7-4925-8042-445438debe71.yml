@@ -1,0 +1,18 @@
+name: Instance credential compromise
+description: Compromise the instance role credentials associated with an EC2 instance then use them to perform API actions from outside of the instance
+platforms:
+- aws
+guidance:
+block:
+- ''
+detect:
+- Use CloudTrail logs to detect when a principal performs actions from an unexpected source, such as an EC2 instance role performing actions from a non-AWS IP
+- Detect anomalous API actions via GuardDuty's UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration finding types, which triggers when events occur from EC2 credentials outside AWS or the original account
+controls:
+- SIEM
+metadata:
+  id: 434a6e87-77a7-4925-8042-445438debe71
+  tid: T1552.005
+  tactic: TA0006
+  x_vectr_id: 434a6e87-77a7-4925-8042-445438debe71
+  isv: 1

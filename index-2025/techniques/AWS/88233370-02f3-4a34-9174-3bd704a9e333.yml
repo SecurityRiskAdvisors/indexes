@@ -1,0 +1,21 @@
+name: Modify role trust relationship
+description: Add a statement to a role's trust policy to allow role assumption from any principal ("*")
+platforms:
+- aws
+guidance:
+- shell> aws iam update-assume-role-policy-document --role-name {{ role_name }} --policy--document file://{{ policy_file }}
+- "policy:\n{ \n  \"Version\": \"2012-10-17\", \n  \"Statement\": [ \n    { \n      \"Effect\": \"Allow\", \n      \"Principal\": { \n        \"AWS\": \"*\" \n      }, \n      \"Action\": \"sts:AssumeRole\" \n    } \n  ] \n} \n"
+block:
+- ''
+detect:
+- Detect anomalous role trust policy modification by looking for the iam:UpdateAssumeRolePolicy CloudTrail event
+- Use a CSPM-like tool to detect when an IAM role is configured with an overly-permissive trust policy
+controls:
+- SIEM
+- CSPM
+metadata:
+  id: 88233370-02f3-4a34-9174-3bd704a9e333
+  tid: T1098
+  tactic: TA0003
+  x_vectr_id: 88233370-02f3-4a34-9174-3bd704a9e333
+  isv: 1

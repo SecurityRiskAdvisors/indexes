@@ -1,0 +1,22 @@
+name: Authentication via device code flow
+description: Have a user authenticate to the tenant using a device code flow
+platforms:
+guidance:
+- PS> Get-AzureToken -Client {{ client }}
+- Then login as the target user with the generated code
+block:
+- 'Disable device code authentication via conditional access policy authentication flow settings: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-authentication-flows'
+detect:
+- Detect anomalous device code sign-ins (Authentication protocol -> "Device Code") using the Azure sign-in logs.
+- https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html
+controls:
+- SIEM
+- Hardening
+metadata:
+  id: 31dbbb09-4cad-47fc-a76d-8858b62a85d3
+  tid: T1528
+  tactic: TA0006
+  x_tools:
+  - https://github.com/rvrsh3ll/TokenTactics
+  x_vectr_id: 31dbbb09-4cad-47fc-a76d-8858b62a85d3
+  isv: 1

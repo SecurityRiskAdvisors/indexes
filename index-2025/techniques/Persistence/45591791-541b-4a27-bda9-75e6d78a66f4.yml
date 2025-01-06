@@ -1,0 +1,16 @@
+name: Modify Group Policy object
+description: Modify a domain group policy object. This can be used for activities like persisting access to the environment, disabling security controls, and executing ransomware on domain systems.
+platforms:
+guidance:
+block:
+- ''
+detect:
+- Configure Advanced Audit for directory service objects on domain controllers via Group Policy. Using object modification events (Event ID 5136), look for anomalous changes, such as those performed by unexpected principals or changes occurring outside of expected business processes.
+controls:
+- SIEM
+metadata:
+  id: 45591791-541b-4a27-bda9-75e6d78a66f4
+  tid: T1484.001
+  tactic: TA0005
+  x_vectr_id: 45591791-541b-4a27-bda9-75e6d78a66f4
+  isv: 1

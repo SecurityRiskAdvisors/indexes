@@ -1,0 +1,20 @@
+name: Grant managed identity access to a resource group
+description: Grant a managed identity permissive access to a resource group
+platforms:
+- azure
+guidance:
+- shell> az role assignment create --assignee {{ assignee }} --role {{ role_name }} --scope "/subscriptions/{{ subscription_id }}/resourcegroups/{{ resource_group }}/"
+block:
+- ''
+detect:
+- Detect anomalous role assignment changes by looking for the Microsoft.Authorization/roleAssignments/write event then querying for the corresponding changes
+- Use a CSPM-like tool to detect when a principal is configured with an overly-permissive assignment(s)
+controls:
+- SIEM
+- CSPM
+metadata:
+  id: 3dc08ef7-5883-468f-bb4c-f4b9bf3f6b2f
+  tid: T1098
+  tactic: TA0003
+  x_vectr_id: 3dc08ef7-5883-468f-bb4c-f4b9bf3f6b2f
+  isv: 1

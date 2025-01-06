@@ -1,0 +1,17 @@
+name: Persist via MFA device registration
+description: Establish persistence on an account by registering a new MFA device
+platforms:
+guidance:
+- myaccount.microsoft.com -> Security Info -> Add sign-in method
+block:
+- ''
+detect:
+- Detect new MFA device registrations using audit logs in the SIEM. Look for changes occurring with anomalous request characteristics such as from a previously not seen IP.
+controls:
+- SIEM
+metadata:
+  id: ca9c10e2-0605-4760-8cde-cc7b772fde78
+  tid: T1556.006
+  tactic: TA0003
+  x_vectr_id: ca9c10e2-0605-4760-8cde-cc7b772fde78
+  isv: 1

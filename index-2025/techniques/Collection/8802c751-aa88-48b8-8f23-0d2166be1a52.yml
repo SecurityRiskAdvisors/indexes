@@ -1,0 +1,17 @@
+name: Search SharePoint for sensitive information
+description: Perform searches within SharePoint for documents containing sensitive information like passwords and personal information
+platforms:
+guidance:
+block:
+- ''
+detect:
+- Use application logs to identify and detect anomalous data access patterns within SharePoint
+controls:
+- UEBA
+- SIEM
+metadata:
+  id: 8802c751-aa88-48b8-8f23-0d2166be1a52
+  tid: T1213.002
+  tactic: TA0009
+  x_vectr_id: 8802c751-aa88-48b8-8f23-0d2166be1a52
+  isv: 1

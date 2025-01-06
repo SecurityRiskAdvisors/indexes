@@ -1,0 +1,22 @@
+name: Internal port scan from virtual machine
+description: Perform a port scan from a virtual machine against other virtual machines on the same private network
+platforms:
+- azure
+guidance:
+- shell> nmap -p445,80,8443,3306,21,22,23,1433,1521,1526,523,5432,623 -oA {{ gen_outfile }} {{ target_cidr }}
+block:
+- Network security controls block source generating a large volume of connection requests
+detect:
+- Network security controls or the SIEM detect a source generating a large volume of connection requests by network traffic logs like switch logs and flow logs
+controls:
+- Firewall
+- ID/PS
+- Deception
+metadata:
+  id: ecdf0eeb-4e91-4330-bc38-6c642841e4e7
+  tid: T1046
+  tactic: TA0007
+  x_tools:
+  - nmap
+  x_vectr_id: ecdf0eeb-4e91-4330-bc38-6c642841e4e7
+  isv: 1

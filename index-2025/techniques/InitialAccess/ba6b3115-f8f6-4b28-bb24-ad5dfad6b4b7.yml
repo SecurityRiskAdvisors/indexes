@@ -1,0 +1,19 @@
+name: Prompt a user with multiple MFA requests
+description: Using valid credentials for a user, prompt that user with multiple MFA requests in a short period of time in order to induce them to accept the prompt.
+platforms:
+guidance:
+block:
+- Enforce multi-factor authentication for all logins and require phishing-resistant factors like Yubikeys and Windows Hello for Business
+- Prevent sign-ins from users with anomalous login characteristics, such as an unknown geolocation or device fingerprint
+detect:
+- Baseline MFA requests for users using authentication logs then generate alerts for instances where the amount of MFA requests for a user significantly exceeds the baseline within a short time period (e.g. <1 hour).
+controls:
+- IdP
+- SIEM
+- Hardening
+metadata:
+  id: ba6b3115-f8f6-4b28-bb24-ad5dfad6b4b7
+  tid: T1621
+  tactic: TA0006
+  x_vectr_id: ba6b3115-f8f6-4b28-bb24-ad5dfad6b4b7
+  isv: 1

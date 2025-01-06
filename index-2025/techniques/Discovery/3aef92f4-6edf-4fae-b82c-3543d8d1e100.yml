@@ -1,0 +1,36 @@
+name: Bulk host reconnaissance
+description: Execute a series of discovery commands in sequence to gather information about the system/user/environment
+platforms:
+- windows
+guidance:
+- ipconfig /all
+- net share
+- net start
+- net use
+- net user
+- net view /all
+- netstat -ano
+- query user
+- systeminfo
+- tasklist
+- whoami /all
+- wmic os get
+- wmic path win32_logicaldisk get
+- wmic product list
+- wmic service list
+- wmic volume list
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use process create events (e.g. Event ID 4688) to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- Endpoint Protection
+- SIEM
+- Application Control
+metadata:
+  id: 3aef92f4-6edf-4fae-b82c-3543d8d1e100
+  tid: T1082
+  tactic: TA0007
+  x_vectr_id: 3aef92f4-6edf-4fae-b82c-3543d8d1e100
+  isv: 1

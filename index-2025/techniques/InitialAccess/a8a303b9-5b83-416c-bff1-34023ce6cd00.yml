@@ -1,0 +1,19 @@
+name: Log in to portal via AitM proxy
+description: Log in to an external portal from an adversary-in-the-middle proxy (such as Evilginx)
+platforms:
+guidance:
+block:
+- Enforce multi-factor authentication for all logins and require phishing-resistant factors like Yubikeys and Windows Hello for Business
+detect:
+- Detect sign-ins from users with anomalous login characteristics, such as an unknown geolocation or device fingerprint
+- Consider deploying layout-based canaries (e.g. CSS, images) on managed sign-in pages to detect when the page is loaded through an attacker's proxy
+controls:
+- SIEM
+metadata:
+  id: a8a303b9-5b83-416c-bff1-34023ce6cd00
+  tid: T1557
+  tactic: TA0006
+  x_tools:
+  - https://github.com/kgretzky/evilginx2
+  x_vectr_id: a8a303b9-5b83-416c-bff1-34023ce6cd00
+  isv: 1

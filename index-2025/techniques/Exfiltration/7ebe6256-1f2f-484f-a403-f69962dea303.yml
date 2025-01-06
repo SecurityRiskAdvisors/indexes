@@ -1,0 +1,17 @@
+name: Extract sensitive data via email
+description: Exfiltrate data from the internal network by sending it as an email attachment to an inbox outside of the tenant
+platforms:
+guidance:
+block:
+- Sensitive data sent over email is blocked by email-based DLP tool/controls
+detect:
+- Sensitive data sent over email is detected by email-based DLP tool/controls
+controls:
+- Mail Gateway
+- DLP
+metadata:
+  id: 7ebe6256-1f2f-484f-a403-f69962dea303
+  tid: T1048.001
+  tactic: TA0010
+  x_vectr_id: 7ebe6256-1f2f-484f-a403-f69962dea303
+  isv: 1

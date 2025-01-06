@@ -1,0 +1,19 @@
+name: Assign user an admin role in IdP
+description: Assign user an administrator role within the identity provider (e.g. Entra ID)
+platforms:
+guidance:
+- (Example) PS> New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId / -PrincipalId {{ user_id }} -RoleDefinitionId {{ role_id }}
+block:
+detect:
+- Monitor for unusual permissions changes that may indicate excessively broad permissions being granted to an account via the SIEM.
+- For Entra ID, examine activity logs for "Add member to role" actions.
+controls:
+- CASB
+- SIEM
+- CSPM
+metadata:
+  id: 858f2214-2039-4198-bf4f-ea52185578df
+  tid: T1098.003
+  tactic: TA0003
+  x_vectr_id: 858f2214-2039-4198-bf4f-ea52185578df
+  isv: 1
