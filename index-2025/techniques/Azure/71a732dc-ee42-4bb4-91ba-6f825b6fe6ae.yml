@@ -3,7 +3,7 @@ description: Modify a diagnostic log to disable the "MicrosoftGraphActivityLogs"
 platforms:
 - azure
 guidance:
-- "az monitor diagnostic-settings subscription update --name {{ diagnostic_setting_name }} --logs '[{\"category\":\"MicrosoftGraphActivityLogs\",\"categoryGroup\":null,\"enabled\":false}]\n"
+- console> Navigate to Entra ID -> Monitoring -> Diagnostics settings -> Edit the diagnostic settings -> Uncheck the box for "MicrosoftGraphActivityLogs" -> Save
 block:
 detect:
 - Detect anomalous resource updates via the SIEM. Look for the action "microsoft.insights/diagnosticSettings/write" and query the changes that were applied to the resource.
