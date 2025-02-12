@@ -1,6 +1,6 @@
 metadata:
   prefix: TSI
-  bundle: Threat Simulation Index 2025 v1.0.1
+  bundle: Threat Simulation Index 2025 v1.0.2
 Impact:
 - name: Delete shadow copies from system
   description: Delete volume shadow copies on the host to inhibit file system recovery
@@ -1262,7 +1262,7 @@ Azure:
   - console> Navigate to Entra ID -> Monitoring -> Diagnostics settings -> Edit the diagnostic settings -> Uncheck the box for "MicrosoftGraphActivityLogs" -> Save
   block:
   detect:
-  - Detect anomalous resource updates via the SIEM. Look for the action "microsoft.insights/diagnosticSettings/write" and query the changes that were applied to the resource.
+  - https://samilamppu.com/2022/05/30/detect-azure-ad-diagnostics-setting-changes-in-microsoft-sentinel/
   - Monitor for actions occurring at unusual times or from unusual IP addresses, and correlate the events using the SIEM.
   controls:
   - CASB
