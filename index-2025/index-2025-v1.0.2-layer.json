@@ -2741,11 +2741,11 @@
             "techniqueID": "T1574"
         },
         {
-            "enabled": false,
+            "color": "#7a34eb",
             "techniqueID": "T1574.001"
         },
         {
-            "color": "#7a34eb",
+            "enabled": false,
             "techniqueID": "T1574.002"
         },
         {

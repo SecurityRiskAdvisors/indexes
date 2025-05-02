@@ -16,7 +16,7 @@ controls:
 - SIEM
 metadata:
   id: 2496e250-5757-482f-9661-daea872395ae
-  tid: T1574.002
+  tid: T1574.001
   tactic: TA0005
   x_vectr_id: 2496e250-5757-482f-9661-daea872395ae
   isv: 1
