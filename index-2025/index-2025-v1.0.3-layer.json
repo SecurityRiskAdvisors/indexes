@@ -1,10 +1,10 @@
 {
-    "description": "Threat Simulation Index 2025 v1.0.2",
+    "description": "Threat Simulation Index 2025 v1.0.3",
     "domain": "enterprise-attack",
     "layout": {
         "layout": "flat"
     },
-    "name": "Threat Simulation Index 2025 v1.0.2",
+    "name": "Threat Simulation Index 2025 v1.0.3",
     "selectSubtechniquesWithParent": false,
     "selectTechniquesAcrossTactics": false,
     "techniques": [

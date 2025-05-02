@@ -1,6 +1,6 @@
 metadata:
   prefix: TSI
-  bundle: Threat Simulation Index 2025 v1.0.2
+  bundle: Threat Simulation Index 2025 v1.0.3
 Impact:
 - name: Delete shadow copies from system
   description: Delete volume shadow copies on the host to inhibit file system recovery
