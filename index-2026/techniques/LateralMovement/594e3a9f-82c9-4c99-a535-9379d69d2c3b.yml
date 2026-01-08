@@ -1,0 +1,21 @@
+name: Transfer tool remotely to target
+description: Copy a payload to a remote target
+platforms:
+prerequisites:
+guidance:
+- (Example) cmd> copy {{ exe }} \\{{ target }}\{{ share }}\{{ path }}
+block:
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Endpoint Protection
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: 594e3a9f-82c9-4c99-a535-9379d69d2c3b
+  tid: T1570
+  tactic: TA0008
+  x_vectr_id: 594e3a9f-82c9-4c99-a535-9379d69d2c3b
+  isv: 1

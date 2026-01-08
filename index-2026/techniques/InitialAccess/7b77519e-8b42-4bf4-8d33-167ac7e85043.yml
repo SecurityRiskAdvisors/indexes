@@ -1,0 +1,21 @@
+name: SSO Portal Password Spray + Login
+description: Perform a login brute force against an external SSO portal using a list of users/emails and a single password. Then, log into the portal using a valid credential.
+platforms:
+prerequisites:
+guidance:
+- 'Office365: ./Go365 -endpoint rst -ul {{ userlist_file }} -p {{ gen_password }} -d {{ domain_fqdn }} -w {{ wait_seconds }} -o {{ gen_outfile }}'
+block:
+- Source blocked from making connections due to abnormally high volume of traffic
+detect:
+- Detect a large number of authentication attempts originating from a single source in a short period of time using authentication logs
+controls:
+- IdP
+- SIEM
+metadata:
+  id: 7b77519e-8b42-4bf4-8d33-167ac7e85043
+  tid: T1110.003
+  tactic: TA0006
+  x_tools:
+  - https://github.com/optiv/Go365
+  x_vectr_id: 7b77519e-8b42-4bf4-8d33-167ac7e85043
+  isv: 1

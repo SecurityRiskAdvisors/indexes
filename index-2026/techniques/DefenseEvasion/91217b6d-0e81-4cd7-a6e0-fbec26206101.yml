@@ -1,0 +1,20 @@
+name: Add Defender exclusion
+description: Add Windows Defender folder exclusion
+platforms:
+prerequisites:
+- local_admin
+guidance:
+- PS> Set-MpPreference -ExclusionPath "{{ folder }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 91217b6d-0e81-4cd7-a6e0-fbec26206101
+  tid: T1562.001
+  tactic: TA0005
+  x_vectr_id: 91217b6d-0e81-4cd7-a6e0-fbec26206101
+  isv: 1

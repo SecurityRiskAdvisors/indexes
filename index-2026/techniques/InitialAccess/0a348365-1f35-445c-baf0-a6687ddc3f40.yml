@@ -1,0 +1,18 @@
+name: Attachment - Macro
+description: Send a spearphishing attachment containing a malicious macro payload to a target
+platforms:
+prerequisites:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ rcpt }} -From {{ sender }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: 0a348365-1f35-445c-baf0-a6687ddc3f40
+  tid: T1566.001
+  tactic: TA0001
+  x_vectr_id: 0a348365-1f35-445c-baf0-a6687ddc3f40
+  isv: 1

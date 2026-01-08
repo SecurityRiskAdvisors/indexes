@@ -1,0 +1,18 @@
+name: Email link to known bad
+description: Send a phishing email to a target containing a known bad link
+platforms:
+prerequisites:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ bodywithlink }} -To {{ rcpt }} -From {{ sender }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: 90223862-1524-4936-8abc-41771a7b847c
+  tid: T1566.002
+  tactic: TA0001
+  x_vectr_id: 90223862-1524-4936-8abc-41771a7b847c
+  isv: 1

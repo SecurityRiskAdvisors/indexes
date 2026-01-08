@@ -1,0 +1,21 @@
+name: Encrypt a large amount of files
+description: Encrypt a large amount of files on the endpoint to simulate ransomware
+platforms:
+prerequisites:
+guidance:
+- cmd> mfe.exe run -t {{ target folder }} -e {{ extension }} -r true
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Detect common ransomware extensions using file system telemetry
+controls:
+- Endpoint Protection
+metadata:
+  id: 8eaf1d9f-126b-47d6-b248-81ddf63d1489
+  tid: T1486
+  tactic: TA0040
+  x_tools:
+  - https://github.com/2XXE-SRA/payload_resources/tree/master/frozencryptor
+  x_vectr_id: 8eaf1d9f-126b-47d6-b248-81ddf63d1489
+  isv: 1

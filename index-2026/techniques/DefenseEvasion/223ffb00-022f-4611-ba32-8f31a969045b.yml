@@ -1,0 +1,23 @@
+name: EDR network tampering
+description: Create a firewall rule to block outbound traffic originating from EDR tool processes, preventing agents from sending data to their control plane
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> netsh advfirewall firewall add rule name="{{ gen_rule_name }}" dir=out action=block program="{{ edr_file_path }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Enable rule policy logging for Windows Firewall via Group Policy Advanced Audit then alert when firewall rule changes (Event ID 4946, 4947) occur outside of legitimate business processes.
+- Detect anomalous log drop-off in the SIEM for endpoint security tool logs
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 223ffb00-022f-4611-ba32-8f31a969045b
+  tid: T1562.006
+  tactic: TA0005
+  x_vectr_id: 223ffb00-022f-4611-ba32-8f31a969045b
+  isv: 1

@@ -1,0 +1,21 @@
+name: Persist via new scheduled task
+description: Persist on a system by creating a new scheduled task
+platforms:
+- windows
+prerequisites:
+guidance:
+- cmd> schtasks.exe /create /sc daily /tn {{ gen_task_name }} /tr {{ command }} /st 20:00
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool
+- Use scheduled task creation events (Event ID 4698) to identify newly created scheduled tasks. Look specifically for events that are anomalous as compared to other task creation events in the environment, such as events where the command is unique across all other tasks and events created by principals that do not commonly create tasks.
+controls:
+- SIEM
+- Endpoint Protection
+metadata:
+  id: 20a6dace-d801-42f5-b659-6cf91e39d273
+  tid: T1053.005
+  tactic: TA0003
+  x_vectr_id: 20a6dace-d801-42f5-b659-6cf91e39d273
+  isv: 1

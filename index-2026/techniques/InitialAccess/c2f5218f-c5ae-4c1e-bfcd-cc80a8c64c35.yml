@@ -1,0 +1,18 @@
+name: Email QR code to known bad
+description: Send a phishing email to a target containing a known bad link formatted as a QR code
+platforms:
+prerequisites:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ bodywithlink }} -To {{ rcpt }} -From {{ sender }}
+block:
+- Malicious email blocked/quarantined or link inside email rewritten/stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: c2f5218f-c5ae-4c1e-bfcd-cc80a8c64c35
+  tid: T1566.002
+  tactic: TA0001
+  x_vectr_id: c2f5218f-c5ae-4c1e-bfcd-cc80a8c64c35
+  isv: 1

@@ -1,0 +1,24 @@
+name: Create certificate for principal via AD Certificate Services
+description: Create a certificate for the user or machine account by using Active Directory Certificate Services. This certificate can then be used to authenticate as the principal for things like Kerberos.
+platforms:
+prerequisites:
+guidance:
+- 'User: CMD> Certify.exe request --ca {{ adcs_ca }} --template {{ cert_template }}'
+- 'Computer: CMD> Certify.exe request --ca {{ adcs_ca }} --template {{ cert_template }} --machine'
+block:
+- ''
+detect:
+- Detect anomalous certificate creation events using event IDs 4886 (request received) and 4887 (request approved) (DETECT-1)
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: d5c05c86-bc49-4457-a692-9e6915a5b3a6
+  tid: T1098
+  tactic: TA0003
+  x_tools:
+  - https://github.com/GhostPack/Certify
+  x_references:
+  - https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf
+  x_vectr_id: d5c05c86-bc49-4457-a692-9e6915a5b3a6
+  isv: 1

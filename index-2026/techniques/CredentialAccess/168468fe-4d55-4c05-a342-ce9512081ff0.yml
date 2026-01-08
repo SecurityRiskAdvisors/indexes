@@ -1,0 +1,22 @@
+name: Dump LSASS memory using Task Manager
+description: Use Task Manager to dump LSASS process memory to disk
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- Task Manager -> Search for 'lsass.exe' -> Right-click 'Local Security Authority Process' -> Create memory dump file
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Enable Credential Guard to prevent traditional process dumping of LSASS
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+controls:
+- Endpoint Protection
+- Hardening
+metadata:
+  id: 168468fe-4d55-4c05-a342-ce9512081ff0
+  tid: T1003.001
+  tactic: TA0006
+  x_vectr_id: 168468fe-4d55-4c05-a342-ce9512081ff0
+  isv: 1

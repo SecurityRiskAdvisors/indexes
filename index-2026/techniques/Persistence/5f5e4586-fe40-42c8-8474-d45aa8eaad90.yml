@@ -1,0 +1,25 @@
+name: Create a machine account
+description: Create an Active Directory machine account
+platforms:
+- windows
+prerequisites:
+guidance:
+- cmd> Sharpmad.exe MAQ -Action new -MachineAccount {{ gen_machine_name }} -MachinePassword {{ gen_machine_password }}
+block:
+- Configure domain user accounts' MachineAccountQuota attribute to be 0 to prevent machine account creation. See also https://social.technet.microsoft.com/wiki/contents/articles/5446.active-directory-how-to-prevent-authenticated-users-from-joining-workstations-to-a-domain.aspx
+detect:
+- Detect anomalous machine account creations using Windows event ID 4741 (https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741) in the SIEM
+controls:
+- Identity Threat Protection
+- SIEM
+- Hardening
+metadata:
+  id: 5f5e4586-fe40-42c8-8474-d45aa8eaad90
+  tid: T1136.002
+  tactic: TA0003
+  x_tools:
+  - https://github.com/Kevin-Robertson/Sharpmad
+  x_references:
+  - https://www.netspi.com/blog/technical/network-penetration-testing/machineaccountquota-is-useful-sometimes/
+  x_vectr_id: 5f5e4586-fe40-42c8-8474-d45aa8eaad90
+  isv: 1

@@ -1,0 +1,23 @@
+name: Domain share file searching
+description: Search for useful files on a domain share
+platforms:
+prerequisites:
+guidance:
+- CMD> snaffler.exe -s -o {{ gen_outfile }} -i {{ share_path }}
+block:
+- Network security controls block source generating a large volume of connection requests
+detect:
+- Network security controls or the SIEM detect a source generating a large volume of connection requests by network traffic logs like switch logs and flow logs
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Deception
+- Identity Threat Protection
+- SIEM
+metadata:
+  id: 0fb061ee-9767-46d6-80ad-ea1d302ca674
+  tid: T1083
+  tactic: TA0007
+  x_tools:
+  - https://github.com/SnaffCon/Snaffler
+  x_vectr_id: 0fb061ee-9767-46d6-80ad-ea1d302ca674
+  isv: 1

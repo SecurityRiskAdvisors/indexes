@@ -1,0 +1,22 @@
+name: Add user to local Administrator group
+description: Add an existing local user to the local Administrators group
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> net localgroup administrators {{ local_user }} /add
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use group modification events to identify additions to local (Event ID 4732) and domain (Event ID 4728) security groups.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: f704cc56-106d-4e75-8e0d-170316490485
+  tid: T1098
+  tactic: TA0003
+  x_vectr_id: f704cc56-106d-4e75-8e0d-170316490485
+  isv: 1
