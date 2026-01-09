@@ -1,0 +1,19 @@
+name: HTTP C2 over tcp/80
+description: Establish a bidirectional command-and-control connection from a managed asset to an external server on the Internet over HTTP
+platforms:
+prerequisites:
+guidance:
+block:
+- C2 channel is blocked by proxy, firewall, or network behavioral/UEBA tool
+detect:
+- C2 channel is detected by proxy, firewall, or network behavioral/UEBA tool
+controls:
+- Firewall
+- ID/PS
+- Web Gateway
+metadata:
+  id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
+  tid: T1071.001
+  tactic: TA0011
+  x_vectr_id: 38064494-0d58-4f48-bce8-b5b7ea7db3da
+  isv: 1

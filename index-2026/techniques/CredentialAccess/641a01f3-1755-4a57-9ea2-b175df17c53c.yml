@@ -1,0 +1,25 @@
+name: Extract NTDS credentials from shadow
+description: Dump domain hashes for all domain users on the domain controller by copying the NTDS.dit file from an existing shadow
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- PS> mkdir {{ gen_outdir }}
+- PS> .\ntdscopy.ps1 {{ sys_shadow_number }} {{ ntds_shadow_number }} {{ gen_outdir }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Suspicious file/object read blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious file/object read detected by endpoint security tool
+controls:
+- Endpoint Protection
+metadata:
+  id: 641a01f3-1755-4a57-9ea2-b175df17c53c
+  tid: T1003.003
+  tactic: TA0006
+  x_tools:
+  - https://github.com/2XXE-SRA/payload_resources/blob/master/powershell/ntdscopy.ps1
+  x_vectr_id: 641a01f3-1755-4a57-9ea2-b175df17c53c
+  isv: 1

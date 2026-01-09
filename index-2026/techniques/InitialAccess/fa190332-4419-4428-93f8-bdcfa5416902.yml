@@ -1,0 +1,18 @@
+name: Phishing via external Teams tenant
+description: Send a phishing message to a target user via a Team tenant not connected to the target user's tenant
+platforms:
+prerequisites:
+guidance:
+block:
+- 'If possible, consider blocking inbound messages from external Teams tenants or only allowing inbound messages from approved tenants. Refer to Microsoft documentation for details: https://learn.microsoft.com/en-us/microsoftteams/trusted-organizations-external-meetings-chat'
+detect:
+- Use Teams audit logs to identify anomalous chat events from users in external tenants (https://techcommunity.microsoft.com/t5/microsoft-security-experts-blog/phish-click-breach-hunting-for-a-sophisticated-cyber-attack/ba-p/4267916)
+controls:
+- SIEM
+- Hardening
+metadata:
+  id: fa190332-4419-4428-93f8-bdcfa5416902
+  tid: T1566
+  tactic: TA0001
+  x_vectr_id: fa190332-4419-4428-93f8-bdcfa5416902
+  isv: 1

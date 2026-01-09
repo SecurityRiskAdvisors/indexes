@@ -1,0 +1,23 @@
+name: Extract browser cookies
+description: Extract cookie information from the user's browser by injecting into the browser process
+platforms:
+- windows
+prerequisites:
+guidance:
+- cmd> chrome_elevator.exe {{ browser }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious access to database files used by browsers detected using file system telemetry in the SIEM
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: c7dec88c-4c95-4b72-8e18-b31a8fe4c6e2
+  tid: T1539
+  tactic: TA0006
+  x_tools:
+  - https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption
+  x_vectr_id: c7dec88c-4c95-4b72-8e18-b31a8fe4c6e2
+  isv: 1

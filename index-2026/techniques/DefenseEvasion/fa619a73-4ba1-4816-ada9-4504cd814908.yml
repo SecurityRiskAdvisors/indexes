@@ -1,0 +1,22 @@
+name: Disable Windows Firewall
+description: Disable the Windows Firewall using netsh.exe
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- CMD> netsh advfirewall set allprofiles state off
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Enable rule policy logging for Windows Firewall via Group Policy Advanced Audit then alert when firewall rule changes (Event ID 4946, 4947) occur outside of legitimate business processes.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: fa619a73-4ba1-4816-ada9-4504cd814908
+  tid: T1562.004
+  tactic: TA0005
+  x_vectr_id: fa619a73-4ba1-4816-ada9-4504cd814908
+  isv: 1

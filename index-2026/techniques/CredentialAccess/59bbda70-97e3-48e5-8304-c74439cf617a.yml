@@ -1,0 +1,23 @@
+name: Extract SAM and System Registry folders
+description: Extract credentials from the Registry by exporting the appropriate folders to disk
+platforms:
+- windows
+prerequisites:
+- local_admin
+guidance:
+- cmd> reg save hklm\sam c:\programdata\sam.save
+- cmd> reg save hklm\system c:\programdata\system.save
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Enable object logging for the Registry via Group Policy Advanced Audit then configure a SACL on the Registry either directly or via the global audit settings in Group Policy. Trigger an alert when anomalous modifications/access attempts are made using object access logs (e.g. Event IDs 4656, 4657, etc).
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: 59bbda70-97e3-48e5-8304-c74439cf617a
+  tid: T1003.002
+  tactic: TA0006
+  x_vectr_id: 59bbda70-97e3-48e5-8304-c74439cf617a
+  isv: 1

@@ -1,0 +1,18 @@
+name: Attachment - Zipped LNK file
+description: Send phishing email to victim containing a zipped LNK file attachment. This is intended to test the mail gateway (and sandbox analysis) in isolation.
+platforms:
+prerequisites:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ maildomain }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ rcpt }} -From {{ sender }} -Attachments {{ attachment }}
+block:
+- Malicious email blocked/quarantined or attachment inside email stripped by email gateway
+detect:
+- Malicious email alerted on by email gateway
+controls:
+- Mail Gateway
+metadata:
+  id: ecadba0c-dee4-478c-b459-77f14d37b806
+  tid: T1566.001
+  tactic: TA0001
+  x_vectr_id: ecadba0c-dee4-478c-b459-77f14d37b806
+  isv: 1

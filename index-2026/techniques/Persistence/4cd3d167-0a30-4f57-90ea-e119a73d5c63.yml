@@ -1,0 +1,20 @@
+name: Add user to Domain Admins group
+description: Add an existing domain user to the Domain Admins group
+platforms:
+- windows
+prerequisites:
+- domain_admin
+guidance:
+- shell> net group "Domain Admins" /add {{ domain_user }} /domain
+block:
+- ''
+detect:
+- Use group modification events to identify additions to local (Event ID 4732) and domain (Event ID 4728) security groups.
+controls:
+- SIEM
+metadata:
+  id: 4cd3d167-0a30-4f57-90ea-e119a73d5c63
+  tid: T1098
+  tactic: TA0003
+  x_vectr_id: 4cd3d167-0a30-4f57-90ea-e119a73d5c63
+  isv: 1

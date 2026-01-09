@@ -1,0 +1,21 @@
+name: Execute exe using MSI payload
+description: Using msiexec and an MSI payload, execute an exe embedded in the package
+platforms:
+- windows
+prerequisites:
+guidance:
+- CMD> msiexec.exe /q /i {{ msi }}
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Suspicious Windows MSI installations detected in the SIEM using telemetry (e.g. Windows Event ID 1040/1042, endpoint security tool logs)
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: d8b6944b-4310-4cd5-a8db-a8e36af4aa8c
+  tid: T1218.007
+  tactic: TA0005
+  x_vectr_id: d8b6944b-4310-4cd5-a8db-a8e36af4aa8c
+  isv: 1

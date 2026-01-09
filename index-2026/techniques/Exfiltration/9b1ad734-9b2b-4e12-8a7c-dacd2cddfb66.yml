@@ -1,0 +1,20 @@
+name: Extract data to cloud storage service
+description: Extract data from the internal network to a cloud storage service like MEGA, Google Drive, or Box
+platforms:
+prerequisites:
+guidance:
+block:
+- Sensitive data sent over the network is blocked by network DLP tool
+- Network security tool detects connection to domain based on category from proxy or DNS
+detect:
+- Sensitive data sent over the network is detected by network DLP tool
+controls:
+- Firewall
+- DLP
+- Web Gateway
+metadata:
+  id: 9b1ad734-9b2b-4e12-8a7c-dacd2cddfb66
+  tid: T1567.002
+  tactic: TA0010
+  x_vectr_id: 9b1ad734-9b2b-4e12-8a7c-dacd2cddfb66
+  isv: 1

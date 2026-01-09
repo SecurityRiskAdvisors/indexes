@@ -1,0 +1,25 @@
+name: Lateral movement via WMI
+description: Move to another system by using Windows Management Instrumentation (WMI) to spawn a process on that target system
+platforms:
+- windows
+prerequisites:
+- logon_rights
+guidance:
+- CMD> wmic /node:"{{ target }}" process call create "{{ command }}"
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- Endpoint Protection
+- SIEM
+- Identity Threat Protection
+- Hardening
+metadata:
+  id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
+  tid: T1021.003
+  tactic: TA0008
+  x_vectr_id: 3c337f53-d086-4f2f-818a-08fb1a1c5f79
+  isv: 1

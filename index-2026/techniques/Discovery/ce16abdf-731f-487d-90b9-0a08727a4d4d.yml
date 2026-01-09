@@ -1,0 +1,20 @@
+name: Internal port scan
+description: Run an internal port scan to probe interesting ports and services.
+platforms:
+prerequisites:
+guidance:
+- nmap --open -sS -Pn -p80,8080,8443,443,445,3306,1433,5432 -oA {{ gen_outfile }} {{ target_cidr }}
+block:
+- Network security controls block source generating a large volume of connection requests
+detect:
+- Network security controls or the SIEM detect a source generating a large volume of connection requests by network traffic logs like switch logs and flow logs
+controls:
+- Firewall
+- ID/PS
+- Deception
+metadata:
+  id: ce16abdf-731f-487d-90b9-0a08727a4d4d
+  tid: T1046
+  tactic: TA0007
+  x_vectr_id: ce16abdf-731f-487d-90b9-0a08727a4d4d
+  isv: 1

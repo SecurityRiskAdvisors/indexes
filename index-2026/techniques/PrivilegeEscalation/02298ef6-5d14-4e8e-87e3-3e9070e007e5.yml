@@ -1,0 +1,22 @@
+name: Register new device in SCCM
+description: Register a new device in SCCM using credentials for a machine account
+platforms:
+prerequisites:
+guidance:
+- cmd> SharpSCCM.exe new device -n {{ device_name }} -u {{ machine_account_name }} -p {{ machine_account_password }}
+block:
+- Prevent the rogue device registration in SCCM by enforcing PKI certificates for authentication to management services.
+- https://github.com/subat0mik/Misconfiguration-Manager/blob/main/defense-techniques/PREVENT/PREVENT-8/prevent-8_description.md
+detect:
+- ''
+controls:
+- Hardening
+- Identity Threat Protection
+metadata:
+  id: 02298ef6-5d14-4e8e-87e3-3e9070e007e5
+  tid: T1098.005
+  tactic: TA0004
+  x_tools:
+  - https://github.com/Mayyhem/SharpSCCM
+  x_vectr_id: 02298ef6-5d14-4e8e-87e3-3e9070e007e5
+  isv: 1

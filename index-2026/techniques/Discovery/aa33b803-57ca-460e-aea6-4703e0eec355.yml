@@ -1,0 +1,39 @@
+name: Bulk host reconnaissance
+description: Execute a series of discovery commands in sequence to gather information about the system/user/environment
+platforms:
+- windows
+prerequisites:
+guidance:
+- systeminfo
+- whoami
+- whoami /priv
+- netstat -anv
+- quser
+- netstat -nt
+- Get-WMIObject -Query "SELECT * FROM Win32_ComputerSystem"
+- Get-WMIObject -Query "SELECT * FROM Win32_BIOS"
+- Get-WMIObject -Query "SELECT * FROM AntiSpywareProduct"
+- Get-WMIObject -Query "SELECT * FROM AntiVirusProduct"
+- reg query "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Run"
+- echo %COMPUTERNAME%.%USERDNSDOMAIN%
+- net user /domain
+- net group "Domain Users" /domain
+- net localgroup "Administrators"
+- ipconfing /all
+- net use
+- net accounts
+- dir C:\\Users
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Use process create events to identify anomalous process invocation as compared to a baseline of process invocations by user and/or user characteristics (e.g. department). Base comparisons on the process/image name rather than the command line where possible.
+controls:
+- Endpoint Protection
+- SIEM
+metadata:
+  id: aa33b803-57ca-460e-aea6-4703e0eec355
+  tid: T1082
+  tactic: TA0007
+  x_vectr_id: aa33b803-57ca-460e-aea6-4703e0eec355
+  isv: 1

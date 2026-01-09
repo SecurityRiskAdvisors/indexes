@@ -1,0 +1,20 @@
+name: New Credential for Entra application
+description: In Entra ID, add a new credential to an OAuth application registration
+platforms:
+prerequisites:
+- aad_admin
+guidance:
+- shell> az ad app credential reset --id {{ app_id }} --append
+block:
+- ''
+detect:
+- Use Azure audit logs to alert on anomalous service principal credential events
+- https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095
+controls:
+- SIEM
+metadata:
+  id: a336a067-3bf2-4b7c-951e-5765900dc9b5
+  tid: T1098.001
+  tactic: TA0003
+  x_vectr_id: a336a067-3bf2-4b7c-951e-5765900dc9b5
+  isv: 1

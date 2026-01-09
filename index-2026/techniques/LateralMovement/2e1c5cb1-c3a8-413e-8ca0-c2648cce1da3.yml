@@ -1,0 +1,25 @@
+name: Lateral movement via WinRM
+description: Move to another system by using Windows Remote Management (WinRM) to spawn a process on that target system
+platforms:
+- windows
+prerequisites:
+- logon_rights
+guidance:
+- PS> invoke-command -computername {{ target }} -scriptblock { {{ command }} }
+block:
+- Suspicious process execution/behavior blocked by endpoint security tool
+- Host-based firewalls prevent direct communications over common ports/protocols
+detect:
+- Suspicious process execution/behavior detected by endpoint security tool or triggers alert in SIEM based on telemetry
+- Anomalous remote access patterns detected by UEBA/UEBA-like tool and/or in the SIEM using telemetry, such as Windows authentication events (Event ID 4624, 4648), as compared to a baseline of remote access activities for the initiating principal
+controls:
+- SIEM
+- Endpoint Protection
+- Identity Threat Protection
+- Hardening
+metadata:
+  id: 2e1c5cb1-c3a8-413e-8ca0-c2648cce1da3
+  tid: T1021.006
+  tactic: TA0008
+  x_vectr_id: 2e1c5cb1-c3a8-413e-8ca0-c2648cce1da3
+  isv: 1

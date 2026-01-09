@@ -1,0 +1,18 @@
+name: Search SharePoint for credentials
+description: Perform searches within SharePoint for documents containing credentials information
+platforms:
+prerequisites:
+guidance:
+block:
+- ''
+detect:
+- Use application logs to identify and detect anomalous data access patterns within SharePoint
+controls:
+- UEBA
+- SIEM
+metadata:
+  id: 36fbdc89-1c12-4878-a11c-3a8b1e337b9e
+  tid: T1213.002
+  tactic: TA0009
+  x_vectr_id: 36fbdc89-1c12-4878-a11c-3a8b1e337b9e
+  isv: 1

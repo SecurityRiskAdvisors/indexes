@@ -1,0 +1,21 @@
+name: Targeted Kerberoasting
+description: Retrieve Kerberos TGS tickets from Active Directory for a few users (2-3) with service principal names (SPNs) set
+platforms:
+prerequisites:
+guidance:
+- cmd> Rubeus.exe kerberoast /user:{{ domain_user }}
+block:
+- ''
+detect:
+- Configure Advanced Audit for Kerberos operations on domain controllers via Group Policy. Using ticket request logs (Event ID 4769), detect anomalous request events. For example, a user requesting a ticket for an SPN they have not previously requested.
+controls:
+- SIEM
+- Identity Threat Protection
+metadata:
+  id: 10308690-34a8-4e91-b566-ed04e68edcf5
+  tid: T1558.003
+  tactic: TA0006
+  x_tools:
+  - https://github.com/GhostPack/Rubeus
+  x_vectr_id: 10308690-34a8-4e91-b566-ed04e68edcf5
+  isv: 1

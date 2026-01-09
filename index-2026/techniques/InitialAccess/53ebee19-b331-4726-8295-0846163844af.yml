@@ -1,0 +1,19 @@
+name: Spoof email by sending directly to tenant SMTP endpoint
+description: Send an email to a target that spoofs the sender's address to look like an internal user by using the target tenant's Exchange Online SMTP endpoint
+platforms:
+prerequisites:
+guidance:
+- PS> Send-MailMessage -SmtpServer {{ tenant_fqdn }} -UseSSL -BodyAsHTML -Subject {{ subject }} -Body {{ body }} -To {{ rcpt }} -From {{ sender }} -Attachments {{ attachment }}
+block:
+- 'Prevent direct sending by enabling the RejectDirectSend setting in Exchange Online (see: https://techcommunity.microsoft.com/blog/exchange/introducing-more-control-over-direct-send-in-exchange-online/4408790). For compatibility with third-party mail services, refer to https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/manage-mail-flow-using-third-party-cloud'
+detect:
+- ''
+controls:
+- Mail Gateway
+- Hardening
+metadata:
+  id: 53ebee19-b331-4726-8295-0846163844af
+  tid: T1672
+  tactic: TA0005
+  x_vectr_id: 53ebee19-b331-4726-8295-0846163844af
+  isv: 1
